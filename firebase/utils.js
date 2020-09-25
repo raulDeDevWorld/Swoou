@@ -9,14 +9,14 @@ const auth = firebase.auth()
 const providerFacebook = new firebase.auth.FacebookAuthProvider();
 const providerGoogle = new firebase.auth.GoogleAuthProvider();
 
-function onAuth (setUserProfile, setUserProfileNull) { 
+function onAuth (setUserProfile) { 
       return auth.onAuthStateChanged(function(user) {
       if (user) {
             setUserProfile(user)
             console.log(user)
       } else {
-            setUserProfileNull()
-            console.log('no user')
+            setUserProfile(user)
+            console.log(user)
       }
     })
 }
