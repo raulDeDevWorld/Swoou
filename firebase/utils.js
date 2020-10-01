@@ -13,10 +13,8 @@ function onAuth (setUserProfile) {
       return auth.onAuthStateChanged(function(user) {
       if (user) {
             setUserProfile(user)
-            console.log(user)
       } else {
             setUserProfile(user)
-            console.log(user)
       }
     })
 }
@@ -27,7 +25,6 @@ function withFacebook () {
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            console.log(user)
             // ...
           }).catch(function(error) {
             // Handle Errors here.
@@ -47,10 +44,8 @@ function withGoogle () {
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            console.log(user)
             // ...
           }).catch(function(error) {
-            console.log(error)
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;

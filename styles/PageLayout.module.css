@@ -1,0 +1,43 @@
+.container {
+    position: absolute;
+    height: 100vh;
+    min-height: 280px;
+    width: 100vw;
+}
+.vector {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 70px;
+    width: 100vw;
+    background-image: url(../public/vector-bottom.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left bottom;
+    z-index: 100;    
+}
+.button {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px 1px;
+    background-color: white;
+    background-image: url(../public/whatsapp.svg);
+    background-repeat: no-repeat;
+    background-position: 5px 3px;
+    background-size: 18px;
+    width: 120px;
+    border: 2px solid #d6d6d6;
+    border-radius: 5px;    
+}
+@media (max-height: 360px) { 
+    .container {
+        min-height: 280px;
+    }
+    .vector {
+        position: absolute;
+        z-index: 0;
+    }
+}

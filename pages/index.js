@@ -18,7 +18,7 @@ export default function Login() {
   return (
     <InitialLayout>
       <Head>
-        <title>Create Next App</title>
+        <title>Swoou</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={style.container}>

@@ -11,11 +11,11 @@ export function WithAuth(Component) {
 
         useEffect(() => {
             onAuth(setUserProfile)
-            if (!user) router.replace('/')
+            if(user === null) router.replace('/')
         }, [user])
         return (
             <>
-                {!user && <Loader />}
+                {user === undefined && <Loader />}
                 {user && <Component {...arguments} />}
             </>
         )

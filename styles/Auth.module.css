@@ -2,7 +2,7 @@
 /*4393BE*/
 /*B1D9F0*/
 .container {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 125px;   
   bottom: 0; 

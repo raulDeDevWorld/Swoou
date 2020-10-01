@@ -4,17 +4,19 @@ const UserContext = React.createContext()
 
 export function UserProvider ({ children }) {
 
-	const [user, setUser] = useState(null)
+	const [user, setUser] = useState(undefined)
+	const [userData, setUserData] = useState(null)
 
 	function setUserProfile (userProfile) {
 		setUser(userProfile)
-		console.log(userProfile)
 	}
 
 	const value = useMemo(()=>{
 		return ({
 			user,
+			userData,
 			setUserProfile,
+			setUserData,
 		})
 	}, [user])
 

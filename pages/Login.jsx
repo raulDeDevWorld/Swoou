@@ -14,7 +14,8 @@ export default function Login() {
     onAuth(setUserProfile)
     if (user) router.replace('/Home')
   }, [user]);
-
+  
+    console.log('login')
   return (
     <InitialLayout>
       <Head>
