@@ -12,7 +12,7 @@ function Home () {
     <PageLayout>
         <div className={style.container}>
             <p className={style.subtitle}>Bienvenido: <br/> {`${user.displayName.toUpperCase()}`}</p>  
-            <p className={style.paragraph}>Antes de elegir una carrera prueba nuestro Test de orientacion vocacional</p>
+            <p className={style.paragraph}>Nuestra página está en rediseño si desea algún producto contáctese directamente con el operador.<br/>Gracias por su comprensión.</p>
             <button className={style.buttonPrimary}> Test </button>
             <button className={style.buttonSecondary}> Omitir </button>
         </div>
