@@ -8,7 +8,7 @@ import InitialLayout from '../layouts/InitialLayout'
 import style from '../styles/Auth.module.css'
 import Link from 'next/link'
 
-export default function Login(props) {
+function Login(props) {
   const { user, setUserProfile } = useUser()
   const router = useRouter()
   useEffect(() => {
