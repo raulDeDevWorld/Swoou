@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { onAuth } from '../firebase/utils'
-import { WithoutAuth } from './WithoutAuth.jsx'
+
 
 function WithAuth(Component) {
     return () => {
@@ -22,4 +22,4 @@ function WithAuth(Component) {
         )
     }
 }
-export default WithoutAuth(WithAuth)
+export default WithAuth
