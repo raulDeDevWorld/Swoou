@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
-import { WithoutAuth } from '../HOCs/WithAuth'
+import { WithoutAuth } from '../HOCs/WithoutAuth'
 import { useUser } from '../context/Context.js'
 import { onAuth, withFacebook, withGoogle } from '../firebase/utils'
 import { useRouter } from 'next/router'
