@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
+import { WithoutAuth } from '../HOCs/WithAuth'
 import { useUser } from '../context/Context.js'
 import { onAuth, withFacebook, withGoogle } from '../firebase/utils'
 import { useRouter } from 'next/router'
@@ -7,15 +8,13 @@ import InitialLayout from '../layouts/InitialLayout'
 import style from '../styles/Auth.module.css'
 import Link from 'next/link'
 
-export default function Login() {
+export default function Login(props) {
   const { user, setUserProfile } = useUser()
   const router = useRouter()
   useEffect(() => {
     onAuth(setUserProfile)
     if (user) router.replace('/Home')
   }, [user]);
-  
-    console.log('login')
   return (
     <InitialLayout>
       <Head>
@@ -33,3 +32,6 @@ export default function Login() {
     </InitialLayout>
   )
 }
+
+
+export default WithoutAuth(Login)

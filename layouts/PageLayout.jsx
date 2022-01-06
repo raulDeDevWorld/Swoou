@@ -5,7 +5,7 @@ export default function PageLayout ({ children }) {
   return (
     <div className={style.container}>
         <Navbar />
-        <main> { children } </main>
+        <main className={style.mainContainer}> { children } </main>
         <div className={style.vector}>
           <button className={style.button}>Comunidad</button>
         </div>

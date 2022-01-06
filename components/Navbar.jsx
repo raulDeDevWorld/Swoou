@@ -14,7 +14,7 @@ export default function Navbar () {
   return (
     <header>
     <div className={style.navbar}>
-        <img src="logo-hazlo-simple-two.svg" className={style.logo} alt="logo" />
+        <img src="/logo-hazlo-simple-two.svg" className={style.logo} alt="logo" />
          <div className={style.menu} onClick={handleMenu}>
             <span className={style.span}></span>
             <span className={style.span}></span>

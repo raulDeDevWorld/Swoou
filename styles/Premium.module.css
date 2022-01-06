@@ -1,0 +1,24 @@
+.box {
+    background-color: black;
+    border-radius: 10px;
+}
+.title {
+    color: orange;
+    padding: 0;
+    margin: 0;
+}
+.subtitle {
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+.list {
+    list-style: none;
+    padding: 0 25px;
+}
+.li {
+    text-align: left;
+}
+.right {
+  padding-left: 8px;
+}

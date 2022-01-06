@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transition:left .8s;
+    transition:left .5s;
     background-image: linear-gradient(#003450, #4393BE, white);
     color: white;
     border-radius: 0 30px 0 30px;
@@ -64,7 +64,7 @@
   }
   .top {
     left: 0;
-    transition:left .8s;
+    transition:left .5s;
   }
    .link {
     margin: 5px 10px 0px 0px;

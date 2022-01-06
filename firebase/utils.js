@@ -9,10 +9,26 @@ const auth = firebase.auth()
 const providerFacebook = new firebase.auth.FacebookAuthProvider();
 const providerGoogle = new firebase.auth.GoogleAuthProvider();
 
-function onAuth (setUserProfile) { 
+const db = firebase.database();
+const data = firebase.database().ref('/users');
+
+function getData(user, setUserData){
+      data.on('value', function(snapshot){  
+            var b = snapshot.child(user.uid).exists();                
+            if (b === true){
+                  let obj = snapshot.val() 
+                  setUserData(obj[user.uid])
+            }else{
+                  setUserData(null)
+            }
+      })
+}
+
+function onAuth (setUserProfile, setUserData) { 
       return auth.onAuthStateChanged(function(user) {
       if (user) {
             setUserProfile(user)
+            getData(user, setUserData)
       } else {
             setUserProfile(user)
       }
@@ -66,6 +82,15 @@ function handleSignOut() {
 }
 
 
-const db = firebase.database()
+function dataUser (career) {
+      const name = auth.currentUser.displayName
+      const uid = auth.currentUser.uid
+      console.log(career, name, uid)
+      db.ref(`users/${uid}`).set({
+            name,
+            career,
+            premium: false 
+      })
+}
 
-export { auth, onAuth, withFacebook, withGoogle, handleSignOut }
+export { auth, onAuth, withFacebook, withGoogle, handleSignOut, dataUser }

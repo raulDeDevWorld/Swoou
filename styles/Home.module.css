@@ -1,66 +1,19 @@
-.container {
-  position: absolute;
-  padding: 10px;
-  height: 230px;
-  width: 100vw;
-  max-width: 300px;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  margin: auto;
-  text-align: center;
-  color: #003450;
-  font-weight: bold;
+.containerTwo {
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-.subtitles {
-  font-weight: 200;
-  letter-spacing: 1px;
+.perfil {
+  margin: 20px 0px 8px 0px;
+  height: 90px;
+  width: auto;
+  border-radius: 50px;
 }
-.paragraph {
-  font-weight: 100;
-  letter-spacing: 1px;
+.buttonsContainer {
+  margin-top: 5px;
 }
-.buttonPrimary {
-  margin: 2px;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 5px 1px;
-  color: white;
-  background-color: #003450;
-  width: 120px;
-  border: 2px solid #003450;
-  border-radius: 5px; 
-  transition-duration: .5s;
-}
-.buttonPrimary:hover {
-  color: black;
-  background-color: white;
-  border: 2px solid #d6d6d6;
-}
-.buttonSecondary {
-  margin: 2px;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 5px 1px;
-  background-color: white;
-  width: 120px;
-  border: 2px solid #d6d6d6;
-  border-radius: 5px; 
-  transition-duration: .5s;
-}
-.buttonSecondary:hover {
-  color: white;
-  background-color: #003450;
-  border: 2px solid #003450;
-}
-
-
-
-
-
-
-
 
 
 

@@ -4,19 +4,19 @@ import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { onAuth } from '../firebase/utils'
 
-export function WithAuth(Component) {
+export function WithoutAuth(Component) {
     return () => {
-        const { user, setUserProfile, setUserData } = useUser()
+        const { user, setUserProfile } = useUser()
         const router = useRouter()
-
         useEffect(() => {
-            onAuth(setUserProfile, setUserData)
-            if(user === null) router.replace('/')
-        }, [user])
+          onAuth(setUserProfile)
+          if (user) router.replace('/Home')
+        }, [user]);
+
         return (
             <>
                 {user === undefined && <Loader />}
-                {user && <Component {...arguments} />}
+                {user === null && <Component {...arguments} />}
             </>
         )
     }

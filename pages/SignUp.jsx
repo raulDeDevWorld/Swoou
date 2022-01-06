@@ -1,20 +1,10 @@
-import { useEffect } from 'react'
-import { useUser } from '../context/Context.js'
-import { onAuth, withFacebook, withGoogle } from '../firebase/utils'
-import { useRouter } from 'next/router'
+import { WithoutAuth } from '../HOCs/WithoutAuth'
+import { withFacebook, withGoogle } from '../firebase/utils'
 import InitialLayout from '../layouts/InitialLayout'
 import style from '../styles/Auth.module.css'
 import Link from 'next/link'
 
-
-export default function SignUp () {
-    const { user, setUserProfile } = useUser()
-    const router = useRouter()
-    useEffect(() => {
-        onAuth(setUserProfile)
-        if (user) router.replace('/Home')
-      }, [user]);
-      
+function SignUp () {
     return (
         <InitialLayout>
             <div className={style.container}>
@@ -28,3 +18,5 @@ export default function SignUp () {
         </InitialLayout>
     )
 }
+
+export default WithoutAuth(SignUp)
