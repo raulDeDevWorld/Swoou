@@ -5,7 +5,7 @@ import { useUser } from '../context/Context.js'
 import { onAuth } from '../firebase/utils'
 
 
-function WithAuth(Component) {
+export function WithAuth(Component) {
     return () => {
         const { user, setUserProfile, setUserData } = useUser()
         const router = useRouter()
@@ -22,4 +22,3 @@ function WithAuth(Component) {
         )
     }
 }
-export default WithAuth
