@@ -3,7 +3,7 @@ import { WithAuth } from '../HOCs/WithAuth'
 import { useUser } from '../context/Context.js'
 import style from '../styles/Home.module.css'
 
-function Home () {
+function Welcome () {
     console.log('Home')
     const { user, setUserProfile } = useUser()
     console.log(user)
@@ -20,4 +20,4 @@ function Home () {
     )
 }
 
-export default WithAuth(Home)
+export default WithAuth(Welcome)
