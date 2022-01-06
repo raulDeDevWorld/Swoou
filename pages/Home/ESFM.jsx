@@ -31,8 +31,8 @@ function Esfm (props) {
         <div className={style.container}>
             <Subtitle>Elije tu facultad</Subtitle>
             <ul className={style.list}>
-                <li className={`${style.li} ${f == facI ? style.active : ''}`} onClick={setFacIndex}>ESFM</li>
-                <li className={`${style.li} ${f == facI ? style.active : ''}`} onClick={setFacIndex}>USFX</li>
+                {/* <li className={`${style.li} ${f == facI ? style.active : ''}`} onClick={setFacIndex}>ESFM</li>
+                <li className={`${style.li} ${f == facI ? style.active : ''}`} onClick={setFacIndex}>USFX</li> */}
             </ul>
             <div className={style.buttonsContainer}>
                 <Button style={'buttonPrimary'} click={continuar}>continuar</Button>
