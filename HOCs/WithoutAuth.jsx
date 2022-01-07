@@ -10,7 +10,7 @@ export function WithoutAuth(Component) {
         const router = useRouter()
         useEffect(() => {
           onAuth(setUserProfile)
-          if (user) router.replace('/Welcome')
+          if (user) router.replace('/Home')
         }, [user]);
 
         return (
