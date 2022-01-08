@@ -12,4 +12,4 @@ function Simulacro () {
     )
 }
 
-export default WithAuth(Simulacro)
+export default Simulacro

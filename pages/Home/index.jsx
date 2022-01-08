@@ -24,6 +24,9 @@ function Home() {
     function promedio() {
         router.push('/Home/Promedio')
     }
+    function play () {
+        router.push('/Play')
+    }
     console.log(userDB)
     console.log(user)
     console.log(avatar)
@@ -56,7 +59,7 @@ function Home() {
                  
                     <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
                     <Subtitle> Bienvenido (a): <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
-                    <Button style='buttonPrimary' click={avance}>Play</Button>
+                    <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={promedio}>Progreso</Button>
                     <Button style='buttonPrimary' click={avance}>Practica pdf</Button>
                 </div>
