@@ -8,14 +8,15 @@ import Paragraph from '../../components/Paragraph'
 import style from '../../styles/Home.module.css'
 
 function Home() {
-    const { user, userDB } = useUser()
+    const { setUserAvatar, avatar, user, userDB } = useUser()
     const router = useRouter()
 
-    function testClick() {
-        router.push('/Test')
+    function avatarClick(a) {
+        setUserAvatar(a)
     }
-    function omitirClick() {
-        router.push('/Home/Edu')
+    function nextClick() {
+        if(avatar !== null){router.push('/Welcome')}
+        console.log('click')
     }
     function avance() {
         router.push('/Home/Avance')
@@ -25,32 +26,40 @@ function Home() {
     }
     console.log(userDB)
     console.log(user)
+    console.log(avatar)
     console.log('Home')
     return (
         <PageLayout>
-            <img src={user.photoURL} className={style.perfil} alt="user photo" />
             {userDB === 'loading' && ''}
             {userDB === null &&
                 <div className={style.containerTwo}>
-                    <Subtitle>Bienvenido: <br /> {`${user.displayName.toUpperCase()}`}</Subtitle>
-                    <Paragraph className={style.paragraph}>Antes de elegir una carrera prueba nuestro Test de orientacion vocacional</Paragraph>
+                    <img src={user.photoURL} className={style.perfil} alt="user photo" />
+                    <Subtitle> Bienvenido (a): <br /> {`${user.displayName.toUpperCase()}`}</Subtitle>
+                    <Paragraph className={style.paragraph}>Elige un avatar para tu hijo o hija</Paragraph>
+                    <div className={style.avatarsContainer}>
+                        <img src="/ab1.png" alt="avatar" className={style.avatarb1} onClick={(e)=>{avatarClick('ab1')}}/>
+                        <img src="/ab2.png" alt="avatar" className={style.avatarb2} onClick={(e)=>{avatarClick('ab2')}}/>
+                        <img src="/ag3.png" alt="avatar" className={style.avatar} onClick={(e)=>{avatarClick('ag3')}}/>
+                        <img src="/ag2.png" alt="avatar" className={style.avatar} onClick={(e)=>{avatarClick('ag2')}}/>
+                    </div> 
                     <div className={style.buttonsContainer}>
-                    <Button style='buttonPrimary' click={testClick}>Test</Button>
-                    <Button style='buttonSecondary' click={omitirClick}>Omitir</Button>
+                    <Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+
                     </div>
                 </div>
             }
            
             {userDB !== null && userDB !== 'loading' &&
-                <>
-                    {/* {userDB.premium === true && <p className={style.subtitle}> Premium</p>}
-                    {userDB.premium === false && <p className={style.subtitle}> Premium Yaa </p>} */}
-                    <p className={style.paragraph}> Usuario: {`${user.displayName.toUpperCase()}`}<br />Carrera: {userDB.career.toUpperCase()}</p>
-                    <Button style='buttonPrimary' click={avance}>Simulacro</Button>
-                    <Button style='buttonPrimary'click={promedio}>Banco de P</Button>
-                    <Button style='buttonPrimary' click={avance}>Avance</Button>
-                    <Button style='buttonPrimary'click={promedio}>Promedio</Button>
-                </>
+                <div className={style.containerTwo}>
+                    {userDB.premium === true && <p className={style.subtitle}> Premium</p>}
+                    {userDB.premium === false && <p className={style.subtitle}> Premium Yaa </p>}
+                 
+                    <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
+                    <Subtitle> Bienvenido (a): <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
+                    <Button style='buttonPrimary' click={avance}>Play</Button>
+                    <Button style='buttonPrimary'click={promedio}>Progreso</Button>
+                    <Button style='buttonPrimary' click={avance}>Practica pdf</Button>
+                </div>
             }
         </PageLayout>
     )

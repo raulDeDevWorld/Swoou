@@ -58,3 +58,8 @@ background-color: rgb(245, 245, 245);
         z-index: 0;
     }
 }
+@media (min-height: 360px) { 
+    .mainContainer {
+        height: 430px;
+    }
+}

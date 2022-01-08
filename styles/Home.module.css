@@ -1,19 +1,54 @@
 .containerTwo {
-  height: 210px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: center;
+
 }
 .perfil {
-  margin: 20px 0px 8px 0px;
+  margin: 10px;
   height: 90px;
-  width: auto;
+  width: 90px;
   border-radius: 50px;
 }
-.buttonsContainer {
-  margin-top: 5px;
+.avatarsContainer {
+  margin-top: 10px;
+  height: auto;
 }
+.avatarb1 {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  margin: 2px 20px 2px 17px;
+}
+.avatarb2 {
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  margin: 2px 20px 2px 7px;
+}
+.avatar {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin: 2px 20px 2px 20px;
+}
+.buttonsContainer {
+  margin-top: 15px;
+}
+.form {
+  margin-top: 10px;
+}
+.input {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 90%;
+  background-color: transparent;
+  margin-bottom: 7px;
+}
+
 
 
 

@@ -13,7 +13,7 @@ function Login(props) {
   const router = useRouter()
   useEffect(() => {
     onAuth(setUserProfile)
-    if (user) router.replace('/Welcome')
+    if (user) router.replace('/Home')
   }, [user]);
   return (
     <InitialLayout>

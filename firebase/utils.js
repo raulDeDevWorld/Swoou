@@ -82,13 +82,16 @@ function handleSignOut() {
 }
 
 
-function dataUser (career) {
+function dataUser (aName, grade, school, avatar) {
       const name = auth.currentUser.displayName
       const uid = auth.currentUser.uid
-      console.log(career, name, uid)
+      console.log(name, uid)
       db.ref(`users/${uid}`).set({
             name,
-            career,
+            aName,
+            grade,
+            school,
+            avatar,
             premium: false 
       })
 }

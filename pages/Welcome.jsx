@@ -1,23 +1,65 @@
+import Button from '../components/Button'
+import Subtitle from '../components/Subtitle'
 import PageLayout from '../layouts/PageLayout'
-import { WithAuth } from '../HOCs/WithAuth'
 import { useUser } from '../context/Context.js'
+import { dataUser } from '../firebase/utils'
+import { useRouter } from 'next/router'
+import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Home.module.css'
 
 function Welcome () {
-    console.log('Home')
-    const { user, setUserProfile } = useUser()
-    console.log(user)
+    const router = useRouter()
+    const { avatar } = useUser()
+
+    function nextClick (e) {
+        e.preventDefault()
+        const aName = e.target.form[0].value
+        const grade = e.target.form[1].value
+        const school = e.target.form[2].value
+        if(aName.length > 2 && grade.length > 2 && school.length >2){
+            dataUser(aName, grade, school, avatar)  
+            router.push('/Home')
+            console.log('log pro')
+        } 
+        console.log(aName.length)
+        console.log(grade.length)
+        console.log(school.length)
+
+    }
+    function backClick (e) {
+        e.preventDefault()
+        router.back()
+    }
 
     return (
     <PageLayout>
-        <div className={style.container}>
-            <p className={style.subtitle}>Bienvenido: <br/> {`${user.displayName.toUpperCase()}`}</p>  
-            <p className={style.paragraph}>Nuestra página está en rediseño si desea algún producto contáctese directamente con el operador.</p>
-            <button className={style.buttonPrimary}> Test </button>
-            <button className={style.buttonSecondary}> Omitir </button>
-        </div>
+        {avatar !== null &&
+            <div className={style.containerTwo}>
+                <img src={`/${avatar}.png`} className={style.perfil} alt="avatar" />
+                <Subtitle> Ya casi terminas! <br /> llena el siguiente formulario </Subtitle>
+                <form className={style.form}>
+                    <label>
+                        Nombre y apellido:
+                        <input className={style.input} type="text" placeholder='Alex Choque'/>
+                    </label>
+                    <label>
+                        Grado: 
+                        <input className={style.input} type="text" placeholder='Cuarto B'/>
+                    </label>
+                    <label>
+                        Colegio: 
+                        <input className={style.input} type="text" placeholder='Guido Villagomez B'/>
+                    </label>
+                    <div className={style.buttonsContainer}>
+                        <Button style='buttonSecondary' click={backClick}>Atras</Button>
+                        <Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+                    </div>
+                </form>
+            </div>
+            }
     </PageLayout>
     )
 }
 
 export default WithAuth(Welcome)
+
