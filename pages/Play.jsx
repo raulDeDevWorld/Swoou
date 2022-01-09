@@ -43,6 +43,7 @@ function Play () {
             correct: true, selected: n,
         }
         setObjet({...objet, ...o,})
+        setTimeout(obj, 1500)
     }
 
     function nextClick () {
