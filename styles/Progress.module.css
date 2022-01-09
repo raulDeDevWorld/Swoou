@@ -18,8 +18,8 @@
   overflow: hidden;
 }
 
-.half-circle,
-.half-circle-top {
+.halfCircle,
+.halfCircleTop {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,30 +28,30 @@
   transform-origin: 100% 50%;
   background-color: red;
 }
-.half-circle {
+.halfCircle {
   background-color: #FE0000;
 }
 
 
-.half-circle-top {
+.halfCircleTop {
   background-color: #2C292C;
 }
-.progressbar:hover .half-circle:nth-child(1) {
+.progressbar:hover .halfCircle:nth-child(1) {
   transform: rotate(180deg); 
   transition: transform 1s linear; 
 }
-.progressbar:hover .half-circle:nth-child(2) {
+.progressbar:hover .halfCircle:nth-child(2) {
   transform: rotate(360deg); 
   transition: transform 2s linear; 
 }
 
-.progressbar:hover .half-circle-top {
+.progressbar:hover .halfCircleTop {
   opacity: 0; 
   transition: opacity 0s 1s;
 }
 
 
-.progressbar-circle {
+.progressbarCircle {
   position: absolute;
   left: 0;
   right: 0;
