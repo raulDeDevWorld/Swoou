@@ -8,7 +8,7 @@ function Progress() {
             <div className={style.progressbar}>
                 <div className={style.half-circle}></div>
                 <div className={style.half-circle}></div>
-                <div className={style.half-circle-top}"></div>
+                <div className={style.half-circle-top}></div>
                 <div className={style.progressbar-circle}>
                 0%
                 </div>
