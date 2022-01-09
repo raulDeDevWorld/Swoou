@@ -6,10 +6,10 @@ function Progress() {
     <PageLayout>
         <div className={style.container}>
             <div className={style.progressbar}>
-                <div className={style.half-circle}></div>
-                <div className={style.half-circle}></div>
-                <div className={style.half-circle-top}></div>
-                <div className={style.progressbar-circle}>
+                <div className={style.halfCircle}></div>
+                <div className={style.halfCircle}></div>
+                <div className={style.halfCircleTop}></div>
+                <div className={style.progressbarCircle}>
                 0%
                 </div>
             </div>
