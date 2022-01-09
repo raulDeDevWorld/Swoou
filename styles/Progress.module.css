@@ -1,0 +1,71 @@
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue;
+}
+.progressbar {
+  width: 300px;
+  height: 300px;
+  background-color: #2C292C;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.half-circle,
+.half-circle-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
+  background-color: red;
+}
+.half-circle {
+  background-color: #FE0000;
+}
+
+
+.half-circle-top {
+  background-color: #2C292C;
+}
+.progressbar:hover .half-circle:nth-child(1) {
+  transform: rotate(180deg); 
+  transition: transform 1s linear; 
+}
+.progressbar:hover .half-circle:nth-child(2) {
+  transform: rotate(360deg); 
+  transition: transform 2s linear; 
+}
+
+.progressbar:hover .half-circle-top {
+  opacity: 0; 
+  transition: opacity 0s 1s;
+}
+
+
+.progressbar-circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 290px;
+  height: 290px;
+  background-color: #000;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 4rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
