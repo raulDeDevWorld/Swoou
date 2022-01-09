@@ -93,6 +93,7 @@ function dataUser (aName, grade, school, avatar) {
             school,
             avatar,
             progress: 0,
+            errors: 0,
             premium: false,
       })
 }
