@@ -1,4 +1,5 @@
 import Button from '../../components/Button'
+import PremiumC from '../../components/PremiumC'
 import { useRouter } from 'next/router'
 import PageLayout from '../../layouts/PageLayout'
 import { WithAuth } from '../../HOCs/WithAuth'
@@ -62,6 +63,7 @@ function Home() {
                     <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={progress}>Progreso</Button>
                     <Button style='buttonPrimary' click={avance}>Practica pdf</Button>
+                    <PremiumC></PremiumC>
                 </div>
             }
         </PageLayout>
