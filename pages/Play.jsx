@@ -67,7 +67,7 @@ if (objet !== null) {console.log(objet.nOne)}
             <div className={style.container}>
 
                 <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
-                <Subtitle> Tu puedes: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
+                <Subtitle className={style.white}> Tu puedes: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
      
                 {objet !== null &&
                 <>
