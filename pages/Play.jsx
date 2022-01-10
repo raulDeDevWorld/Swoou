@@ -60,7 +60,7 @@ console.log(objet)
 if (objet !== null) {console.log(objet.nOne)}
     return (
         <div className={style.main}>
-        {userDB !== null &&
+        {userDB !== 'loading' &&
             <>
             <div className={style.container}>
 
