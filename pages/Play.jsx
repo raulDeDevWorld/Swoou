@@ -1,4 +1,5 @@
 import Button from '../components/Button'
+import Subtitle from '../components/Subtitle'
 import { useState, useEffect } from 'react'
 import Subtitle from '../components/Subtitle'
 import PageLayout from '../layouts/PageLayout'
