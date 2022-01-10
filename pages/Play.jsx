@@ -84,4 +84,4 @@ if (objet !== null) {console.log(objet.nOne)}
 
 
 }
-export default Play
+export default WithAuth(Play)
