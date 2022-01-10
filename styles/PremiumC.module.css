@@ -11,8 +11,13 @@
     padding: 0;
     margin: 0;
 }
+.cont {
+    position: relative;
+    Background-color: red;
+}
 .subtitle {
     position: abosolute;
+    text-align: center;
     color: white;
     padding: 0;
     animation-name: myAnimation;
@@ -24,8 +29,10 @@
 margin: auto;
     
 }
+
  .subtitleTwo{
     position: abosolute;
+    text-align: center;
     color: white;
     padding: 0;
     animation-name: myAnimation;
