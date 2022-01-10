@@ -19,12 +19,11 @@
 .subtitle {
   position: absolute;
   color: white;
-  background-color: #DE2222;
   left: 0;
   right: 0;
   margin: auto;
   animation-name: myAnimation;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-iteration-count: infinite; 
   
 }
@@ -32,16 +31,17 @@
  .subtitleTwo{
   position: absolute;
   color: white;
-  background-color: #DE2222;
   left: 0;
   right: 0;
   margin: auto;
   animation-name: myAnimation;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-iteration-count: infinite; 
+  animation-delay: 2s;
   
   
 }
 @keyframes myAnimation{
-	0% {color: red}
+	0% {z-index: 100}
+        50% {z-index: 1}
 }
