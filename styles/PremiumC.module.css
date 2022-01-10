@@ -10,7 +10,7 @@
     padding: 0;
     margin: 0;
 }
-.subtitle {
+.subtitle . subtitleTwo{
     color: white;
     padding: 0;
     margin: 0;
@@ -19,7 +19,10 @@
     animation-duration: 3s;
     animation-delay: 3s;
 }
+.subtitleTwo {
+    animation-delay: 1.5s;
+}
 @keyframes myAnimation{
 	0% {display: none}
-	100%{display: block}
+	50%{display: block}
 }
