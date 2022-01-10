@@ -12,12 +12,10 @@ import styleH from '../styles/Home.module.css'
 
 
 function Play () {
-    const { userDB } = useUser()
+    const { userDB, avatar } = useUser()
     const [objet, setObjet] = useState(null)
 
     const router = useRouter()
-    const { avatar } = useUser()
-
     function obj (){
         const nOne = Math.floor(Math.random()*(11-0))+0
         const nTwo = Math.floor(Math.random()*(11-0))+0
