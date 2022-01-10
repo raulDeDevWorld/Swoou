@@ -103,4 +103,4 @@ function progressUpdate (n) {
       db.ref(`users/${uid}`).update({progress: n,})
 }
 
-export { progressUptdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataUser }
+export { progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataUser }
