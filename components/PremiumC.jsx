@@ -4,8 +4,10 @@ function PremiumC() {
     return (
             <div className={style.box}>
                 <span className={style.title}>Swoou Premium</span>
-                <span className={style.subtitle}>hazlo simple</span>
-                <span className={style.subtitleTwo}>hazte premium</span>
+                <div>
+                    <span className={style.subtitle}>hazlo simple</span>
+                    <span className={style.subtitleTwo}>hazte premium</span>
+                </div>
             </div>
            )}
 export default PremiumC
