@@ -7,7 +7,7 @@ import { progressUpdate, errorsUpdate } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
-import styleH from '../styles/Home.module.css
+import styleH from '../styles/Home.module.css'
 
 
 
