@@ -1,5 +1,4 @@
 .box {
-    position: relative;
     background-color: black;
     border-radius: 5px;
     width: 80%;
@@ -20,10 +19,6 @@
     text-align: center;
     color: white;
     padding: 0;
-    animation-name: myAnimation;
-    animation-iteration-count: infinite;
-    animation-duration: 3s;
-    animation-delay: 3s;
     left: 0;
     right: 0;
 margin: auto;
