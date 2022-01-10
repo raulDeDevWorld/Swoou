@@ -64,6 +64,7 @@ if (objet !== null) {console.log(objet.nOne)}
     return (
         <div className={style.main}>
         {userDB !== null &&
+        <>
         <div className={style.container}>
 
         <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
@@ -83,7 +84,8 @@ if (objet !== null) {console.log(objet.nOne)}
              <Button style='buttonPrimary' click={nextClick}>Finalizar</Button>
              </>}
 
-        </div>}
+        </div>
+        </>}
         </div>
 
     )
