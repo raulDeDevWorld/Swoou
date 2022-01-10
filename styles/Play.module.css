@@ -30,7 +30,8 @@
     align-items: center;
 }
 .button {
-    background-color: #00C0FF;
+    background-color: red;
+    color: white;
     width: 90%;
     height: 50px;
     border-radius: 10px;
