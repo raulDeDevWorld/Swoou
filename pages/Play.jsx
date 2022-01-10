@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Subtitle from '../components/Subtitle'
 import PageLayout from '../layouts/PageLayout'
 import { useUser } from '../context/Context.js'
-import { dataUser } from '../firebase/utils'
+import { progressUpdate } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
@@ -11,6 +11,7 @@ import style from '../styles/Play.module.css'
 
 
 function Play () {
+    const { userDB } = useUser()
     const [objet, setObjet] = useState(null)
 
     const router = useRouter()
@@ -44,6 +45,7 @@ function Play () {
         }
         setObjet({...objet, ...o,})
         setTimeout(obj, 1500)
+        objet.selected == objet.nFour ? progressUpdate(1)
     }
 
     function nextClick () {
