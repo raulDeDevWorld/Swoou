@@ -1,7 +1,6 @@
 import Button from '../components/Button'
 import Subtitle from '../components/Subtitle'
 import { useState, useEffect } from 'react'
-import Subtitle from '../components/Subtitle'
 import PageLayout from '../layouts/PageLayout'
 import { useUser } from '../context/Context.js'
 import { progressUpdate, errorsUpdate } from '../firebase/utils'
@@ -64,28 +63,27 @@ if (objet !== null) {console.log(objet.nOne)}
     return (
         <div className={style.main}>
         {userDB !== null &&
-        <>
-        <div className={style.container}>
-
-        <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
-        <Subtitle> Tu puedes: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
-     
-            {objet !== null &&
             <>
-             <div className={style.boxMain}>
-                <span>{objet.nOne}</span>
-                <span>X</span>
-                <span>{objet.nTwo}</span> 
-            </div>
-             <div className={`${style.box} ${objet.selected == 1 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 1 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(1)}} >{objet.nFour == 1? objet.res: objet.errO * ( objet.errT + 1)} </div>
-             <div className={`${style.box} ${objet.selected == 2 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 2 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(2)}} >{objet.nFour == 2? objet.res: objet.errT * ( objet.errO - 1)} </div>
-             <div className={`${style.box} ${objet.selected == 3 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 3 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(3)}} >{objet.nFour == 3? objet.res: objet.errO * ( objet.errT - 1)} </div>
-             <div className={`${style.box} ${objet.selected == 4 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 4 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(4)}} >{objet.nFour == 4? objet.res: objet.errT * ( objet.errO + 1)} </div>
-             <Button style='buttonPrimary' click={nextClick}>Finalizar</Button>
-             </>}
+            <div className={style.container}>
 
-        </div>
-        </>}
+                <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
+                <Subtitle> Tu puedes: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
+     
+                {objet !== null &&
+                <>
+                <div className={style.boxMain}>
+                    <span>{objet.nOne}</span>
+                    <span>X</span>
+                    <span>{objet.nTwo}</span> 
+                </div>
+                <div className={`${style.box} ${objet.selected == 1 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 1 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(1)}} >{objet.nFour == 1? objet.res: objet.errO * ( objet.errT + 1)} </div>
+                <div className={`${style.box} ${objet.selected == 2 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 2 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(2)}} >{objet.nFour == 2? objet.res: objet.errT * ( objet.errO - 1)} </div>
+                <div className={`${style.box} ${objet.selected == 3 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 3 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(3)}} >{objet.nFour == 3? objet.res: objet.errO * ( objet.errT - 1)} </div>
+                <div className={`${style.box} ${objet.selected == 4 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 4 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(4)}} >{objet.nFour == 4? objet.res: objet.errT * ( objet.errO + 1)} </div>
+                <Button style='buttonPrimary' click={nextClick}>Finalizar</Button>
+                </>}
+           </div>
+           </>}
         </div>
 
     )
