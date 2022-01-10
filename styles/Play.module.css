@@ -1,6 +1,6 @@
 .main {
     background-color: #48007E;
-    min-height: 100%;
+    min-height: 100vh;
 }
 .container {
     display: flex;
