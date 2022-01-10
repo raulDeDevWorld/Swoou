@@ -12,12 +12,12 @@
 }
 .cont {
     position: relative;
-    background-color: red;
-    height: 30px;
+    height: 25px;
 
 }
 .subtitle {
   position: absolute;
+  background-color: black;
   color: white;
   left: 0;
   right: 0;
@@ -30,7 +30,6 @@
 
  .subtitleTwo{
   position: absolute;
-  background-color: black;
   color: white;
   left: 0;
   right: 0;
