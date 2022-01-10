@@ -48,6 +48,7 @@ function Play () {
     }
 
     function nextClick () {
+        progressUpdate(1)
         router.push('/Home')
     }
 
