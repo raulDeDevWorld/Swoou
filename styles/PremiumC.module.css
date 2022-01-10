@@ -14,4 +14,12 @@
     color: white;
     padding: 0;
     margin: 0;
+    animation-name: myAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-delay: 3s;
+}
+@keyframes myAnimation{
+	0% {display: block}
+	100%{display: none}
 }
