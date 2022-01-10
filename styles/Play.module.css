@@ -1,5 +1,6 @@
 .main {
     background-color: #48007E;
+    min-height: 100%;
 }
 .container {
     display: flex;
