@@ -100,7 +100,7 @@ function dataUser (aName, grade, school, avatar) {
 
 
 function progressUpdate (n) {
-      db.ref(`users/${uid}/progress`).update(n)
+      db.ref(`users/${uid}`).update({Progress: n,})
 }
 
 export { progressUptdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataUser }
