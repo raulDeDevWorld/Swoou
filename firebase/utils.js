@@ -100,6 +100,7 @@ function dataUser (aName, grade, school, avatar) {
 
 
 function progressUpdate (n) {
+      const uid = auth.currentUser.uid
       db.ref(`users/${uid}`).update({progress: n,})
 }
 
