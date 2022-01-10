@@ -39,6 +39,6 @@
 }
 @keyframes myAnimation{
 	0% {z-index: 1;}
-        70% {z-index: 100;}
+        85% {z-index: 100;}
         100% {z-index: 100;}
 }
