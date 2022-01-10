@@ -20,6 +20,6 @@
     animation-delay: 3s;
 }
 @keyframes myAnimation{
-	0% {display: block}
-	100%{display: none}
+	0% {display: none}
+	100%{display: block}
 }
