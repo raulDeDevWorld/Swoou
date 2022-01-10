@@ -27,17 +27,14 @@
 }
 
  .subtitleTwo{
-    position: abosolute;
-    text-align: center;
-    color: white;
-    padding: 0;
-    animation-name: myAnimation;
-    animation-iteration-count: infinite;
-    animation-duration: 3s;
-    animation-delay: 3s;
-    left: 0;
-    right: 0;
-margin: auto;
+  position: absolute;
+  color: white;
+  background-color: #DE2222;
+  height: 30px;
+  width: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 @keyframes myAnimation{
 	0% {color: red}
