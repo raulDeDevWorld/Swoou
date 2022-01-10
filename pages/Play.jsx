@@ -45,7 +45,7 @@ function Play () {
         }
         setObjet({...objet, ...o,})
         setTimeout(obj, 1500)
-        objet.selected == objet.nFour ? progressUpdate(1): ''
+        objet.selected == objet.nFour ? progressUpdate(1): progressUpdate(1)
     }
 
     function nextClick () {
