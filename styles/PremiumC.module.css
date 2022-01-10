@@ -1,4 +1,5 @@
 .box {
+    position: relativo;
     background-color: black;
     border-radius: 5px;
     width: 80%;
@@ -11,6 +12,7 @@
     margin: 0;
 }
 .subtitle .subtitleTwo{
+
     color: white;
     padding: 0;
     margin: 0;
