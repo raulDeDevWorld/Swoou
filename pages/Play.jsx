@@ -7,6 +7,7 @@ import { progressUpdate, errorsUpdate } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
+import styleH from '../styles/Home.module.css
 
 
 
@@ -61,8 +62,12 @@ console.log(objet)
 if (objet !== null) {console.log(objet.nOne)}
     return (
         <div className={style.main}>
+        {userDB !== null &&
         <div className={style.container}>
 
+        <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
+        <Subtitle> Tu puedes: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
+     
             {objet !== null &&
             <>
              <div className={style.boxMain}>
@@ -77,7 +82,7 @@ if (objet !== null) {console.log(objet.nOne)}
              <Button style='buttonPrimary' click={nextClick}>Finalizar</Button>
              </>}
 
-        </div>
+        </div>}
         </div>
 
     )
