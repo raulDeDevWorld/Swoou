@@ -36,6 +36,10 @@
   left: 0;
   right: 0;
   margin: auto;
+  animation-name: myAnimation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite; 
+  
   
 }
 @keyframes myAnimation{
