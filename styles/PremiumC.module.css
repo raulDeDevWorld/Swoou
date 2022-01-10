@@ -23,7 +23,7 @@
   right: 0;
   margin: auto;
   animation-name: myAnimation;
-  animation-duration: 4s;
+  animation-duration: 6s;
   animation-iteration-count: infinite; 
   
 }
@@ -39,6 +39,6 @@
 }
 @keyframes myAnimation{
 	0% {z-index: 1;}
-        85% {z-index: 100;}
+        95% {z-index: 100;}
         100% {z-index: 100;}
 }
