@@ -14,7 +14,7 @@ function Progress() {
                 <div className={style.halfCircle}></div>
                 <div className={style.halfCircleTop}></div>
                 <div className={style.progressbarCircle}>
-                {userDB.progress == null ?'' : `${Math.floor(userDB.progress/3)%}`}
+                {userDB.progress == null ?'' : `${Math.floor(userDB.progress/3)}%`}
                 </div>
             </div>
         </div>
