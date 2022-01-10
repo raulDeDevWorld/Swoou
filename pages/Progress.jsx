@@ -1,7 +1,11 @@
 import PageLayout from '../layouts/PageLayout'
+import { useUser } from '../context/Context.js'
+import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Progress.module.css'
 
 function Progress() {
+    const { userDB } = useUser()
+    
     return (
     <PageLayout>
         <div className={style.container}>
@@ -10,7 +14,7 @@ function Progress() {
                 <div className={style.halfCircle}></div>
                 <div className={style.halfCircleTop}></div>
                 <div className={style.progressbarCircle}>
-                0%
+                {Math.floor(userDB.progress/3)}%
                 </div>
             </div>
         </div>
@@ -18,4 +22,4 @@ function Progress() {
     )
 }
 
-export default Progress
+export default WithAuth(Progress)
