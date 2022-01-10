@@ -15,26 +15,26 @@
     position: abosolute;
     color: white;
     padding: 0;
-    margin: auto;
     animation-name: myAnimation;
     animation-iteration-count: infinite;
     animation-duration: 3s;
     animation-delay: 3s;
     left: 0;
     right: 0;
+margin: auto;
     
 }
  .subtitleTwo{
     position: abosolute;
     color: white;
     padding: 0;
-    margin: auto;
     animation-name: myAnimation;
     animation-iteration-count: infinite;
     animation-duration: 3s;
     animation-delay: 3s;
     left: 0;
     right: 0;
+margin: auto;
 }
 @keyframes myAnimation{
 	0% {color: red}
