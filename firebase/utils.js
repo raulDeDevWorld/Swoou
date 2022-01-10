@@ -103,5 +103,9 @@ function progressUpdate (n) {
       const uid = auth.currentUser.uid
       db.ref(`users/${uid}`).update({progress: n,})
 }
+function errorsUpdate (n) {
+      const uid = auth.currentUser.uid
+      db.ref(`users/${uid}`).update({errors: n,})
+}
 
-export { progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataUser }
+export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataUser }
