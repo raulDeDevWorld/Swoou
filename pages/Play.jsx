@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Subtitle from '../components/Subtitle'
 import PageLayout from '../layouts/PageLayout'
 import { useUser } from '../context/Context.js'
-import { progressUpdate } from '../firebase/utils'
+import { progressUpdate, errorsUpdate } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
@@ -40,15 +40,17 @@ function Play () {
     }
  
     function select (n) {
+        const p = userDB.progress
+        const e = userDB.errors
         const o ={
             correct: true, selected: n,
         }
         setObjet({...objet, ...o,})
         setTimeout(obj, 1500)
+        n == objet.nFour ? progressUpdate(p+1) : errorsUpdate(e+1)
     }
 
     function nextClick () {
-        progressUpdate(1)
         router.push('/Home')
     }
 
