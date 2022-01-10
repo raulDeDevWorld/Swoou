@@ -11,17 +11,18 @@
     margin: 0;
 }
 .cont {
-    position: relative;
+    position: absolute;
     background-color: red;
 }
 .subtitle {
-    position: abosolute;
-    text-align: center;
-    color: white;
-    padding: 0;
-    left: 0;
-    right: 0;
-margin: auto;
+  position: absolute;
+  color: white;
+  background-color: #DE2222;
+  height: 30px;
+  width: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
     
 }
 
