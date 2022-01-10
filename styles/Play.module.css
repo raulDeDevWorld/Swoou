@@ -1,7 +1,5 @@
 .main {
     background-color: #48007E;
-    background-repeat: repeat;
-    height: 100vh;
 }
 .container {
     display: flex;
