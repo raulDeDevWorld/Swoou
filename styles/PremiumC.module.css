@@ -13,7 +13,6 @@
 .cont {
     position: relative;
     height: 25px;
-
 }
 .subtitle {
   position: absolute;
@@ -37,7 +36,7 @@
   margin: auto;
   z-index: 50;
 }
-@keyframes myAnimation{
+@keyframes myAnimation {
 	0% {z-index: 1;}
         33% {z-index: 100;}
         67% {z-index: 1;}
