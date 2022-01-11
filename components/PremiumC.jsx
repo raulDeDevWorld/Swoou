@@ -5,7 +5,7 @@ function PremiumC() {
 const router = useRouter()
 function next () {
     router.push('/Premium')
-}
+} 
     return (
             <div className={style.box} onClick={next}>
                 <span className={style.title}>Swoou Premium</span>
