@@ -29,7 +29,7 @@
   
 }
 
- .subtitleTwo{
+ .subtitleTwo {
   position: absolute;
   background-color: black;
   color: white;
@@ -40,7 +40,7 @@
 }
 @keyframes myAnimation{
 	0% {z-index: 1;}
-        49% {z-index: 1}
-        50% {z-index: 100;}
-        100% {z-index: 100;}
+        35% {z-index: 100;}
+        70% {z-index: 1;}
+        100% {z-index: 100;} 
 }
