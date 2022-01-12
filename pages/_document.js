@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Doc {
+export default function Doc () {
 /* rest */
 return (
 /* ... */
