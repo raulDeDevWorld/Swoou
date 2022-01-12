@@ -1,9 +1,8 @@
 import Head from 'next/head'
 
-
-class MyDocument extends Document {
+export default function Doc {
 /* rest */
-render (
+return (
 /* ... */
     <Head>
     {/* google adsense */}
