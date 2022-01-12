@@ -41,10 +41,10 @@ function Home() {
                     <Subtitle> Bienvenido (a): <br /> {`${user.displayName.toUpperCase()}`}</Subtitle>
                     <Paragraph className={style.paragraph}>Elige un avatar para tu hijo o hija</Paragraph>
                     <div className={style.avatarsContainer}>
-                        <img src="/ab1.png" alt="avatar" className={style.avatarb1} onClick={(e)=>{avatarClick('ab1')}}/>
-                        <img src="/ab2.png" alt="avatar" className={style.avatarb2} onClick={(e)=>{avatarClick('ab2')}}/>
-                        <img src="/ag3.png" alt="avatar" className={style.avatar} onClick={(e)=>{avatarClick('ag3')}}/>
-                        <img src="/ag2.png" alt="avatar" className={style.avatar} onClick={(e)=>{avatarClick('ag2')}}/>
+                        <img src="/ab1.png" alt="avatar" className={`${style.avatarb1} ${avatar == 'ab1' ? styles.filter: ''}} onClick={(e)=>{avatarClick('ab1')}}/>
+                        <img src="/ab2.png" alt="avatar" className={`${style.avatarb2} ${avatar == 'ab2' ? styles.filter: ''}} onClick={(e)=>{avatarClick('ab2')}}/>
+                        <img src="/ag3.png" alt="avatar" className={`${style.avatar} ${avatar == 'ag1' ? styles.filter: ''}} onClick={(e)=>{avatarClick('ag3')}}/>
+                        <img src="/ag2.png" alt="avatar" className={`${style.avatar} ${avatar == 'ag2' ? styles.filter: ''}} onClick={(e)=>{avatarClick('ag2')}}/>
                     </div> 
                     <div className={style.buttonsContainer}>
                     <Button style='buttonPrimary' click={nextClick}>Continuar</Button>
