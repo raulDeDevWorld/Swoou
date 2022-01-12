@@ -8,7 +8,7 @@ import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import style from '../../styles/Home.module.css'
 
-function Home() {
+function Home() { 
     const { setUserAvatar, avatar, user, userDB } = useUser()
     const router = useRouter()
 
