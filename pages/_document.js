@@ -2,8 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class myDocument extends Document {
 /* rest */
-render () {
-return (
+render (
 /* ... */
     <Head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
@@ -18,4 +17,4 @@ return (
 </Head>
 )
 
-}}
+}
