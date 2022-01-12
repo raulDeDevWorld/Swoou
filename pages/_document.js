@@ -1,3 +1,6 @@
+import Head from 'next/head'
+
+
 class MyDocument extends Document {
 /* rest */
 render (
