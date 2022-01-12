@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-class myDocument extend Document {
+class myDocument extends Document {
 /* rest */
 render () {
 return (
