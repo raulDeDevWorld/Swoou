@@ -48,7 +48,9 @@
   background-color: transparent;
   margin-bottom: 7px;
 }
-
+.filter {
+filter: opacity(.5);
+}
 
 
 
