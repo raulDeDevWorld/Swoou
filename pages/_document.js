@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
     <script dangerouslySetInnerHTML={{
         __html: `
         (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-4940106708988712",
+            google_ad_client: "pub-4940106708988712",
             enable_page_level_ads: true
             });
             `,
