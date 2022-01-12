@@ -1,7 +1,8 @@
-import Head from 'next/head'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-export default function Doc () {
+class myDocument extend Document {
 /* rest */
+render () {
 return (
 /* ... */
     <Head>
@@ -9,12 +10,12 @@ return (
     <script dangerouslySetInnerHTML={{
         __html: `
         (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "YOUR_CLIENT_ID",
+            google_ad_client: "ca-pub-4940106708988712",
             enable_page_level_ads: true
             });
             `,
             }} />
 </Head>
+)
 
-
-)}
+}}
