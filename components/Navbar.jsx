@@ -25,20 +25,17 @@ export default function Navbar () {
       <Link href="/Home">
         <a className={`${style.link} ${pathname == "/Home" ? style.active : ''}`}>Home</a>
       </Link>
-      <Link href="/Test">
-        <a className={`${style.link} ${pathname == "/Test" ? style.active : ''}`}>Test</a>
-      </Link>
-      <Link href="/Universidades">
-        <a className={`${style.link} ${pathname == "/Universidades" ? style.active : ''}`}>Universidades</a>
-      </Link>
-      <Link href="/BancoDePreguntas">
-        <a className={`${style.link} ${pathname == "/BancoDePreguntas" ? style.active : ''}`}>Banco de Preguntas</a>
-      </Link>
-      <Link href="/Simulacro">
-        <a className={`${style.link} ${pathname == "/Simulacro" ? style.active : ''}`}>Simulacro</a>
+      <Link href="/Cursos">
+        <a className={`${style.link} ${pathname == "/Cursos" ? style.active : ''}`}>Cursos</a>
       </Link>
       <Link href="/Materiales">
-        <a className={`${style.link} ${pathname == "/Materiales"? style.active : ''}`}>Materiales</a>
+        <a className={`${style.link} ${pathname == "/Materiales" ? style.active : ''}`}>Materiales</a>
+      </Link>
+      <Link href="/UnProfesor">
+        <a className={`${style.link} ${pathname == "/UnProfesor" ? style.active : ''}`}>Un profesor</a>
+      </Link>
+      <Link href="/About">
+        <a className={`${style.link} ${pathname == "/About"? style.active : ''}`}>Acerca de</a>
       </Link>
       <button className={style.button} onClick={handleSignOut}>Cerrar Sesion</button> 
     </nav>

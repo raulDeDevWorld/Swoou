@@ -51,7 +51,9 @@
 .filter {
 filter: opacity(.5);
 }
-
+.pdf {
+  color: red;
+}
 
 
 

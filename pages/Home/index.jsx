@@ -56,13 +56,14 @@ function Home() {
             {userDB !== null && userDB !== 'loading' &&
                 <div className={style.containerTwo}>
                     {userDB.premium === true && <p className={style.subtitle}> Premium</p>}
-                    {userDB.premium === false && <p className={style.subtitle}> Premium Yaa </p>}
+                    {userDB.premium === false && <p className={style.subtitle}> Free version </p>}
                  
                     <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
-                    <Subtitle> Bienvenido (a): <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
+                    <Subtitle> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido': 'Bienvenida'}: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
                     <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={progress}>Progreso</Button>
-                    <Button style='buttonPrimary' click={avance}>Practica pdf</Button>
+                    <Button style='buttonPrimary' click={avance}>Practica <span className={style.pdf}>PDF</span></Button>
+                    <Button style='buttonPrimary'click={progress}>Robot matemático</Button>
                     <PremiumC></PremiumC>
                 </div>
             }

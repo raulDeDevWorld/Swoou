@@ -1,56 +1,59 @@
 
-.container {
-  width: 100vw;
-  height: 100vh;
-  background-color: aliceblue;
-}
 .progressbar {
-  width: 300px;
-  height: 300px;
-  background-color: #2C292C;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #00679e;
   border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
   overflow: hidden;
 }
 
 .halfCircle,
 .halfCircleTop {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 50%;
   height: 100%;
   transform-origin: 100% 50%;
   background-color: red;
 }
 .halfCircle {
+  position: absolute;
+  margin: auto;
   background-color: #FE0000;
 }
-
-
 .halfCircleTop {
-  background-color: #2C292C;
+  position: absolute;
+  background-color: #00679e;
 }
-.progressbar:hover .halfCircle:nth-child(1) {
-  transform: rotate(180deg); 
-  transition: transform 1s linear; 
+.progressbar .halfCircle:nth-child(1) {
+  animation-name: animationOne;
+  animation-duration: 1s;
+
 }
-.progressbar:hover .halfCircle:nth-child(2) {
-  transform: rotate(360deg); 
-  transition: transform 2s linear; 
+.progressbar .halfCircle:nth-child(2) {
+  animation-name: animationTwo;
+  animation-duration: 1s;
 }
 
-.progressbar:hover .halfCircleTop {
+.progressbar .halfCircleTop {
   opacity: 0; 
   transition: opacity 0s 1s;
 }
 
-
+@keyframes animationOne {
+50% {  transform: rotate(180deg); 
+  transition: transform 1s linear; }
+}
+@keyframes animationTwo {
+  50% {    transform: rotate(360deg); 
+    transition: transform 2s linear; 
+   }
+}
+@keyframes animationTwo {
+  50% {      opacity: 0; 
+    transition: opacity 0s 1s; 
+   }
+}
 .progressbarCircle {
   position: absolute;
   left: 0;
@@ -58,9 +61,9 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  width: 290px;
-  height: 290px;
-  background-color: #000;
+  width: 190px;
+  height: 190px;
+  background-color: #000000;
   border-radius: 50%;
   color: #fff;
   font-size: 4rem;
