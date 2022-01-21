@@ -15,7 +15,7 @@ function Play () {
     const { userDB, avatar } = useUser()
     const [mode, setMode] = useState('multiplicacion')
     const [values, setValues] = useState({firstValue: '', secondValue: ''})
-    const [res, setRes] = useState([])
+    const [res, setRes] = useState(false)
 
 
 
@@ -35,15 +35,9 @@ function Play () {
         setValues({ ...values, [name] : value})
     }
     function resolver () {
-        const secondLength = values.secondValue.length 
-        for (var i = 0; i < secondLength; i++ ) {
-            const item = values.secondValue.substring(i, 1)
-            const product = item * values.firstValue
-            setRes([...res, product])
-
-         }
+        setRes(true)
     }
-console.log(res)
+
   
 
     return (
@@ -69,6 +63,8 @@ console.log(res)
                         <div>
                             <span className={style.p}>{values.firstValue} </span>
                             <span className={`${style.p} ${style.border}`}><span className={style.red}>{values.secondValue !== ''? 'X':''}</span> {values.secondValue}</span>
+                            {res == true ?  values.secondValue.split('').reverse().map((i, index) => <span className={style.p} key={index}>{i*values.firstValue}<span className={style.hide}>{values.secondValue.substring(0, index)} </span></span>) : '' }
+                            {res == true ? <span className={`${style.p} ${style.borderTop}`}>{values.firstValue * values.secondValue} </span>: ''}
                         </div>
                     </div>
                     <button className={style.buttonGreen} onClick={resolver}>Resolver</button> 
