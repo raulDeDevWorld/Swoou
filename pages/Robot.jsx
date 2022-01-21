@@ -62,9 +62,9 @@ function Play () {
                     <div className={style.boxMain}>
                         <div>
                             <span className={style.p}>{values.firstValue} </span>
-                            <span className={`${style.p} ${style.border}`}><span className={style.red}>{values.secondValue !== ''? 'X':''}</span> {values.secondValue}</span>
-                            {res == true ?  values.secondValue.split('').reverse().map((i, index) => <span className={style.p} key={index}>{i*values.firstValue}<span className={style.hide}>{values.secondValue.substring(0, index)} </span></span>) : '' }
-                            {res == true ? <span className={`${style.p} ${style.borderTop}`}>{values.firstValue * values.secondValue} </span>: ''}
+                            <span className={`${style.p} ${res == true && values.secondValue.length < 2 ? '': style.border}`}><span className={style.red}>{values.secondValue !== ''? 'X':''}</span> {values.secondValue}</span>
+                            {res == true && values.secondValue.length > 1 ?  values.secondValue.split('').reverse().map((i, index) => <span className={style.p} key={index}>{i*values.firstValue}<span className={style.hide}>{values.secondValue.substring(0, index)} </span></span>) : '' }
+                            {res == true && values.secondValue.length > 0 ? <span className={`${style.p} ${style.borderTop}`}>{values.firstValue * values.secondValue} </span>: ''}
                         </div>
                     </div>
                     <button className={style.buttonGreen} onClick={resolver}>Resolver</button> 
