@@ -1,0 +1,107 @@
+.main {
+    background-color: #01afff;
+    min-height: 100vh;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+}
+.perfil {
+    width: 250px;
+    height: 130px;
+    object-fit:cover;
+    object-position: top;
+}
+.greeting {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    line-height: 0;
+}
+
+
+.box {
+    background-color: #00C0FF;
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.button {
+    cursor: pointer;
+    font-size: 12px;
+    color: rgb(0, 255, 0);
+    background-color: black;
+    width: 130px;
+    margin: 2px;
+    padding: 5px 1px; 
+    border-radius: 5px;        
+
+    transition-duration: .5s;
+}
+.right {
+    background-image: url(../public/right.svg);
+    background-repeat: no-repeat;
+    background-position: 110px 2px;
+    background-size: 13px;
+}
+.input {
+    width: 45%;
+    border: none;
+    border: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 5px 1px; 
+    margin: 2px;
+  }
+.boxMain {
+    position: relative;
+    background-color: aliceblue;
+    color: black;
+    width: 90%;
+    min-height: 200px;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
+
+}
+.p {
+    display: block;
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10px;
+    
+}
+.border{
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+.buttonGreen {
+    background-color: rgb(0, 255, 0);
+    color: white;
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 30px;
+}
+
+.green {
+    background-color: greenyellow;
+}
+.red {
+    color: red;
+}
+

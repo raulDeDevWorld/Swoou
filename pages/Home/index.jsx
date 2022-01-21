@@ -19,8 +19,8 @@ function Home() {
         if(avatar !== null){router.push('/Welcome')}
         console.log('click')
     }
-    function avance() {
-        router.push('/Home/Avance')
+    function practica() {
+        router.push('https://drive.google.com/file/d/1WLbD5o0s431Y7LG-rJqud5t_iDKxGnpu/view?usp=sharing')
     }
     function progress() {
         router.push('/Progress')
@@ -28,10 +28,9 @@ function Home() {
     function play () {
         router.push('/Play')
     }
-    console.log(userDB)
-    console.log(user)
-    console.log(avatar)
-    console.log('Home')
+    function robot () {
+        router.push('/Robot')
+    }
     return (
         <PageLayout>
             {userDB === 'loading' && ''}
@@ -62,8 +61,8 @@ function Home() {
                     <Subtitle> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido': 'Bienvenida'}: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
                     <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={progress}>Progreso</Button>
-                    <Button style='buttonPrimary' click={avance}>Practica <span className={style.pdf}>PDF</span></Button>
-                    <Button style='buttonPrimary'click={progress}>Robot matemático</Button>
+                    <Button style='buttonPrimary' click={practica}>Practica <span className={style.pdf}>PDF</span></Button>
+                    <Button style='buttonPrimary'click={robot}>Robot matemático</Button>
                     <PremiumC></PremiumC>
                 </div>
             }
