@@ -111,3 +111,26 @@
     color: red;
 }
 
+.divisionBox {
+    padding: 15px;
+    font-size: 20px;
+}
+.display {
+    display: flex;
+    justify-content: center;
+}
+.dividendo {
+    height: auto;
+    padding-right: 10px;
+    
+}
+
+.vertical {
+    border-right: 1px solid red;
+}
+.horizontal {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 2px solid red;
+    min-width: 50px;
+}
