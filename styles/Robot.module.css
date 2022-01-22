@@ -124,13 +124,25 @@
     padding-right: 10px;
     
 }
-
+.span {
+    display: block;
+    padding-left: 10px;
+    border-top: 1px solid red;
+}
+.residuo {
+    display: block;
+}
 .vertical {
     border-right: 1px solid red;
 }
 .horizontal {
     padding-left: 10px;
     padding-right: 10px;
-    border-bottom: 2px solid red;
+    border-bottom: 1px solid red;
+    display: block;
+    text-align: center;
     min-width: 50px;
+}
+.hideDiv {
+    visibility: hidden;
 }
