@@ -66,15 +66,15 @@
    
 }
 .white {
-    text-align: center;
+    text-align: left;
     color: rgb(255, 255, 255);
     font-size: 25px;
+    display: block;
   
 }
 .black {
-    position: absolute;
-    right: 0;
     color: rgb(255, 255, 255);
     font-size: 25px;
+    display: block;
 }
 
