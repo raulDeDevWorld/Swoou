@@ -14,6 +14,8 @@ import styleH from '../styles/Home.module.css'
 function Play () {
     const { userDB, avatar } = useUser()
     const [objet, setObjet] = useState(null)
+    const [countR, setCountR] = useState(0)
+    const [countE, setCountE] = useState(0)
 
     const router = useRouter()
     function obj (){
@@ -47,6 +49,7 @@ function Play () {
         setObjet({...objet, ...o,})
         setTimeout(obj, 1500)
         n == objet.nFour ? progressUpdate(p+1) : errorsUpdate(e+1)
+        n == objet.nFour ? setCountR(countR+1) : setCountE(countE+1)
     }
 
     function nextClick () {
@@ -65,8 +68,10 @@ if (objet !== null) {console.log(objet.nOne)}
             <div className={style.container}>
 
                 <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
-                <p className={style.white}> {`${userDB.aName.toUpperCase()}`}</p>
-     
+                <div className={style.textCont}>
+                    <span className={style.white}>Nombre: {`${userDB.aName.toUpperCase()}`}</span>
+                    <span className={style.black}>Promedio: {countR} de {countR+countE} </span>
+                </div>
                 {objet !== null &&
                 <>
                 <div className={style.boxMain}>
