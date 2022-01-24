@@ -1,3 +1,6 @@
+
+
+
 function rob(v1, v2) {
 
     const residuo = []
@@ -22,7 +25,8 @@ function rob(v1, v2) {
             zero.push(z)
             residuo.push(r)
             cifra.push(cifras)
-            space.push( vl1 - cifras.length)
+            space.push( c - cifras.length)
+            console.log(c - cifras.length)
            
             cifras.length < c ? robb(`${r}${v1.substring(cifras.length, c)}`, v2) : ''
         }
@@ -30,6 +34,7 @@ function rob(v1, v2) {
     }
     robb(v1, v2)
     cifra.shift()
+    space.push(0)
     const item = residuo.pop()
     cifra.push(item)
     
