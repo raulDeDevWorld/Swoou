@@ -48,8 +48,8 @@
   background-color: transparent;
   margin-bottom: 7px;
 }
-.filter {
-filter: opacity(.5);
+.right {
+filter: saturate(2);
 }
 .pdf {
   color: red;
