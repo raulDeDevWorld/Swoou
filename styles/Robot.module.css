@@ -131,6 +131,7 @@
 }
 .residuo {
     display: block;
+    text-align: right;
 }
 .vertical {
     border-right: 1px solid red;
@@ -145,4 +146,5 @@
 }
 .hideDiv {
     visibility: hidden;
+    color: red;
 }

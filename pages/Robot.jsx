@@ -73,7 +73,7 @@ function Robot() {
                                 <div className={`${style.divisionBox} ${values.firstValue !== '' || values.secondValue !== '' ? style.display : ''}`}>
                                     <span className={`${style.dividendo} ${values.firstValue !== '' || values.secondValue !== '' ? style.vertical : ''}`}>
                                         <span>{values.firstValue}</span> 
-                                       {obj !== null ? obj.map((i, index)=> <span className={style.residuo} key={index}><span className={style.hideDiv}>{Math.trunc(values.firstValue / values.secondValue).toString().replace(/,/g,"").substring(0, index)}</span>{i}</span>): ''} 
+                                       {obj !== null ? obj.cifra.map((i, index)=> <span className={style.residuo} key={index}><span>{obj.zero[index]}</span>{i}<span className={style.hideDiv}>{Math.trunc(values.firstValue / values.secondValue).toString().replace(/,/g,"").substring(0, (obj.space[index]-1))}</span></span>): ''} 
                                     </span>
                                     {values.secondValue !== '' ? <span className={style.divisor}><span className={`${values.firstValue !== '' || values.secondValue !== '' ? style.horizontal : ''}`}>{values.secondValue}</span><span className={style.span}>{Math.trunc(values.firstValue / values.secondValue)}</span></span> : ''}
                                 </div>}
