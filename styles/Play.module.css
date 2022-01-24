@@ -1,27 +1,35 @@
 .main {
-    background-color: #48007E;
+    background-color: #01afff;
     min-height: 100vh;
 }
 .container {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: white;
-    font-size: 30px;
+    font-size: 25px;
 }
 .boxMain {
-    background-color: #FF7E00;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #1eff00;
     width: 90%;
-    height: 90px;
+    max-width: 500px;
+    height: 60%;
+    min-height: 90px;
     border-radius: 10px;
     margin-top: 30px;
+    color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 .box {
-    background-color: #00C0FF;
+    background-color: #3cceff;
+    border: 1px solid #8de2ff;
     width: 90%;
+    max-width: 500px;
     height: 50px;
     border-radius: 10px;
     margin-top: 30px;
@@ -33,13 +41,14 @@
     background-color: red;
     color: white;
     width: 90%;
+    max-width: 500px;
     height: 50px;
     border-radius: 10px;
     margin-top: 30px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
 }
 .red {
     background-color: red;
@@ -51,5 +60,7 @@
     text-align: center;
     color: white;
     font-size: 30px;
+    line-height: 0;
+    margin: 5px;
 }
 

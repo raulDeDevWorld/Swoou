@@ -1,8 +1,9 @@
 .main {
     background-color: #01afff;
-    min-height: 100vh;
+    height: 100vh;
 }
 .container {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,7 +102,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .green {
