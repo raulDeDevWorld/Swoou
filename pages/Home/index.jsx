@@ -58,7 +58,7 @@ function Home() {
                 </div>
             }
            
-            {userDB.profesor !== true && userDB !== null && userDB !== 'loading' &&
+            { userDB !== null && userDB !== 'loading' && userDB.profesor !== true &&
                 <div className={style.containerTwo}>
                     {userDB.premium === true && <span className={style.subtitle}> Premium</span>}
                     {userDB.premium === false && <span className={style.subtitle}>Free mode</span>}
@@ -72,7 +72,7 @@ function Home() {
                     <PremiumC></PremiumC>
                 </div>
             }
-            {userDB.profesor == true && userDB !== null && userDB !== 'loading' &&
+            {userDB !== null && userDB !== 'loading' && userDB.profesor == true &&
                 <div className={style.containerTwo}>
                     {userDB.premium === true && <span className={style.subtitle}> Premium</span>}
                     {userDB.premium === false && <span className={style.subtitle}>id: {userDB.aName.toLowerCase()}{userDB.cell}</span>}
