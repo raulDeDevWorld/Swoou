@@ -1,4 +1,9 @@
 
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
 .progressbar {
   position: relative;
   width: 200px;
@@ -6,6 +11,7 @@
   background-color: #00679e;
   border-radius: 50%;
   overflow: hidden;
+  margin: 15px;
 }
 
 .halfCircle,
