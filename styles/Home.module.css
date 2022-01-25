@@ -1,3 +1,7 @@
+.subtitle {
+  display: inline-block;
+  margin: 8px;
+}
 .containerTwo {
   position: relative;
   display: flex;

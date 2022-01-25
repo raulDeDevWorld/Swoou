@@ -82,7 +82,7 @@ function handleSignOut() {
 }
 
 
-function dataUser (aName, grade, school, avatar) {
+function dataUser (aName, grade, school, avatar, cell, profesor) {
       const name = auth.currentUser.displayName
       const uid = auth.currentUser.uid
       console.log(name, uid)
@@ -95,6 +95,9 @@ function dataUser (aName, grade, school, avatar) {
             progress: 0,
             errors: 0,
             premium: false,
+            cell,
+            profesor,
+            id: null,
       })
 }
 

@@ -7,6 +7,8 @@ import { useUser } from '../../context/Context.js'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import style from '../../styles/Home.module.css'
+import styleP from '../../styles/Progress.module.css'
+
 
 function Home() { 
     const { setUserAvatar, avatar, user, userDB } = useUser()
@@ -17,6 +19,10 @@ function Home() {
     }
     function nextClick() {
         if(avatar !== null){router.push('/Welcome')}
+        console.log('click')
+    }
+    function nextClickProfesor() {
+        if(avatar !== null){router.push('/Profesor')}
         console.log('click')
     }
     function practica() {
@@ -46,20 +52,36 @@ function Home() {
                         <img src="/ag2.png" alt="avatar" className={`${style.avatar} ${avatar == 'ag2' ? style.right: ''}`} onClick={(e)=>{avatarClick('ag2')}}/>
                     </div> 
                     <div className={style.buttonsContainer}>
-                    <Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+                    <Button style='buttonSecondary' click={nextClickProfesor}>Soy profesor</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
 
                     </div>
                 </div>
             }
            
-            {userDB !== null && userDB !== 'loading' &&
+            {userDB.profesor !== true && userDB !== null && userDB !== 'loading' &&
                 <div className={style.containerTwo}>
-                    {userDB.premium === true && <p className={style.subtitle}> Premium</p>}
-                    {userDB.premium === false && <p className={style.subtitle}> Free version </p>}
+                    {userDB.premium === true && <span className={style.subtitle}> Premium</span>}
+                    {userDB.premium === false && <span className={style.subtitle}>Free mode</span>}
                  
                     <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
                     <Subtitle> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido': 'Bienvenida'}: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
                     <Button style='buttonPrimary' click={play}>Play</Button>
+                    <Button style='buttonPrimary'click={progress}>Progreso</Button>
+                    <Button style='buttonPrimary' click={practica}>Practica <span className={style.pdf}>PDF</span></Button>
+                    <Button style='buttonPrimary'click={robot}>Robot matemático</Button>
+                    <PremiumC></PremiumC>
+                </div>
+            }
+            {userDB.profesor == true && userDB !== null && userDB !== 'loading' &&
+                <div className={style.containerTwo}>
+                    {userDB.premium === true && <span className={style.subtitle}> Premium</span>}
+                    {userDB.premium === false && <span className={style.subtitle}>id: {userDB.aName.toLowerCase()}{userDB.cell}</span>}
+                 
+                    <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
+                    <div>
+                        <span className={styleP.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Bienvenido,' : 'Bienvenida,'}  {`${userDB.aName.toUpperCase()}`}</span><br />
+                        <span>Comparte tu id con tus alumnos, para ver sus progresos.</span><br />
+                    </div>                    <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={progress}>Progreso</Button>
                     <Button style='buttonPrimary' click={practica}>Practica <span className={style.pdf}>PDF</span></Button>
                     <Button style='buttonPrimary'click={robot}>Robot matemático</Button>

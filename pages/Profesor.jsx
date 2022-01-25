@@ -7,19 +7,18 @@ import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Home.module.css'
 
-function Welcome () {
+function Profesor () {
     const router = useRouter()
     const { avatar } = useUser()
 
     function nextClick (e) {
         e.preventDefault()
         const aName = e.target.form[0].value
-        const grade = e.target.form[1].value
-        const school = e.target.form[2].value
-        const cell = null
-        const profesor = false
-
-        if(aName.length > 2 && grade.length > 2 && school.length >2){
+        const school = e.target.form[1].value
+        const grade = e.target.form[2].value
+        const cell = e.target.form[3].value
+        const profesor = true
+        if(aName.length > 2 && grade.length > 2 && school.length >2 && cell.length >7){
             dataUser(aName, grade, school, avatar, cell, profesor)  
             router.push('/Home')
             console.log('log pro')
@@ -46,12 +45,16 @@ function Welcome () {
                         <input className={style.input} type="text" placeholder='Alex Choque'/>
                     </label>
                     <label>
-                        Grado: 
-                        <input className={style.input} type="text" placeholder='Cuarto B'/>
-                    </label>
-                    <label>
                         Colegio: 
                         <input className={style.input} type="text" placeholder='Guido Villagomez B'/>
+                    </label>
+                    <label>
+                        Curso: 
+                        <input className={style.input} type="text" placeholder='Cuarto B de primaria'/>
+                    </label>
+                    <label>
+                        Numero de celular: 
+                        <input className={style.input} type="number" placeholder='73447725'/>
                     </label>
                     <div className={style.buttonsContainer}>
                         <Button style='buttonSecondary' click={backClick}>Atras</Button>
@@ -64,5 +67,4 @@ function Welcome () {
     )
 }
 
-export default WithAuth(Welcome)
-
+export default WithAuth(Profesor)
