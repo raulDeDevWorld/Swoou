@@ -120,6 +120,7 @@
   color: white;
 }
 .form {
+  display: flex;
    margin: 10px; 
 }
 
