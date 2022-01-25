@@ -78,3 +78,61 @@
   justify-content: center;
   align-items: center;
 }
+.x {
+  position: absolute;
+  padding: 10px 15px;
+  border-radius: 15px 10px;
+  right: -15px;
+  top: -15px;
+  background-color: black;
+  color: orange;
+  cursor: pointer;
+}
+.modalContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -1000px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  z-index: 100000;
+  background-color: rgba(0, 0, 0, 0.616);
+}
+.true {
+  top: 0;
+}
+.contBlue {
+  background-color: aliceblue;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 200px;
+  border-radius: 10px;
+  color: white;
+}
+.textModal {
+  background-color: black;
+  color: orange;
+  padding: 5px;
+}
+.modalInput {
+  margin: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+.perfil {
+  width: 250px;
+  height: 130px;
+  object-fit:cover;
+  object-position: top;
+}

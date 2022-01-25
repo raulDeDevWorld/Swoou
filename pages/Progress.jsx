@@ -6,14 +6,17 @@ import Subtitle from '../components/Subtitle'
 import style from '../styles/Progress.module.css'
 import styleH from '../styles/Home.module.css'
 import Button from '../components/Button'
+import { useState } from 'react'
 
 
 function Progress() {
     const { userDB } = useUser()
+    const [mode, setMode] = useState(false)
     const router = useRouter()
-    function nextClick () {
-        router.push('/Home')
+    function x () {
+        setMode(!mode)
     }
+    console.log(mode)
     function backClick (e) {
         e.preventDefault()
         router.back()
@@ -38,9 +41,17 @@ function Progress() {
                     </div>
                 </div>
                 <div>                
-                    <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Compartir progreso</Button>
+                    <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>Compartir progreso</Button>
                 </div>
             </div> 
+            <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
+                <div className={style.contBlue}>
+                    <span onClick={x} className={style.x}>X</span>
+                    <img src="/robot.png" className={style.perfil} alt="user photo" />
+                    <span className={style.textModal}>Ingresa el id de tu profe...</span>
+                    <input className={style.modalInput}type="text" placeholder='alex73447725' />
+                </div>
+            </div>
             </>}
     </PageLayout>
     )
