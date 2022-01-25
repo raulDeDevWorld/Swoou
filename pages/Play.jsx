@@ -67,10 +67,14 @@ if (objet !== null) {console.log(objet.nOne)}
             <>
             <div className={style.container}>
 
-                <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
+                <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
                 <div className={style.textCont}>
                     <span className={style.white}>Nombre: {`${userDB.aName.toUpperCase()}`}</span>
-                    <span className={style.black}>Promedio: {countR} de {countR+countE} </span>
+                    <div className={style.contRE}>
+                    <span className={style.e}>{countE}</span>
+                    <span className={style.r}>{countR}</span>
+                    </div>
+                
                 </div>
                 {objet !== null &&
                 <>

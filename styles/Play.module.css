@@ -2,6 +2,13 @@
     background-color: #01afff;
     min-height: 100vh;
 }
+.perfil {
+    margin: 10px;
+    margin-top: 40px;
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
+  }
 .container {
     height: 100%;
     display: flex;
@@ -69,12 +76,33 @@
     text-align: left;
     color: rgb(255, 255, 255);
     font-size: 25px;
-    display: block;
+
   
 }
-.black {
+.contRE {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    display: inline-block;
+}
+.e {
+    display: inline-block;
     color: rgb(255, 255, 255);
+    background-color: red;
     font-size: 25px;
-    display: block;
+    text-align: center;
+    min-width: 70px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.r {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 255, 0);
+    font-size: 25px;
+    text-align: center;
+    min-width: 70px;
+    padding: 5px;
+    border-radius: 10px;
 }
 
