@@ -17,6 +17,10 @@ function Progress() {
         setMode(!mode)
     }
     console.log(mode)
+    function nextClick (e) {
+        e.preventDefault()
+        const aName = e.target.form[0].value
+    }
     function backClick (e) {
         e.preventDefault()
         router.back()
@@ -49,7 +53,10 @@ function Progress() {
                     <span onClick={x} className={style.x}>X</span>
                     <img src="/robot.png" className={style.perfil} alt="user photo" />
                     <span className={style.textModal}>Ingresa el id de tu profe...</span>
-                    <input className={style.modalInput}type="text" placeholder='alex73447725' />
+                    <form className={style.form}>      
+                        <input className={style.modalInput} type="text" placeholder='alex73447725' />
+                        <button className={style.modalButton} onClick={nextClick}>ok</button>
+                    </form>
                 </div>
             </div>
             </>}
