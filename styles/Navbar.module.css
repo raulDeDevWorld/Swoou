@@ -64,7 +64,7 @@
   }
   .top {
     left: 0;
-    transition:left .5s;
+    transition:left .2s;
   }
    .link {
     margin: 5px 10px 0px 0px;
