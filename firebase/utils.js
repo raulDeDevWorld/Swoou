@@ -48,6 +48,32 @@ function getIds(id, setTeacherId, userUid, name ){
             }
       })
 }
+function getProgress (setStudentsProgress, uid ){
+      dataTeachers.on('value', function(snapshot){  
+            var b = snapshot.child(`${uid}/students`).exists(); 
+            if (b === true){
+                  const array = []
+                  snapshot.child(`${uid}/students`).forEach(function(childSnapshot) { 
+                        db.ref(`/users/${childSnapshot.key}`).on('value', function(userSnapshot){
+                              const valName = userSnapshot.child('aName').val()
+                              const valProgress = userSnapshot.child('progress').val()
+                              const valErrors = userSnapshot.child('errors').val()
+                              const obj = {
+                                    name: valName,
+                                    progress: valProgress,
+                                    errors: valErrors,
+                              }
+                             array.push(obj)
+                          }) 
+                   })
+                   console.log(array)
+                   setStudentsProgress(array)
+              
+            } else {
+                  setStudentsProgress(null)
+            }
+      })
+}
 function onAuth (setUserProfile, setUserData) { 
       return auth.onAuthStateChanged(function(user) {
       if (user) {
@@ -158,4 +184,4 @@ function errorsUpdate (n) {
       db.ref(`users/${uid}`).update({errors: n,})
 }
 
-export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds }
+export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress }

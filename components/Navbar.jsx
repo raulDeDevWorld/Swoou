@@ -7,7 +7,6 @@ import style from '../styles/Navbar.module.css'
 export default function Navbar () {
   const [menu, setMenu] = useState(false)
   const { pathname } = useRouter() 
-  console.log(menu)
   function handleMenu(){
     setMenu(!menu)
   }

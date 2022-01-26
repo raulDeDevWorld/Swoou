@@ -8,6 +8,7 @@ export function UserProvider ({ children }) {
 	const [userDB, setUserDB] = useState('loading')
 	const [avatar, setAvatar] = useState(null)
 	const [id, setId] = useState(null)
+	const [progress, setProgress] = useState([])
 
 	function setUserProfile (userProfile) {
 		setUser(userProfile)
@@ -21,16 +22,21 @@ export function UserProvider ({ children }) {
 	function setTeacherId (uid) {
 		setId(uid)
 	}
+	function setStudentsProgress (obj) {
+		setProgress(obj)
+	}
 	const value = useMemo(()=>{
 		return ({
 			user,
 			userDB,
 			avatar,
 			id,
+			progress,
 			setUserProfile,
 			setUserData,
 			setUserAvatar,
 			setTeacherId,
+			setStudentsProgress,
 		})
 	}, [avatar, user, userDB, id])
 
