@@ -3,28 +3,32 @@ import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
 import Subtitle from '../components/Subtitle'
+import { getIds } from '../firebase/utils'
 import style from '../styles/Progress.module.css'
 import styleH from '../styles/Home.module.css'
 import Button from '../components/Button'
 import { useState } from 'react'
 
 
+
 function Progress() {
-    const { userDB } = useUser()
+    const { user, userDB, id, setTeacherId } = useUser()
     const [mode, setMode] = useState(false)
     const router = useRouter()
+
     function x () {
         setMode(!mode)
     }
-    console.log(mode)
     function nextClick (e) {
         e.preventDefault()
-        const aName = e.target.form[0].value
+        const idInput = e.target.form[0].value
+        getIds(idInput, setTeacherId, user.uid)
     }
     function backClick (e) {
         e.preventDefault()
         router.back()
     }
+
     return (
     <PageLayout>
         {userDB !== 'loading' && 

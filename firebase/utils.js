@@ -11,6 +11,8 @@ const providerGoogle = new firebase.auth.GoogleAuthProvider();
 
 const db = firebase.database();
 const data = firebase.database().ref('/users');
+const dataTeachers = firebase.database().ref('/teachers');
+const ids = firebase.database().ref('/ids')
 
 function getData(user, setUserData){
       data.on('value', function(snapshot){  
@@ -18,12 +20,34 @@ function getData(user, setUserData){
             if (b === true){
                   let obj = snapshot.val() 
                   setUserData(obj[user.uid])
-            }else{
-                  setUserData(null)
+            } else {
+                  dataTeachers.on('value', function(snapshot){  
+                        var b = snapshot.child(user.uid).exists();                
+                        if (b === true){
+                              let obj = snapshot.val() 
+                              setUserData(obj[user.uid])
+                        } else {
+                              setUserData(null)
+                        }
+                  })
             }
       })
 }
 
+function getIds(id, setTeacherId, currentUser ){
+      ids.on('value', function(snapshot){  
+            var b = snapshot.child(id).exists();     
+            if (b === true){
+                  let uidTeacher = snapshot.child(id).child('uid').val()
+                  db.ref(`users/${uidTeacher}/students`).set({ 
+                        uidStudent: currentUser
+                  })
+                  setTeacherId(uidTeacher)
+            } else {
+                  setTeacherId(false)
+            }
+      })
+}
 function onAuth (setUserProfile, setUserData) { 
       return auth.onAuthStateChanged(function(user) {
       if (user) {
@@ -100,6 +124,29 @@ function dataUser (aName, grade, school, avatar, cell, profesor) {
             id: null,
       })
 }
+function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
+      const name = auth.currentUser.displayName
+      const id = `${aName.split(' ')[0].toLowerCase()}${cell}`
+      const uid = auth.currentUser.uid
+      console.log(name, uid)
+      db.ref(`teachers/${uid}`).set({
+            name,
+            aName,
+            grade,
+            school,
+            avatar,
+            progress: 0,
+            errors: 0,
+            premium: false,
+            cell,
+            profesor,
+            id,
+      })
+      db.ref(`ids/${id}`).set({
+            uid,
+      })
+
+}
 
 
 function progressUpdate (n) {
@@ -111,4 +158,4 @@ function errorsUpdate (n) {
       db.ref(`users/${uid}`).update({errors: n,})
 }
 
-export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataUser }
+export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds }

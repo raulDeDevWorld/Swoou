@@ -1,6 +1,6 @@
 .main {
     background-color: #01afff;
-    height: 100vh;
+    min-height: 100vh;
 }
 .container {
     height: 100%;

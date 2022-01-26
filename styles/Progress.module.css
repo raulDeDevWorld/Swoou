@@ -114,14 +114,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
-  height: 200px;
+  align-items: center;
+  width: 95%;
+  height: 270px;
   border-radius: 10px;
   color: white;
 }
 .form {
+  position: relative;
   display: flex;
-   margin: 10px; 
+   margin: 20px; 
 }
 
 .modalInput {
@@ -133,6 +135,8 @@
   background-color: black;
   color: orange;
   padding: 5px;
+  width: 97%;
+  margin-top: 20px;
 }
 .modalButton {
   border: none;

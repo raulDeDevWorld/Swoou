@@ -2,7 +2,7 @@ import Button from '../components/Button'
 import Subtitle from '../components/Subtitle'
 import PageLayout from '../layouts/PageLayout'
 import { useUser } from '../context/Context.js'
-import { dataUser } from '../firebase/utils'
+import { setDataTeachers } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Home.module.css'
@@ -19,7 +19,7 @@ function Profesor () {
         const cell = e.target.form[3].value
         const profesor = true
         if(aName.length > 2 && grade.length > 2 && school.length >2 && cell.length >7){
-            dataUser(aName, grade, school, avatar, cell, profesor)  
+            setDataTeachers(aName, grade, school, avatar, cell, profesor)  
             router.push('/Home')
             console.log('log pro')
         } 
