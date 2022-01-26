@@ -119,6 +119,8 @@ pre {
 
 a {
   background-color: transparent;
+  color: white;
+  text-decoration:none
 }
 
 /**

@@ -22,7 +22,7 @@ function Progress() {
     function nextClick (e) {
         e.preventDefault()
         const idInput = e.target.form[0].value
-        getIds(idInput, setTeacherId, user.uid)
+        getIds(idInput, setTeacherId, user.uid, userDB.aName)
     }
     function backClick (e) {
         e.preventDefault()

@@ -34,13 +34,13 @@ function getData(user, setUserData){
       })
 }
 
-function getIds(id, setTeacherId, currentUser ){
+function getIds(id, setTeacherId, userUid, name ){
       ids.on('value', function(snapshot){  
             var b = snapshot.child(id).exists();     
             if (b === true){
                   let uidTeacher = snapshot.child(id).child('uid').val()
-                  db.ref(`users/${uidTeacher}/students`).set({ 
-                        uidStudent: currentUser
+                  db.ref(`teachers/${uidTeacher}/students/${userUid}`).set({ 
+                         name,
                   })
                   setTeacherId(uidTeacher)
             } else {
