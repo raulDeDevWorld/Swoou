@@ -64,7 +64,7 @@ function Home() {
                     {userDB.premium === false && <span className={style.subtitle}>Free mode</span>}
                  
                     <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
-                    <Subtitle> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido': 'Bienvenida'}: <br /> {`${userDB.aName.toUpperCase()}`}</Subtitle>
+                    <Subtitle> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido': 'Bienvenida'}: <br /> {`${userDB.aName.split(' ')[0].toUpperCase()}`}</Subtitle>
                     <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={progress}>Progreso</Button>
                     <Button style='buttonPrimary' click={practica}>Practica <span className={style.pdf}>PDF</span></Button>
@@ -75,17 +75,17 @@ function Home() {
             {userDB !== null && userDB !== 'loading' && userDB.profesor == true &&
                 <div className={style.containerTwo}>
                     {userDB.premium === true && <span className={style.subtitle}> Premium</span>}
-                    {userDB.premium === false && <span className={style.subtitle}>Id: {userDB.id}</span>}
                  
                     <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
                     <div>
-                        <span className={styleP.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Bienvenido,' : 'Bienvenida,'}  {`${userDB.aName.toUpperCase()}`}</span><br />
-                        <span>Comparte tu id con tus alumnos, para ver sus progresos.</span><br />
+                        <span className={styleP.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Bienvenido,' : 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span><br />
+                        {userDB.premium === false && <span className={style.subtitle}><span className={style.id}>Id:</span> {userDB.id}</span>}
                     </div>                    <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={progress}>Progreso</Button>
                     <Button style='buttonPrimary' click={practica}>Practica <span className={style.pdf}>PDF</span></Button>
                     <Button style='buttonPrimary'click={robot}>Robot matemático</Button>
-                    <PremiumC></PremiumC>
+                    <span className={style.fontBlack}>Comparte tu id con tus alumnos, para ver sus progresos.</span><br /><br />
+
                 </div>
             }
         </PageLayout>

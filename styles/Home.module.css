@@ -1,6 +1,11 @@
+.id {
+  color: black;
+}
 .subtitle {
   display: inline-block;
   margin: 8px;
+  color: orange;
+
 }
 .containerTwo {
   position: relative;
@@ -57,6 +62,13 @@ filter: saturate(2);
 }
 .pdf {
   color: red;
+}
+.fontBlack {
+  background-color: #003450;
+  color: orange;
+  width: 105%;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 
