@@ -4,6 +4,10 @@
   font-weight: 600;
   letter-spacing: 1px;
 }
+.subtitle {
+  display: inline-block;
+  margin: 8px;
+}
 .progressbar {
   position: relative;
   width: 200px;

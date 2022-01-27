@@ -36,8 +36,8 @@ function Progress() {
             <div className={styleH.containerTwo}>
                 <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
                 <div>
-                    <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido,': 'Bienvenida,'}  {`${userDB.aName.toUpperCase()}`}</span><br/> 
-                    <span>Comparte tus progresos con tu profe.</span><br/>
+                    <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido,': 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span><br/> 
+                    <span className={style.subtitle}>Comparte tus progresos con tu profe.</span><br/>
                 </div>
                
                 <div className={style.progressbar}>

@@ -29,7 +29,7 @@ function Home() {
         router.push('https://drive.google.com/file/d/1WLbD5o0s431Y7LG-rJqud5t_iDKxGnpu/view?usp=sharing')
     }
     function progress() {
-        router.push('/Progress')
+        userDB.profesor == true ? router.push('/Progreso'): router.push('/Progress')
     }
     function play () {
         router.push('/Play')

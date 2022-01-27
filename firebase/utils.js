@@ -54,7 +54,7 @@ function getProgress (setStudentsProgress, uid ){
             if (b === true){
                   const array = []
                   snapshot.child(`${uid}/students`).forEach(function(childSnapshot) { 
-                        db.ref(`/users/${childSnapshot.key}`).on('value', function(userSnapshot){
+                        db.ref(`/users/${childSnapshot.key}`).once('value', function(userSnapshot){
                               const valName = userSnapshot.child('aName').val()
                               const valProgress = userSnapshot.child('progress').val()
                               const valErrors = userSnapshot.child('errors').val()
