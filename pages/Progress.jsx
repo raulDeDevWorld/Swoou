@@ -43,7 +43,7 @@ function Progress() {
                 <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
                 <div>
                     <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido,': 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span><br/> 
-                    <span className={style.subtitle}>Comparte tus progresos con tu profe.</span><br/>
+                    {userDB.id ? <span className={style.subtitle}>Prof. Id: <span className={style.orange}>{userDB.id}</span></span> : <span className={style.subtitle}>Comparte tus progresos con tu profe.</span>}<br/>
                 </div>
                
                 <div className={style.progressbar}>
@@ -55,7 +55,7 @@ function Progress() {
                     </div>
                 </div>
                 <div>                
-                    <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>Compartir progreso</Button>
+                    <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>{userDB.id ? 'Cambiar Prof. Id' : 'Compartir progreso'}</Button>
                 </div>
             </div> 
     {mode &&        <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
