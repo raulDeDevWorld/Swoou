@@ -1,5 +1,5 @@
 .success {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 20px;
     background-color: #1eff00;
@@ -16,7 +16,7 @@
 
 }
 .error {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 20px;
     background-color: red;
