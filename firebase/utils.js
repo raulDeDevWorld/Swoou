@@ -42,6 +42,10 @@ function getIds(id, setTeacherId, userUid, name ){
                   db.ref(`teachers/${uidTeacher}/students/${userUid}`).set({ 
                          name,
                   })
+                  db.ref(`users/${userUid}`).update({ 
+                        id,
+                 })
+
                   setTeacherId(uidTeacher)
             } else {
                   setTeacherId(false)

@@ -1,7 +1,7 @@
 .container {
     position: absolute;
     height: 100vh;
-    min-height: 400px;
+    min-height: 550px;
     width: 100vw;
 }
 .mainContainer {
@@ -15,7 +15,7 @@ background-color: aliceblue;
     text-align: center;
     
     padding: 10px;
-    height: 360px;
+    height: 430px;
     width: 100vw;
     min-width: 280px;
     max-width: 300px;

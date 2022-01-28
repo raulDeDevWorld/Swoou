@@ -2,7 +2,7 @@ import PageLayout from '../layouts/PageLayout'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
-import Subtitle from '../components/Subtitle'
+import Success from '../components/Success'
 import { getIds } from '../firebase/utils'
 import style from '../styles/Progress.module.css'
 import styleH from '../styles/Home.module.css'
@@ -14,6 +14,7 @@ import { useState } from 'react'
 function Progress() {
     const { user, userDB, id, setTeacherId } = useUser()
     const [mode, setMode] = useState(false)
+    const [success, setSuccess] = useState(false)
     const router = useRouter()
 
     function x () {
@@ -23,6 +24,9 @@ function Progress() {
         e.preventDefault()
         const idInput = e.target.form[0].value
         getIds(idInput, setTeacherId, user.uid, userDB.aName)
+        setSuccess(true)
+        setTimeout(()=>{ setSuccess(false)}, 3000)
+        x()
     }
     function backClick (e) {
         e.preventDefault()
@@ -30,6 +34,7 @@ function Progress() {
     }
 
     return (
+        <>
     <PageLayout>
         {userDB !== 'loading' && 
             <>
@@ -52,7 +57,7 @@ function Progress() {
                     <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>Compartir progreso</Button>
                 </div>
             </div> 
-            <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
+    {mode &&        <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
                 <div className={style.contBlue}>
                     <span onClick={x} className={style.x}>X</span>
                     <img src="/robot.png" className={style.perfil} alt="user photo" />
@@ -62,9 +67,12 @@ function Progress() {
                         <button className={style.modalButton} onClick={nextClick}>ok</button>
                     </form>
                 </div>
-            </div>
+            </div>}
+          
             </>}
     </PageLayout>
+    {success && <Success>Correcto</Success>}
+    </>
     )
 }
 
