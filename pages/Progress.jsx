@@ -30,7 +30,7 @@ function Progress() {
         e.preventDefault()
         router.back()
     }
-    
+    console.log(userDB.id)
     useEffect(() => {
         success == true ? x() : ''
     }, [success]);

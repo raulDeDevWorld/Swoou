@@ -32,14 +32,14 @@
 }
 @keyframes animationRed {
     0% {background-color: transparent;}
-    15% {background-color: red;}
-    85% {background-color: red;}
+    20% {background-color: red;}
+    80% {background-color: red;}
     100% {background-color: transparent;}
   }
   @keyframes animationGreen {
     0% {background-color: transparent;}
-    15% {background-color: #1eff00;}
-    85% {background-color: #1eff00;}
+    20% {background-color: #1eff00;}
+    80% {background-color: #1eff00;}
     100% {background-color: transparent;}
   }
 
