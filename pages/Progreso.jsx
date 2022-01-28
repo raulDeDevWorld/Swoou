@@ -44,9 +44,11 @@ function Progreso() {
                                 {item.progress / 3 - item.errors < 0 && '0%'}
                                 <div className={style.porcent} style={{ background: '#1eff00', width: `${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`, height: '15px' }}> {`${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`}</div>
                             </div>
-                            </div>) : ''}
+                            </div>) : 'No tiene almnos registrados con su id...'} 
 
                     </div>
+                    <button className={style.buttonBack} onClick={backClick}>Atras</button>
+
                 </div>
                 }
         </div>
