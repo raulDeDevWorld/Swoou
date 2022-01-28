@@ -5,24 +5,26 @@ import PageLayout from '../../layouts/PageLayout'
 import { WithAuth } from '../../HOCs/WithAuth'
 import { useUser } from '../../context/Context.js'
 import Subtitle from '../../components/Subtitle'
+import Error from '../../components/Error'
 import Paragraph from '../../components/Paragraph'
 import style from '../../styles/Home.module.css'
 import styleP from '../../styles/Progress.module.css'
+import { useState } from 'react'
 
 
 function Home() { 
-    const { setUserAvatar, avatar, user, userDB } = useUser()
+    const { setUserAvatar, avatar, user, userDB, success, setUserSuccess } = useUser()
     const router = useRouter()
 
     function avatarClick(a) {
         setUserAvatar(a)
     }
     function nextClick() {
-        if(avatar !== null){router.push('/Welcome')}
+        avatar !== null ? router.push('/Welcome') : setUserSuccess(false)
         console.log('click')
     }
     function nextClickProfesor() {
-        if(avatar !== null){router.push('/Profesor')}
+        avatar !== null ? router.push('/Profesor') : setUserSuccess(false)
         console.log('click')
     }
     function practica() {
@@ -38,6 +40,7 @@ function Home() {
         router.push('/Robot')
     }
     return (
+        <>
         <PageLayout>
             {userDB === 'loading' && ''}
             {userDB === null &&
@@ -48,8 +51,8 @@ function Home() {
                     <div className={style.avatarsContainer}>
                         <img src="/ab1.png" alt="avatar" className={`${style.avatarb1} ${avatar == 'ab1' ? style.right: ''}`} onClick={(e)=>{avatarClick('ab1')}}/>
                         <img src="/ab2.png" alt="avatar" className={`${style.avatarb2} ${avatar == 'ab2' ? style.right: ''}`} onClick={(e)=>{avatarClick('ab2')}}/>
-                        <img src="/ag3.png" alt="avatar" className={`${style.avatar} ${avatar == 'ag3' ? style.right: ''}`} onClick={(e)=>{avatarClick('ag3')}}/>
-                        <img src="/ag2.png" alt="avatar" className={`${style.avatar} ${avatar == 'ag2' ? style.right: ''}`} onClick={(e)=>{avatarClick('ag2')}}/>
+                        <img src="/ag3.png" alt="avatar" className={`${style.avatarg1} ${avatar == 'ag3' ? style.right: ''}`} onClick={(e)=>{avatarClick('ag3')}}/>
+                        <img src="/ag2.png" alt="avatar" className={`${style.avatarg2} ${avatar == 'ag2' ? style.right: ''}`} onClick={(e)=>{avatarClick('ag2')}}/>
                     </div> 
                     <div className={style.buttonsContainer}>
                     <Button style='buttonSecondary' click={nextClickProfesor}>Soy profesor</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
@@ -89,6 +92,8 @@ function Home() {
                 </div>
             }
         </PageLayout>
+        {success ==false && <Error>Elija un avatar</Error>}
+        </>
     )
 }
 

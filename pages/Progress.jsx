@@ -3,18 +3,19 @@ import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
 import Success from '../components/Success'
+import Error from '../components/Error'
 import { getIds } from '../firebase/utils'
 import style from '../styles/Progress.module.css'
 import styleH from '../styles/Home.module.css'
 import Button from '../components/Button'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 
 function Progress() {
-    const { user, userDB, id, setTeacherId } = useUser()
+    const { user, userDB, id, setTeacherId, setUserSuccess, success } = useUser()
     const [mode, setMode] = useState(false)
-    const [success, setSuccess] = useState(false)
+
     const router = useRouter()
 
     function x () {
@@ -23,16 +24,16 @@ function Progress() {
     function nextClick (e) {
         e.preventDefault()
         const idInput = e.target.form[0].value
-        getIds(idInput, setTeacherId, user.uid, userDB.aName)
-        setSuccess(true)
-        setTimeout(()=>{ setSuccess(false)}, 3000)
-        x()
+        getIds(idInput, setTeacherId, user.uid, userDB.aName, setUserSuccess)
     }
     function backClick (e) {
         e.preventDefault()
         router.back()
     }
-
+    
+    useEffect(() => {
+        success == true ? x() : ''
+    }, [success]);
     return (
         <>
     <PageLayout>
@@ -71,7 +72,8 @@ function Progress() {
           
             </>}
     </PageLayout>
-    {success && <Success>Correcto</Success>}
+    {success ==true && <Success>Correcto</Success>}
+    {success ==false && <Error>Error</Error>}
     </>
     )
 }

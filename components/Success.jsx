@@ -1,4 +1,4 @@
-import style from '../styles/Success.module.css'
+import style from '../styles/Mode.module.css'
 
 export default function Success (props) {
     return (

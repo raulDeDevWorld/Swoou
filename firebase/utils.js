@@ -34,7 +34,7 @@ function getData(user, setUserData){
       })
 }
 
-function getIds(id, setTeacherId, userUid, name ){
+function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
       ids.on('value', function(snapshot){  
             var b = snapshot.child(id).exists();     
             if (b === true){
@@ -45,10 +45,13 @@ function getIds(id, setTeacherId, userUid, name ){
                   db.ref(`users/${userUid}`).update({ 
                         id,
                  })
-
                   setTeacherId(uidTeacher)
+                  setUserSuccess(true)
+            
             } else {
                   setTeacherId(false)
+                  setUserSuccess(false)
+
             }
       })
 }

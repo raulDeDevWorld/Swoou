@@ -37,7 +37,14 @@
   height: 70px;
   margin: 2px 20px 2px 7px;
 }
-.avatar {
+.avatarg1 {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin: 2px 20px 2px 20px;
+}
+.avatarg2 {
   cursor: pointer;
   width: 60px;
   height: 60px;
@@ -58,7 +65,10 @@
   margin-bottom: 7px;
 }
 .right {
-filter: saturate(2);
+animation: rotar 1.5s alternate;
+filter: saturate(1.5);
+outline: 1px dashed rgb(255, 123, 0);
+border-radius: 5px;
 }
 .pdf {
   color: red;
@@ -69,6 +79,27 @@ filter: saturate(2);
   width: 105%;
   margin-top: 20px;
   padding: 10px;
+}
+
+.avatarb1:hover {
+  filter: saturate(1.5);
+}
+.avatarb2:hover {
+  filter: saturate(1.5);
+}
+.avatarg1:hover {
+  filter: saturate(1.5);
+}
+.avatarg2:hover {
+  filter: saturate(1.5);
+}
+@keyframes rotar{
+  0% {transform: rotate(0deg);}
+  20% {transform: rotate(10deg);}
+  40% {transform: rotate(-15deg);}
+  60% {transform: rotate(15deg);}
+  80% {transform: rotate(-10deg);}
+  100% {transform: rotate(0deg);}
 }
 
 

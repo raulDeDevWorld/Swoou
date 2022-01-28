@@ -9,6 +9,7 @@ export function UserProvider ({ children }) {
 	const [avatar, setAvatar] = useState(null)
 	const [id, setId] = useState(null)
 	const [progress, setProgress] = useState([])
+	const [success, setSuccess] = useState(null)
 
 	function setUserProfile (userProfile) {
 		setUser(userProfile)
@@ -25,6 +26,10 @@ export function UserProvider ({ children }) {
 	function setStudentsProgress (obj) {
 		setProgress(obj)
 	}
+	function setUserSuccess (mode) {
+		setSuccess(mode)
+		setTimeout(()=>{ setSuccess(null)}, 4000)
+	}
 	const value = useMemo(()=>{
 		return ({
 			user,
@@ -32,13 +37,15 @@ export function UserProvider ({ children }) {
 			avatar,
 			id,
 			progress,
+			success,
 			setUserProfile,
 			setUserData,
 			setUserAvatar,
 			setTeacherId,
 			setStudentsProgress,
+			setUserSuccess,
 		})
-	}, [avatar, user, userDB, id])
+	}, [avatar, user, userDB, id, success])
 
 	return (
 		<UserContext.Provider value={value} >
