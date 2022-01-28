@@ -46,10 +46,12 @@
 
 @media (max-height: 590px) { 
     .success {
+        position: absolute;
         margin-top: 500px;
         bottom: auto;
     }
     .error {
+        position: absolute;
         margin-top: 500px;
         bottom: auto;
     }
