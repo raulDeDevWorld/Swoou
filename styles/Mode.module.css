@@ -12,6 +12,7 @@
     animation-name: animationGreen;
     animation-duration: 4s;
     animation-delay: 0;
+    z-index: 1000000000000;
 
 }
 .error {
@@ -28,7 +29,7 @@
     animation-name: animationRed;
     animation-duration: 4s;
     animation-delay: 0;
-
+    z-index: 1000000000000;
 }
 @keyframes animationRed {
     0% {background-color: transparent;}
@@ -43,13 +44,13 @@
     100% {background-color: transparent;}
   }
 
-@media (max-height: 640px) { 
+@media (max-height: 590px) { 
     .success {
-        margin-top: 550px;
+        margin-top: 500px;
         bottom: auto;
     }
     .error {
-        margin-top: 550px;
+        margin-top: 500px;
         bottom: auto;
     }
 }

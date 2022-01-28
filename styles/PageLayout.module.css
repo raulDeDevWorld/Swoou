@@ -34,6 +34,7 @@ background-color: aliceblue;
     background-size: contain;
     background-position: left bottom;
     z-index: 100;    
+    pointer-events: none;
 }
 .button {
     position: absolute;
@@ -51,8 +52,9 @@ background-color: aliceblue;
     width: 120px;
     border: 2px solid #d6d6d6;
     border-radius: 5px;    
+    pointer-events: auto;
 }
-@media (max-height: 360px) { 
+@media (max-height: 550px) { 
     .vector {
         position: absolute;
         z-index: 0;
