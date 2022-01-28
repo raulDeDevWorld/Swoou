@@ -66,15 +66,13 @@ if (objet !== null) {console.log(objet.nOne)}
         {userDB !== 'loading' &&
             <>
             <div className={style.container}>
-
+                 <div className={style.contRE}>
+                    <span className={style.e}>{countE}</span>
+                    <span className={style.r}>{countR}</span>
+                </div>
                 <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
                 <div className={style.textCont}>
                     <span className={style.white}>Nombre: {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span>
-                    <div className={style.contRE}>
-                    <span className={style.e}>{countE}</span>
-                    <span className={style.r}>{countR}</span>
-                    </div>
-                
                 </div>
                 {objet !== null &&
                 <>
