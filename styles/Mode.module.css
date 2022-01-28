@@ -43,13 +43,13 @@
     100% {background-color: transparent;}
   }
 
-@media (max-height: 590px) { 
+@media (max-height: 640px) { 
     .success {
-        margin-top: 500px;
+        margin-top: 550px;
         bottom: auto;
     }
     .error {
-        margin-top: 500px;
+        margin-top: 550px;
         bottom: auto;
     }
 }

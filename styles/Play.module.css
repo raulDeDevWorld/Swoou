@@ -82,8 +82,8 @@
 }
 .contRE {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: -5px;
+    right: 0;
     display: inline-block;
 }
 .e {
