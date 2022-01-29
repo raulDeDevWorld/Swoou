@@ -178,6 +178,9 @@ function dataUser (aName, grade, school, avatar, cell, profesor) {
             cell,
             profesor,
             id: null,
+            play: 0,
+            robot: 0,
+            date: null,
       })
 }
 function setDataTeachers (aName, grade, school, avatar, cell, profesor) {

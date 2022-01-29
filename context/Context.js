@@ -45,7 +45,7 @@ export function UserProvider ({ children }) {
 			setStudentsProgress,
 			setUserSuccess,
 		})
-	}, [avatar, user, userDB, id, success])
+	}, [avatar, user, userDB, id, success, progress])
 
 	return (
 		<UserContext.Provider value={value} >

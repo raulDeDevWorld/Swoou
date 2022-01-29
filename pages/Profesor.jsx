@@ -18,14 +18,10 @@ function Profesor () {
         const grade = e.target.form[2].value
         const cell = e.target.form[3].value
         const profesor = true
-        if(aName.length > 2 && grade.length > 2 && school.length >2 && cell.length >7){
+        if(aName.length > 2 && grade.length > 5 && school.length > 3 && cell.length > 7){
             setDataTeachers(aName, grade, school, avatar, cell, profesor)  
             router.push('/Home')
-            console.log('log pro')
         } 
-        console.log(aName.length)
-        console.log(grade.length)
-        console.log(school.length)
 
     }
     function backClick (e) {

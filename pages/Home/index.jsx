@@ -39,6 +39,7 @@ function Home() {
     function robot () {
         router.push('/Robot')
     }
+    console.log('hola')
     return (
         <>
         <PageLayout>

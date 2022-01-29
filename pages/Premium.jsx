@@ -20,7 +20,7 @@ function Premium() {
         const code = e.target.form[0].value
         getCode(code, user.uid, setUserSuccess)
 
-console.log(user.uid)
+
    
 
     }
@@ -34,7 +34,7 @@ console.log(user.uid)
     return (
         <>
     <PageLayout>
-        <div className={style.container}>
+        {userDB.premium !== null && <div className={style.container}>
             <PremiumC></PremiumC>
              <ul className={style.list}>
                 <li className={style.li}>Play ilimitado <img src='/right.svg' className={style.right} alt='rigth'></img></li>
@@ -43,18 +43,21 @@ console.log(user.uid)
                 <li className={style.li}>No publicidad <img src='/right.svg' className={style.right} alt='rigth'></img></li>
                 <li className={style.li}>Soporte Tecnico <img src='/right.svg' className={style.right} alt='rigth'></img></li>
             </ul>
-                {userDB.premium === false && <form className={style.form}>
-                    <input className={style.input} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
-                    <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
-                </form>}
-                {userDB.premium !== false && <div className={style.form}>
+                {userDB.premium !== false &&
+                <div className={style.form}>
                     <span className={style.span}> Premium Code:</span>
                     <span className={style.code}> {userDB.premium} </span>
                     <Button style='buttonPrimary' click={backClick}>atras</Button>
-                </div>}
+                </div>  }
+                
+                        {userDB.premium == false && <form className={style.form}>
+                            <input className={style.input} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
+                            <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+                    </form>}
+               
              
          <a className={style.enlace}>Terminos y condiciones Swoou Premium</a> 
-        </div>
+        </div>}
     </PageLayout>
      {success ==true && <Success>Correcto</Success>}
      {success ==false && <Error>Error</Error>}
