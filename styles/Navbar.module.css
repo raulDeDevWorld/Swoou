@@ -118,6 +118,7 @@
     background-position: right top;
     height: 25px;
     width: 32px;
+    z-index: 100000000000000000000000000;
   }
   .menu:hover {
     animation: rotar 1.5s alternate;

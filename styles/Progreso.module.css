@@ -32,6 +32,7 @@
     border-radius: 5px;
     font-size: 16px;
     color: #1eff00;
+    min-height: 100px;
 }
 .item {
 
