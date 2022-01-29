@@ -63,7 +63,7 @@ function Home() {
            
             { userDB !== null && userDB !== 'loading' && userDB.profesor !== true &&
                 <div className={style.containerTwo}>
-                    {userDB.premium === true && <span className={style.subtitle}> Premium</span>}
+                    {userDB.premium !== false && <span className={style.subtitle}> Premium</span>}
                     {userDB.premium === false && <span className={style.subtitle}>Free mode</span>}
                  
                     <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />

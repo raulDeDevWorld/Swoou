@@ -11,6 +11,7 @@ const providerGoogle = new firebase.auth.GoogleAuthProvider();
 
 const db = firebase.database();
 const data = firebase.database().ref('/users');
+const premiumCode = firebase.database().ref('/premiumCode');
 const dataTeachers = firebase.database().ref('/teachers');
 const ids = firebase.database().ref('/ids')
 
@@ -55,6 +56,28 @@ function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
             }
       })
 }
+function getCode(code, uid, setUserSuccess){
+      premiumCode.once('value', function(snapshot){  
+            var b = snapshot.child(code).exists();                
+            if (b === true ){
+                  var val = snapshot.child(code).val();
+                  if(val == false) {
+                        db.ref(`/premiumCode/${code}`).set(true)
+                        db.ref(`/users/${uid}/premium`).set(code)
+                        setUserSuccess(true)
+                  }else{
+                        console.log('ya esta en uso')
+                        setUserSuccess(false)
+                  }
+            } else {
+               console.log('no exist')
+               setUserSuccess(false)
+            }
+      })
+}
+
+
+
 function getProgress (setStudentsProgress, uid ){
       dataTeachers.on('value', function(snapshot){  
             var b = snapshot.child(`${uid}/students`).exists(); 
@@ -191,4 +214,4 @@ function errorsUpdate (n) {
       db.ref(`users/${uid}`).update({errors: n,})
 }
 
-export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress }
+export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode }
