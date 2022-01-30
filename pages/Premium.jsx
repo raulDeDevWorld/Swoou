@@ -43,20 +43,23 @@ function Premium() {
                 <li className={style.li}>No publicidad <img src='/right.svg' className={style.right} alt='rigth'></img></li>
                 <li className={style.li}>Soporte Tecnico <img src='/right.svg' className={style.right} alt='rigth'></img></li>
             </ul>
-                {userDB.premium !== false &&
+                {(`${userDB.premium}`).length > 16 && 
                 <div className={style.form}>
                     <span className={style.span}> Premium Code:</span>
                     <span className={style.code}> {userDB.premium} </span>
-                    <Button style='buttonPrimary' click={backClick}>atras</Button>
+                    <Button style='buttonPrimary' click={backClick}>atras</Button> <br />
+                    <a className={style.enlace}>Terminos y condiciones Swoou Premium</a> 
+
                 </div>  }
                 
                         {userDB.premium == false && <form className={style.form}>
                             <input className={style.input} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
                             <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+                            <a className={style.enlace}>Terminos y condiciones Swoou Premium</a> 
+
                     </form>}
                
              
-         <a className={style.enlace}>Terminos y condiciones Swoou Premium</a> 
         </div>}
     </PageLayout>
      {success ==true && <Success>Correcto</Success>}
