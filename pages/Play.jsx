@@ -5,6 +5,7 @@ import PageLayout from '../layouts/PageLayout'
 import { useUser } from '../context/Context.js'
 import { progressUpdate, errorsUpdate } from '../firebase/utils'
 import { useRouter } from 'next/router'
+import Error from '../components/Error'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
 import styleH from '../styles/Home.module.css'
@@ -12,10 +13,11 @@ import styleH from '../styles/Home.module.css'
 
 
 function Play () {
-    const { userDB, avatar } = useUser()
+    const { userDB, avatar, setUserSuccess, success } = useUser()
     const [objet, setObjet] = useState(null)
     const [countR, setCountR] = useState(0)
     const [countE, setCountE] = useState(0)
+   
 
     const router = useRouter()
     function obj (){
@@ -41,6 +43,11 @@ function Play () {
     }
  
     function select (n) {
+
+        if (userDB.premium === false && userDB.progress + userDB.errors == 30) {
+            setUserSuccess(false) 
+        return}
+
         const p = userDB.progress
         const e = userDB.errors
         const o ={
@@ -89,6 +96,7 @@ if (objet !== null) {console.log(objet.nOne)}
                 </>}
            </div>
            </>}
+           {success == false && <Error>Agotaste tu modo prueba</Error>}
         </div>
 
     )

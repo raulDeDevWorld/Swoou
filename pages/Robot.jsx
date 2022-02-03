@@ -6,6 +6,7 @@ import { useUser } from '../context/Context.js'
 import { progressUpdate, errorsUpdate } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
+import Error from '../components/Error'
 import style from '../styles/Robot.module.css'
 import styleH from '../styles/Home.module.css'
 import {rob} from '../utils/robot'
@@ -13,7 +14,7 @@ import {rob} from '../utils/robot'
 
 
 function Robot() {
-    const { userDB, avatar } = useUser()
+    const { userDB, avatar, setUserSuccess, success } = useUser()
     const [mode, setMode] = useState('multiplicacion')
     const [values, setValues] = useState({ firstValue: '', secondValue: '' })
     const [res, setRes] = useState(false)
@@ -29,6 +30,9 @@ function Robot() {
     }
     function handleInputChange(e) {
         e.preventDefault()
+        if (userDB.premium === false && userDB.progress + userDB.errors == 30) {
+            setUserSuccess(false) 
+        return}
         const name = e.target.name
         const value = e.target.value
         setValues({ ...values, [name]: value })
@@ -83,6 +87,7 @@ function Robot() {
                     </div>
 
                 </>}
+                {success == false && <Error>Agotaste tu modo prueba</Error>}
         </div>
 
     )
