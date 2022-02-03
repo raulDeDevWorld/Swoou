@@ -19,11 +19,13 @@ function getData(user, setUserData){
       data.on('value', function(snapshot){  
             var b = snapshot.child(user.uid).exists();                
             if (b === true){
+                  console.log(b)
                   let obj = snapshot.val() 
                   setUserData(obj[user.uid])
             } else {
                   dataTeachers.on('value', function(snapshot){  
-                        var b = snapshot.child(user.uid).exists();                
+                        var b = snapshot.child(user.uid).exists();
+                        console.log(b)                
                         if (b === true){
                               let obj = snapshot.val() 
                               setUserData(obj[user.uid])
@@ -31,7 +33,9 @@ function getData(user, setUserData){
                               setUserData(null)
                         }
                   })
-            }
+            } 
+
+            
       })
 }
 
@@ -208,13 +212,15 @@ function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
 }
 
 
-function progressUpdate (n) {
+function progressUpdate (n, account) {
+      const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
-      db.ref(`users/${uid}`).update({progress: n,})
+      db.ref(`${us}/${uid}`).update({progress: n,})
 }
-function errorsUpdate (n) {
+function errorsUpdate (n, account) {
+      const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
-      db.ref(`users/${uid}`).update({errors: n,})
+      db.ref(`${us}/${uid}`).update({errors: n,})
 }
 
 export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode }

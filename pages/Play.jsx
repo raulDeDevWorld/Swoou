@@ -55,7 +55,7 @@ function Play () {
         }
         setObjet({...objet, ...o,})
         setTimeout(obj, 1500)
-        n == objet.nFour ? progressUpdate(p+1) : errorsUpdate(e+1)
+        n == objet.nFour ? progressUpdate(p+1, userDB.profesor) : errorsUpdate(e+1, userDB.profesor)
         n == objet.nFour ? setCountR(countR+1) : setCountE(countE+1)
     }
 

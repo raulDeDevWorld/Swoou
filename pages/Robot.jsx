@@ -39,6 +39,9 @@ function Robot() {
         setObj(null)
     }
     function resolver() {
+        if (userDB.premium === false && userDB.progress + userDB.errors == 30) {
+            setUserSuccess(false) 
+        return}
         setRes(true)
     }
   
