@@ -10,7 +10,7 @@
 .tiket {
     position: absolute;
     left: -10px;
-    top: -5px;
+    top: -4px;
     background-image: url(../public/tiket.png);
     width: auto;
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@
   .tiketTwo {
     position: absolute;
     left: -10px;
-    top: 207px;
+    top: 208px;
     background-image: url(../public/tiket.png);
     width: auto;
     background-repeat: no-repeat;
