@@ -7,7 +7,8 @@ function PremiumPluss() {
     const {  userDB } = useUser()
     const router = useRouter()
     function next () {
-        router.push('/Premium')
+        router.push("https://api.whatsapp.com/send?phone=+59173447725&text=buenas,%20me%20gustaria%20adquirir%20Swoou%20Premium%20Pluss%20")
+
     }  
     return (
             <div className={style.box} onClick={next}>
