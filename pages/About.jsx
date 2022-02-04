@@ -1,15 +1,24 @@
 import PageLayout from '../layouts/PageLayout'
 import { WithAuth } from '../HOCs/WithAuth'
-import style from '../styles/Home.module.css'
+import Subtitle from '../components/Subtitle'
+import Link from 'next/link'
+import style from '../styles/About.module.css'
 
-function Universidades () {
+function About() {
     return (
-    <PageLayout>
-        <div className={style.container}>
-            Test
-        </div>
-    </PageLayout>
+        <PageLayout>
+            <div className={style.container}>
+                <h3 className={style.subtitle}>Acerca de:</h3>
+                <p className={style.paragraph}>
+                    Swoou Math es un una plataforma de educación mantenida por Swoou Company, que intenta coadyubar en el proceso de enseñanza y aprendizaje de matemáticas a niños y niñas que se estan inciando en la etapa escolar. <br />
+                    Deseas saber mas acerca de nuestras <br />
+                    <Link href="/Policy">
+                        <a className={style.policy}>Politicas de Servicio?</a>
+                    </Link><br />
+                </p>
+            </div>
+        </PageLayout>
     )
 }
 
-export default WithAuth(Universidades)
+export default WithAuth(About)

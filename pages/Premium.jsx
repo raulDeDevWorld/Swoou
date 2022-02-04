@@ -33,7 +33,9 @@ function Premium() {
         router.push("https://api.whatsapp.com/send?phone=+59173447725&text=Buenas,%20me%20gustaria%20adquirir%20Swoou%20Premium...%20%20")
     }
 
-
+    function enlace() {
+        router.push("/Policy")
+    }
 
     return (
         <>
@@ -56,7 +58,7 @@ function Premium() {
                             <div className={style.tiketTwo}>19.50 BOB</div>
                             <div className={style.spaceDiv}>
                                 <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={next}>Adquirirlo ya</Button>
-                                <a className={style.enlace}>Terminos y condiciones Swoou Premium</a> <br />
+                                <a className={style.enlace} onClick={enlace}>Terminos y condiciones Swoou Premium</a> <br />
                                 <a className={style.enlace} onClick={x}>Ya cuento con acceso a Swoou Premium</a>
                             </div>
                         </>
@@ -67,7 +69,7 @@ function Premium() {
                             <span className={style.span}> Premium Code:</span>
                             <span className={style.code}> {userDB.premium} </span>
                             <Button style='buttonPrimary' click={backClick}>atras</Button> <br />
-                            <a className={style.enlace}>Terminos y condiciones Swoou Premium</a>
+                            <a className={style.enlace} onClick={enlace}>Terminos y condiciones Swoou Premium</a>
                         </div>}
                 </div>}
                 {mode && <div className={`${style.modalContainer} ${mode == true ? style.true : ''}`}>
