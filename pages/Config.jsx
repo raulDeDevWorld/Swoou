@@ -17,12 +17,24 @@ function Config () {
     const { setUserAvatar, user, userDB, success, setUserSuccess } = useUser()
     const [mode, setMode] = useState(false)
     function avatar () {
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
         router.push('/ConfigAvatar')
     }
     function data () {
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
         router.push('/ConfigPerfil')
     }
     function reset () {
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
         x()
     }
     function back () {
@@ -67,7 +79,7 @@ function Config () {
     </PageLayout>
 
 {success == true && <Success>Correcto</Success>}
-{success == false && <Error>Error</Error>}
+{success == false && <Error>Hazte Prmium para modificar datos</Error>}
 </>
     )
 }

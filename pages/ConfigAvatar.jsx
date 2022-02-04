@@ -36,7 +36,7 @@ function ConfigAvatar() {
                     <div className={style.container}>
                         <span className={style.orange}>Config Mode</span>
                         <img src="/robot.png" className={style.robot} alt="user photo" />
-                        <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Hola,' : 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span><br />
+                        <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Hola,' : 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span>
                      <span className={style.paragraph}>Elige tu nuevo un avatar </span>
                     <div className={style.avatarsContainer}>
                         <img src="/ab1.png" alt="avatar" className={`${style.avatarb1} ${avatar == 'ab1' ? style.right: ''}`} onClick={(e)=>{avatarClick('ab1')}}/>
