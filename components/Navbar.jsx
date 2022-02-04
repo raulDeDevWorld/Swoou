@@ -24,15 +24,6 @@ export default function Navbar () {
       <Link href="/Home">
         <a className={`${style.link} ${pathname == "/Home" ? style.active : ''}`}>Home</a>
       </Link>
-      <Link href="/Cursos">
-        <a className={`${style.link} ${pathname == "/Cursos" ? style.active : ''}`}>Cursos</a>
-      </Link>
-      <Link href="/Materiales">
-        <a className={`${style.link} ${pathname == "/Materiales" ? style.active : ''}`}>Materiales</a>
-      </Link>
-      <Link href="/UnProfesor">
-        <a className={`${style.link} ${pathname == "/UnProfesor" ? style.active : ''}`}>Un profesor</a>
-      </Link>
       <Link href="/About">
         <a className={`${style.link} ${pathname == "/About"? style.active : ''}`}>Acerca de</a>
       </Link>
