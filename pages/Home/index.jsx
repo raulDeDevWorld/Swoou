@@ -28,7 +28,8 @@ function Home() {
         console.log('click')
     }
     function practica() {
-        router.push('https://drive.google.com/file/d/1WLbD5o0s431Y7LG-rJqud5t_iDKxGnpu/view?usp=sharing')
+        userDB.premium == true ? router.push('https://drive.google.com/file/d/1WLbD5o0s431Y7LG-rJqud5t_iDKxGnpu/view?usp=sharing'):
+        router.push('https://drive.google.com/file/d/1YbG3O2cjmmw732X-XvPDwUqCkJpX9Ifp/view?usp=sharing')     
     }
     function progress() {
         userDB.profesor == true ? router.push('/Progreso'): router.push('/Progress')
