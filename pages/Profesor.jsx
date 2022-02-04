@@ -6,10 +6,12 @@ import { setDataTeachers } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Home.module.css'
+import Error from '../components/Error'
+
 
 function Profesor () {
     const router = useRouter()
-    const { avatar } = useUser()
+    const { avatar, success, setUserSuccess } = useUser()
 
     function nextClick (e) {
         e.preventDefault()
@@ -21,7 +23,9 @@ function Profesor () {
         if(aName.length > 2 && grade.length > 5 && school.length > 3 && cell.length > 7){
             setDataTeachers(aName, grade, school, avatar, cell, profesor)  
             router.push('/Home')
-        } 
+        }  else {
+            setUserSuccess(false)
+        }
 
     }
     function backClick (e) {
@@ -30,6 +34,7 @@ function Profesor () {
     }
 
     return (
+        <>
     <PageLayout>
         {avatar !== null &&
             <div className={style.containerTwo}>
@@ -60,6 +65,8 @@ function Profesor () {
             </div>
             }
     </PageLayout>
+       {success ==false && <Error>Llene todo formulario correctamente</Error>}
+       </>
     )
 }
 

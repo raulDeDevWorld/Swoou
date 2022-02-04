@@ -222,5 +222,15 @@ function errorsUpdate (n, account) {
       const uid = auth.currentUser.uid
       db.ref(`${us}/${uid}`).update({errors: n,})
 }
+function avatarUpdate (n, account) {
+      const us = account == true ? 'teachers' : 'users' 
+      const uid = auth.currentUser.uid
+      db.ref(`${us}/${uid}`).update({avatar: n,})
+}
+function progressReset (account) {
+      const us = account == true ? 'teachers' : 'users' 
+      const uid = auth.currentUser.uid
+      db.ref(`${us}/${uid}`).update({progress: 0, errors: 0,})
+}
 
-export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode }
+export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset }

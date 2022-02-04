@@ -6,10 +6,13 @@ import { dataUser } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Home.module.css'
+import Error from '../components/Error'
+
 
 function Welcome () {
     const router = useRouter()
-    const { avatar } = useUser()
+    const { avatar, success, setUserSuccess } = useUser()
+
 
     function nextClick (e) {
         e.preventDefault()
@@ -23,10 +26,9 @@ function Welcome () {
             dataUser(aName, grade, school, avatar, cell, profesor)  
             router.push('/Home')
             console.log('log pro')
-        } 
-        console.log(aName.length)
-        console.log(grade.length)
-        console.log(school.length)
+        } else {
+            setUserSuccess(false)
+        }
 
     }
     function backClick (e) {
@@ -35,7 +37,9 @@ function Welcome () {
     }
 
     return (
+    <>
     <PageLayout>
+        
         {avatar !== null &&
             <div className={style.containerTwo}>
                 <img src={`/${avatar}.png`} className={style.perfil} alt="avatar" />
@@ -61,6 +65,8 @@ function Welcome () {
             </div>
             }
     </PageLayout>
+    {success ==false && <Error>Llene todo formulario correctamente</Error>}
+    </>
     )
 }
 

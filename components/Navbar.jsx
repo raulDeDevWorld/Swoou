@@ -24,6 +24,9 @@ export default function Navbar () {
       <Link href="/Home">
         <a className={`${style.link} ${pathname == "/Home" ? style.active : ''}`}>Home</a>
       </Link>
+      <Link href="/Config">
+        <a className={`${style.link} ${pathname == "/Config"? style.active : ''}`}>Configuración</a>
+      </Link>
       <Link href="/About">
         <a className={`${style.link} ${pathname == "/About"? style.active : ''}`}>Acerca de</a>
       </Link>
