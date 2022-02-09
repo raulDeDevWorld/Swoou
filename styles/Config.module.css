@@ -156,7 +156,7 @@
     justify-content: center;
     align-items: center;
     width: 95%;
-    height: 270px;
+    height: 350px;
     border-radius: 10px;
     color: white;
   }
@@ -167,6 +167,7 @@
     padding: 5px;
     width: 97%;
     margin-top: 20px;
+    margin-bottom: 10px;
   }
   .modalButton {
     border: none;
@@ -200,3 +201,23 @@
     color: orange;
     cursor: pointer;
   }
+  .boxSelect {
+    position: relative;
+    height: 20px;
+    width: 100%;
+  }
+  .textReset {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: block;
+    color: black;
+    cursor: pointer;
+    margin: 2px;
+  }
+  .space {
+    position: absolute;
+    right: 80px;
+  }
+ 

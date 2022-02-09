@@ -272,10 +272,15 @@ function avatarUpdate (n, account) {
       const uid = auth.currentUser.uid
       db.ref(`${us}/${uid}`).update({avatar: n,})
 }
-function progressReset (account) {
+function progressReset (account, s, r, m, d) {
       const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
-      db.ref(`${us}/${uid}`).update({progress: 0, errors: 0,})
+      if(s == true){ db.ref(`${us}/${uid}`).update({s: 0, es: 0,}) }
+      if(r == true){ db.ref(`${us}/${uid}`).update({r: 0, er: 0,}) }
+      if(m == true){ db.ref(`${us}/${uid}`).update({m: 0, em: 0,}) }
+      if(d == true){ db.ref(`${us}/${uid}`).update({d: 0, ed: 0,}) }
+
+     
 }
 
 export { auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }
