@@ -48,34 +48,34 @@ function Progreso() {
                             <div onClick={()=>manageVisibility(i)} className={style.item} key={i}>{(`${item.name}`).split(' ')[0].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[0].slice (1)}  {(`${item.name}`).split.length == 3 ? (`${item.name}`).split(' ')[2].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[2].slice(1): (`${item.name}`).split(' ')[1].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[1].slice (1)}
                                 <div className={style.progressPorcent}>
 
-                                    {Math.floor(Math.floor(item.s / 3 - item.es) 
+                                    {Math.round((Math.floor(item.s / 3 - item.es) 
                                      + Math.floor(item.r / 3 - item.er)
                                      + Math.floor(item.m / 3 - item.em)
-                                     + Math.floor(item.d / 3 - item.ed)/4) <= 0 && '0%'}
+                                     + Math.floor(item.d / 3 - item.ed))/4) <= 0 && '0%'}
 
-                                    {Math.floor(Math.floor(item.s / 3 - item.es) 
+                                    {Math.round((Math.floor(item.s / 3 - item.es) 
                                      + Math.floor(item.r / 3 - item.er)
                                      + Math.floor(item.m / 3 - item.em)
-                                     + Math.floor(item.d / 3 - item.ed)/4) > 0 &&
+                                     + Math.floor(item.d / 3 - item.ed))/4) > 0 &&
 
                                      <div className={style.porcent} style={{ background: '#1eff00', width: `${
-                                        Math.floor(Math.floor(item.s / 3 - item.es) 
+                                        Math.round((Math.floor(item.s / 3 - item.es) 
                                         + Math.floor(item.r / 3 - item.er)
                                         + Math.floor(item.m / 3 - item.em)
-                                        + Math.floor(item.d / 3 - item.ed)/4) < 0 ? '0' : 
-                                     Math.floor(Math.floor(item.s / 3 - item.es) 
+                                        + Math.floor(item.d / 3 - item.ed))/4) < 0 ? '0' : 
+                                     Math.round((Math.floor(item.s / 3 - item.es) 
                                      + Math.floor(item.r / 3 - item.er)
                                      + Math.floor(item.m / 3 - item.em)
-                                     + Math.floor(item.d / 3 - item.ed)/4)}%`, height: '15px' }}> 
-                                     {`${Math.floor(Math.floor(item.s / 3 - item.es) 
+                                     + Math.floor(item.d / 3 - item.ed))/4)}%`, height: '15px' }}> 
+                                     {`${Math.round((Math.floor(item.s / 3 - item.es) 
                                      + Math.floor(item.r / 3 - item.er)
                                      + Math.floor(item.m / 3 - item.em)
-                                     + Math.floor(item.d / 3 - item.ed)/4) < 0 ? '0'
+                                     + Math.floor(item.d / 3 - item.ed))/4) < 0 ? '0'
 
-                                     : Math.floor(Math.floor(item.s / 3 - item.es) 
+                                     : Math.round((Math.floor(item.s / 3 - item.es) 
                                      + Math.floor(item.r / 3 - item.er)
                                      + Math.floor(item.m / 3 - item.em)
-                                     + Math.floor(item.d / 3 - item.ed)/4)}%`}</div>}
+                                     + Math.floor(item.d / 3 - item.ed))/4)}%`}</div>}
                                 </div>
                                 <div className={`${style.viewGrid} ${visibility === i ? style.visibility: ''}`}>
                                 <div className={style.grid}>
