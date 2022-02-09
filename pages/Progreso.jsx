@@ -30,10 +30,10 @@ function Progreso() {
     function getDataProgress () {
         getProgress(setStudentsProgress, user.uid)
     }
-    function manageVisibility () {
-        setVisibility(!visibility)
+    function manageVisibility (i) {
+        visibility === i ? setVisibility(null):setVisibility(i)
     }
-    console.log(progress)
+    console.log(visibility)
     useEffect(() => {
         getDataProgress()
     }, []);
@@ -77,7 +77,7 @@ function Progreso() {
                                      + Math.floor(item.m / 3 - item.em)
                                      + Math.floor(item.d / 3 - item.ed)/4)}%`}</div>}
                                 </div>
-                                <div className={`${style.viewGrid} ${visibility == i ? style.visibility: ''}`}>
+                                <div className={`${style.viewGrid} ${visibility === i ? style.visibility: ''}`}>
                                 <div className={style.grid}>
                                     <ProgressC progress={item.s} errors={item.es} text={'Suma'}></ProgressC>
                                     <ProgressC progress={item.r} errors={item.er} text={'Resta'}></ProgressC>
