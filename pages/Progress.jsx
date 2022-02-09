@@ -46,13 +46,15 @@ function Progress() {
                     <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido,': 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span> 
                     {userDB.id ? <span className={style.subtitle}>Prof. Id: <span className={style.orange}>{userDB.id}</span></span> : <span className={style.subtitle}>Comparte tus progresos con tu profe.</span>}<br/>
                 </div>
-               
-                <div className={style.grid}>
-                    <ProgressC progress={userDB.s} errors={userDB.es} text={'Suma'}></ProgressC>
-                    <ProgressC progress={userDB.r} errors={userDB.er} text={'Resta'}></ProgressC>
-                    <ProgressC progress={userDB.m} errors={userDB.em} text={'Multiplicación'}></ProgressC>
-                    <ProgressC progress={userDB.d} errors={userDB.ed} text={'División'}></ProgressC> 
-                </div>
+            
+                    <div className={style.grid}>
+                        <ProgressC progress={userDB.s} errors={userDB.es} text={'Suma'}></ProgressC>
+                        <ProgressC progress={userDB.r} errors={userDB.er} text={'Resta'}></ProgressC>
+                        <ProgressC progress={userDB.m} errors={userDB.em} text={'Multiplicación'}></ProgressC>
+                        <ProgressC progress={userDB.d} errors={userDB.ed} text={'División'}></ProgressC> 
+                    </div>                   
+          
+
                 <div className={style.buttons}>                
                     <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>{userDB.id ? 'Cambiar Prof. Id' : 'Compartir progreso'}</Button>
                 </div>

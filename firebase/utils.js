@@ -90,12 +90,24 @@ function getProgress (setStudentsProgress, uid ){
                   snapshot.child(`${uid}/students`).forEach(function(childSnapshot) { 
                         db.ref(`/users/${childSnapshot.key}`).once('value', function(userSnapshot){
                               const valName = userSnapshot.child('aName').val()
-                              const valProgress = userSnapshot.child('progress').val()
-                              const valErrors = userSnapshot.child('errors').val()
+                              const s = userSnapshot.child('s').val()
+                              const r = userSnapshot.child('r').val()
+                              const m = userSnapshot.child('m').val()
+                              const d = userSnapshot.child('d').val()
+                              const es = userSnapshot.child('es').val()
+                              const er = userSnapshot.child('er').val()
+                              const em = userSnapshot.child('em').val()
+                              const ed = userSnapshot.child('ed').val()
                               const obj = {
                                     name: valName,
-                                    progress: valProgress,
-                                    errors: valErrors,
+                                    s,
+                                    r,
+                                    m,
+                                    d,
+                                    es,
+                                    er,
+                                    em,
+                                    ed,
                               }
                              array.push(obj)
                           }) 

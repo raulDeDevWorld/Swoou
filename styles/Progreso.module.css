@@ -42,6 +42,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     margin: 10px 0;
     color: #1eff00;
  
@@ -76,6 +77,21 @@
     border-radius: 10px;
     margin-top: 15px;
 }
+.viewGrid {
+    display: none;
+    width: 100%;
+}
+.visibility {
+    display: inline-block;
+}
+.grid {
+position: relative;
+right: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
 @media (orientation: landscape) and (min-width: 600px) { 
     .progressPorcent {
         width: 60%;

@@ -6,11 +6,13 @@ import Subtitle from '../components/Subtitle'
 import { getProgress } from '../firebase/utils'
 import style from '../styles/Progreso.module.css'
 import Button from '../components/Button'
+import ProgressC from '../components/ProgressC'
 import { useEffect, useState } from 'react'
 
 function Progreso() {
     const { user, userDB, id, setTeacherId, setStudentsProgress, progress } = useUser()
     const [mode, setMode] = useState(false)
+    const [visibility, setVisibility] = useState(null)
     const router = useRouter()
 
     function x () {
@@ -28,6 +30,9 @@ function Progreso() {
     function getDataProgress () {
         getProgress(setStudentsProgress, user.uid)
     }
+    function manageVisibility () {
+        setVisibility(!visibility)
+    }
     console.log(progress)
     useEffect(() => {
         getDataProgress()
@@ -40,14 +45,50 @@ function Progreso() {
                     <p className={style.greeting}> Hola, {`${userDB.aName.split(' ')[0].toUpperCase()}`} controla el progreso de tus alumnos desde aqui...</p>
                     <div className={style.containerMap}>
                         {progress !== null ? progress.map((item, i) =>
-                            <div className={style.item} key={i}>{item.name}
+                            <div onClick={()=>manageVisibility(i)} className={style.item} key={i}>{(`${item.name}`).split(' ')[0].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[0].slice (1)}  {(`${item.name}`).split.length == 3 ? (`${item.name}`).split(' ')[2].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[2].slice(1): (`${item.name}`).split(' ')[1].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[1].slice (1)}
                                 <div className={style.progressPorcent}>
-                                    {item.progress / 3 - item.errors <= 0 && '0%'}
-                                    {item.progress / 3 - item.errors > 0 && <div className={style.porcent} style={{ background: '#1eff00', width: `${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`, height: '15px' }}> {`${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`}</div>}
+
+                                    {Math.floor(Math.floor(item.s / 3 - item.es) 
+                                     + Math.floor(item.r / 3 - item.er)
+                                     + Math.floor(item.m / 3 - item.em)
+                                     + Math.floor(item.d / 3 - item.ed)/4) <= 0 && '0%'}
+
+                                    {Math.floor(Math.floor(item.s / 3 - item.es) 
+                                     + Math.floor(item.r / 3 - item.er)
+                                     + Math.floor(item.m / 3 - item.em)
+                                     + Math.floor(item.d / 3 - item.ed)/4) > 0 &&
+
+                                     <div className={style.porcent} style={{ background: '#1eff00', width: `${
+                                        Math.floor(Math.floor(item.s / 3 - item.es) 
+                                        + Math.floor(item.r / 3 - item.er)
+                                        + Math.floor(item.m / 3 - item.em)
+                                        + Math.floor(item.d / 3 - item.ed)/4) < 0 ? '0' : 
+                                     Math.floor(Math.floor(item.s / 3 - item.es) 
+                                     + Math.floor(item.r / 3 - item.er)
+                                     + Math.floor(item.m / 3 - item.em)
+                                     + Math.floor(item.d / 3 - item.ed)/4)}%`, height: '15px' }}> 
+                                     {`${Math.floor(Math.floor(item.s / 3 - item.es) 
+                                     + Math.floor(item.r / 3 - item.er)
+                                     + Math.floor(item.m / 3 - item.em)
+                                     + Math.floor(item.d / 3 - item.ed)/4) < 0 ? '0'
+
+                                     : Math.floor(Math.floor(item.s / 3 - item.es) 
+                                     + Math.floor(item.r / 3 - item.er)
+                                     + Math.floor(item.m / 3 - item.em)
+                                     + Math.floor(item.d / 3 - item.ed)/4)}%`}</div>}
+                                </div>
+                                <div className={`${style.viewGrid} ${visibility == i ? style.visibility: ''}`}>
+                                <div className={style.grid}>
+                                    <ProgressC progress={item.s} errors={item.es} text={'Suma'}></ProgressC>
+                                    <ProgressC progress={item.r} errors={item.er} text={'Resta'}></ProgressC>
+                                    <ProgressC progress={item.m} errors={item.em} text={'Multiplicación'}></ProgressC>
+                                    <ProgressC progress={item.d} errors={item.ed} text={'División'}></ProgressC>
+                                </div>
                                 </div>
                             </div>) : 'Aun no tiene alumnos registrados con su id...'} 
 
                     </div>
+
                     <button className={style.buttonBack} onClick={backClick}>Atras</button>
 
                 </div>
