@@ -23,6 +23,26 @@ background-color: aliceblue;
   
     overflow: hidden;
 }
+.mainContainerEspecial {
+    background-color: aliceblue;   
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
+        
+        padding: 22px;
+        height: 550px;
+        width: 100vw;
+        min-width: 280px;
+        max-width: 300px;
+        border-radius: 10px;
+      
+        overflow: hidden;
+    }
+
 .vector {
     position: fixed;
     bottom: 0;

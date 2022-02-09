@@ -1,132 +1,43 @@
 
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .title {
+  display: block;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 1px;
+  text-align: center;
 }
 .subtitle {
+  display: block;
+  text-align: center;
   display: inline-block;
   margin: 8px;
 }
 .orange {
   color: orange;
 }
-.progressbar {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  background-color: #00679e;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 15px;
-}
 
-.halfCircle,
-.halfCircleTop {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  transform-origin: 100% 50%;
-  background-color: red;
-}
-.halfCircle {
-  position: absolute;
-  margin: auto;
-  background-color: #FE0000;
-}
-.halfCircleTop {
-  position: absolute;
-  background-color: #00679e;
-}
-.progressbar .halfCircle:nth-child(1) {
-  animation-name: animationOne;
-  animation-duration: 1s;
 
-}
-.progressbar .halfCircle:nth-child(2) {
-  animation-name: animationTwo;
-  animation-duration: 1s;
-}
+.grid {
+  display: grid;
 
-.progressbar .halfCircleTop {
-  opacity: 0; 
-  transition: opacity 0s 1s;
-}
-
-@keyframes animationOne {
-50% {  transform: rotate(180deg); 
-  transition: transform 1s linear; }
-}
-@keyframes animationTwo {
-  50% {    transform: rotate(360deg); 
-    transition: transform 2s linear; 
-   }
-}
-@keyframes animationTwo {
-  50% {      opacity: 0; 
-    transition: opacity 0s 1s; 
-   }
-}
-.progressbarCircle {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  background-color: #000000;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 4rem;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  justify-items: center;
 }
-.x {
-  position: absolute;
-  padding: 10px 15px;
-  border-radius: 15px 10px;
-  right: -15px;
-  top: -15px;
-  background-color: black;
-  color: orange;
-  cursor: pointer;
-}
-.modalContainer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -1000px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  z-index: 100000;
-  background-color: rgba(0, 0, 0, 0.616);
-}
-.true {
-  top: 0;
-}
-.contBlue {
-  background-color: aliceblue;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  height: 270px;
-  border-radius: 10px;
-  color: white;
-}
+
+
 .form {
   position: relative;
   display: flex;

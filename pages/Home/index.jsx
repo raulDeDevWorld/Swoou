@@ -85,7 +85,8 @@ function Home() {
                     <div>
                         <span className={styleP.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Bienvenido,' : 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span><br />
                         {userDB.premium === false && <span className={style.subtitle}><span className={style.id}>Id:</span> {userDB.id}</span>}
-                    </div>                    <Button style='buttonPrimary' click={play}>Play</Button>
+                    </div>                    
+                    <Button style='buttonPrimary' click={play}>Play</Button>
                     <Button style='buttonPrimary'click={progress}>Progreso</Button>
                     <Button style='buttonPrimary' click={practica}>Practica <span className={style.pdf}>PDF</span></Button>
                     <Button style='buttonPrimary'click={robot}>Robot matemático</Button>

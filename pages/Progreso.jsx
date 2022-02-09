@@ -40,10 +40,11 @@ function Progreso() {
                     <p className={style.greeting}> Hola, {`${userDB.aName.split(' ')[0].toUpperCase()}`} controla el progreso de tus alumnos desde aqui...</p>
                     <div className={style.containerMap}>
                         {progress !== null ? progress.map((item, i) =>
-                            <div className={style.item} key={i}>{item.name}<div className={style.progressPorcent}>
-                                {item.progress / 3 - item.errors < 0 && '0%'}
-                                <div className={style.porcent} style={{ background: '#1eff00', width: `${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`, height: '15px' }}> {`${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`}</div>
-                            </div>
+                            <div className={style.item} key={i}>{item.name}
+                                <div className={style.progressPorcent}>
+                                    {item.progress / 3 - item.errors <= 0 && '0%'}
+                                    {item.progress / 3 - item.errors > 0 && <div className={style.porcent} style={{ background: '#1eff00', width: `${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`, height: '15px' }}> {`${item.progress / 3 - item.errors < 0 ? '0' : Math.floor(item.progress / 3 - item.errors)}%`}</div>}
+                                </div>
                             </div>) : 'Aun no tiene alumnos registrados con su id...'} 
 
                     </div>

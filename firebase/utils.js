@@ -185,6 +185,14 @@ function dataUser (aName, grade, school, avatar, cell, profesor) {
             play: 0,
             robot: 0,
             date: null,
+            s: 0,
+            r: 0,
+            m: 0,
+            d: 0,
+            es: 0,
+            er: 0,
+            em: 0,
+            ed: 0,
       })
 }
 function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
@@ -204,24 +212,61 @@ function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
             cell,
             profesor,
             id,
+            s: 0,
+            r: 0,
+            m: 0,
+            d: 0,
+            es: 0,
+            er: 0,
+            em: 0,
+            ed: 0,
       })
       db.ref(`ids/${id}`).set({
             uid,
       })
 
 }
-
-
-function progressUpdate (n, account) {
+function setProgress (n, account, op) {
       const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
-      db.ref(`${us}/${uid}`).update({progress: n,})
+      switch (op){
+            case 's':
+                  db.ref(`${us}/${uid}`).update({s: n,})
+                  break;
+            case 'r':
+                  db.ref(`${us}/${uid}`).update({r: n,})
+                  break;
+            case 'm':
+                  db.ref(`${us}/${uid}`).update({m: n,})
+                  break;
+            case 'd':
+                  db.ref(`${us}/${uid}`).update({d: n,})
+            default:
+                  break;
+
+      }
 }
-function errorsUpdate (n, account) {
+function setErrors (n, account, op) {
       const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
-      db.ref(`${us}/${uid}`).update({errors: n,})
+      switch (op){
+            case 's':
+                  db.ref(`${us}/${uid}`).update({es: n,})
+                  break;
+            case 'r':
+                  db.ref(`${us}/${uid}`).update({er: n,})
+                  break;
+            case 'm':
+                  db.ref(`${us}/${uid}`).update({em: n,})
+                  break;
+            case 'd':
+                  db.ref(`${us}/${uid}`).update({ed: n,})
+            default:
+                  break;
+
+      }
 }
+
 function avatarUpdate (n, account) {
       const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
@@ -233,4 +278,4 @@ function progressReset (account) {
       db.ref(`${us}/${uid}`).update({progress: 0, errors: 0,})
 }
 
-export { errorsUpdate, progressUpdate, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset }
+export { auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }

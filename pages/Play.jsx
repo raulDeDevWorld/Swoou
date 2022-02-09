@@ -1,106 +1,63 @@
 import Button from '../components/Button'
-import Subtitle from '../components/Subtitle'
-import { useState, useEffect } from 'react'
-import PageLayout from '../layouts/PageLayout'
-import { useUser } from '../context/Context.js'
-import { progressUpdate, errorsUpdate } from '../firebase/utils'
+import PremiumC from '../components/PremiumC'
 import { useRouter } from 'next/router'
-import Error from '../components/Error'
+import PageLayout from '../layouts/PageLayout'
 import { WithAuth } from '../HOCs/WithAuth'
-import style from '../styles/Play.module.css'
-import styleH from '../styles/Home.module.css'
+import { useUser } from '../context/Context.js'
+import Subtitle from '../components/Subtitle'
+import Error from '../components/Error'
+import Paragraph from '../components/Paragraph'
+import style from '../styles/Home.module.css'
+import styleP from '../styles/Progress.module.css'
+import { useEffect } from 'react'
 
 
-
-function Play () {
-    const { userDB, avatar, setUserSuccess, success } = useUser()
-    const [objet, setObjet] = useState(null)
-    const [countR, setCountR] = useState(0)
-    const [countE, setCountE] = useState(0)
-   
-
+function Play() { 
+    const { setUserAvatar, avatar, user, userDB, success, setUserSuccess } = useUser()
     const router = useRouter()
-    function obj (){
-        const nOne = Math.floor(Math.random()*(11-0))+0
-        const nTwo = Math.floor(Math.random()*(11-0))+0
-        const ale = () => Math.floor(Math.random()*(11-1))+1
-        const nFour = Math.floor(Math.random()*(5-1))+1
-        const res = nOne*nTwo
-        const errO = nOne == nTwo || nOne == 0 || nTwo == 0? ale(): nOne
-        const errT = nOne == nTwo || nOne == 0 || nTwo == 0? ale(): nTwo
 
-        setObjet({
-            nOne,
-            nTwo,
-            nFour,
-            res,
-            errO,
-            errT,
-            correct: null,
-            selected: null,
-        })
-      
+    function suma () {
+        router.push('/Suma')
+    }
+    function resta () {
+        router.push('/Resta')
+    }
+    function multiplicacion () {
+        router.push('/Multiplicacion')
+    }
+    function division () {
+        router.push('/Division')
+    }
+    function back () {
+        router.back()
     }
  
-    function select (n) {
-
-        if (userDB.premium === false && userDB.progress + userDB.errors == 30) {
-            setUserSuccess(false) 
-        return}
-
-        const p = userDB.progress
-        const e = userDB.errors
-        const o ={
-            correct: true, selected: n,
-        }
-        setObjet({...objet, ...o,})
-        setTimeout(obj, 1500)
-        n == objet.nFour ? progressUpdate(p+1, userDB.profesor) : errorsUpdate(e+1, userDB.profesor)
-        n == objet.nFour ? setCountR(countR+1) : setCountE(countE+1)
-    }
-
-    function nextClick () {
-        router.push('/Home')
-    }
-
-    useEffect(() => {
-        obj()
-    }, []);
-console.log(objet)   
-if (objet !== null) {console.log(objet.nOne)}
     return (
-        <div className={style.main}>
-        {userDB !== 'loading' &&
-            <>
-            <div className={style.container}>
-                <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
-                <div className={style.textCont}>
-                    <span className={style.white}>N: {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span>
-                    <div className={style.contRE}>
-                        <span className={style.e}>{countE}</span>
-                        <span className={style.r}>{countR}</span>
-                    </div>
+        <>
+        <PageLayout>
+            {userDB === 'loading' && ''}
+         
+           
+            { userDB !== null && userDB !== 'loading' &&
+                <div className={style.containerTwo}>
+                    {userDB.premium !== false && <span className={style.subtitle}> Premium</span>}
+                    {userDB.premium === false && <span className={style.subtitle}>Free mode</span>}
+                 
+                    <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
+                    <Subtitle> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido': 'Bienvenida'}: <br /> {`${userDB.aName.split(' ')[0].toUpperCase()}`}</Subtitle>
+                    <Button style='buttonPrimary' click={suma}>Suma</Button>
+                    <Button style='buttonPrimary'click={resta}>Resta</Button>
+                    <Button style='buttonPrimary' click={multiplicacion}>Multiplicación</Button>
+                    <Button style='buttonPrimary'click={division}>División</Button>
+                    <Button style='buttonSecondary'click={back}>Atras</Button>
+                    <PremiumC></PremiumC>
                 </div>
-                {objet !== null &&
-                <>
-                <div className={style.boxMain}>
-                    <span>{objet.nOne}</span>
-                    <span>X</span>
-                    <span>{objet.nTwo}</span> 
-                </div>
-                <div className={`${style.box} ${objet.selected == 1 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 1 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(1)}} >{objet.nFour == 1? objet.res: objet.errO * ( objet.errT + 1)} </div>
-                <div className={`${style.box} ${objet.selected == 2 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 2 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(2)}} >{objet.nFour == 2? objet.res: objet.errT * ( objet.errO - 1)} </div>
-                <div className={`${style.box} ${objet.selected == 3 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 3 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(3)}} >{objet.nFour == 3? objet.res: objet.errO * ( objet.errT - 1)} </div>
-                <div className={`${style.box} ${objet.selected == 4 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 4 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(4)}} >{objet.nFour == 4? objet.res: objet.errT * ( objet.errO + 1)} </div>
-                <button className={style.button} onClick={nextClick}>Finalizar</button> 
-                </>}
-           </div>
-           </>}
-           {success == false && <Error>Agotaste tu modo prueba</Error>}
-        </div>
-
+            }
+    
+        </PageLayout>
+        {success ==false && <Error>Elija un avatar</Error>}
+        </>
     )
-
-
 }
+
 export default WithAuth(Play)

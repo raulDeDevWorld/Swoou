@@ -1,4 +1,4 @@
-import PageLayout from '../layouts/PageLayout'
+import PageEspecial from '../layouts/PageEspecial'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
@@ -8,6 +8,7 @@ import { getIds } from '../firebase/utils'
 import style from '../styles/Progress.module.css'
 import styleH from '../styles/Home.module.css'
 import Button from '../components/Button'
+import ProgressC from '../components/ProgressC'
 import { useState, useEffect } from 'react'
 
 
@@ -36,23 +37,21 @@ function Progress() {
     }, [success]);
     return (
         <>
-    <PageLayout>
+    <PageEspecial>
         {userDB !== 'loading' && 
             <>
-            <div className={styleH.containerTwo}>
+            <div className={style.container}>
                 <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
                 <div>
-                    <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido,': 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span><br/> 
+                    <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido,': 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span> 
                     {userDB.id ? <span className={style.subtitle}>Prof. Id: <span className={style.orange}>{userDB.id}</span></span> : <span className={style.subtitle}>Comparte tus progresos con tu profe.</span>}<br/>
                 </div>
                
-                <div className={style.progressbar}>
-                    <div className={style.halfCircle}></div>
-                    <div className={style.halfCircle}></div>
-                    <div className={style.halfCircleTop}></div>
-                    <div className={style.progressbarCircle}>
-                    {userDB.progress == null ?'' : `${userDB.progress/3-userDB.errors < 0 ? '0': Math.floor(userDB.progress/3-userDB.errors)}%`}
-                    </div>
+                <div className={style.grid}>
+                    <ProgressC progress={userDB.s} errors={userDB.es}></ProgressC>
+                    <ProgressC progress={userDB.r} errors={userDB.er}></ProgressC>
+                    <ProgressC progress={userDB.m} errors={userDB.em}></ProgressC>
+                    <ProgressC progress={userDB.d} errors={userDB.ed}></ProgressC> 
                 </div>
                 <div>                
                     <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>{userDB.id ? 'Cambiar Prof. Id' : 'Compartir progreso'}</Button>
@@ -71,7 +70,7 @@ function Progress() {
             </div>}
           
             </>}
-    </PageLayout>
+    </PageEspecial>
     {success ==true && <Success>Correcto</Success>}
     {success ==false && <Error>Error</Error>}
     </>
