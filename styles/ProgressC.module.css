@@ -9,9 +9,13 @@
     background-color: #00679e;
     border-radius: 50%;
     overflow: hidden;
-    margin: 15px;
+    margin: 10px;
+    margin-bottom: 5px;
   }
-  
+  .text {
+    text-align: center;
+    color: orange;
+  }
   .halfCircle,
   .halfCircleTop {
     position: absolute;

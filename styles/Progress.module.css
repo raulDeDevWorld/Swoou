@@ -27,6 +27,9 @@
 .orange {
   color: orange;
 }
+.buttons {
+  margin-top: 15px;
+}
 .x {
   position: absolute;
   padding: 10px 15px;

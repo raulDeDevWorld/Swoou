@@ -48,12 +48,12 @@ function Progress() {
                 </div>
                
                 <div className={style.grid}>
-                    <ProgressC progress={userDB.s} errors={userDB.es}></ProgressC>
-                    <ProgressC progress={userDB.r} errors={userDB.er}></ProgressC>
-                    <ProgressC progress={userDB.m} errors={userDB.em}></ProgressC>
-                    <ProgressC progress={userDB.d} errors={userDB.ed}></ProgressC> 
+                    <ProgressC progress={userDB.s} errors={userDB.es} text={'Suma'}></ProgressC>
+                    <ProgressC progress={userDB.r} errors={userDB.er} text={'Resta'}></ProgressC>
+                    <ProgressC progress={userDB.m} errors={userDB.em} text={'Multiplicación'}></ProgressC>
+                    <ProgressC progress={userDB.d} errors={userDB.ed} text={'División'}></ProgressC> 
                 </div>
-                <div>                
+                <div className={style.buttons}>                
                     <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>{userDB.id ? 'Cambiar Prof. Id' : 'Compartir progreso'}</Button>
                 </div>
             </div> 
