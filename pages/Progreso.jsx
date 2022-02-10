@@ -2,7 +2,7 @@ import PageLayout from '../layouts/PageLayout'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
-import Subtitle from '../components/Subtitle'
+import Modal from '../components/Modal'
 import { userDelete, getProgress } from '../firebase/utils'
 import style from '../styles/Progreso.module.css'
 import Button from '../components/Button'
@@ -97,7 +97,6 @@ function Progreso() {
                                 </div>
                                 <img src="/delete.png" onClick={()=>{delet(item.userUid, item.name)}} className={style.delete} alt="delete" />
 
-
                                 <div className={`${style.viewGrid} ${visibility === i ? style.visibility: ''}`}>
                                 <div className={style.grid}>
                                     <ProgressC progress={item.s} errors={item.es} text={'Suma'}></ProgressC>
@@ -107,24 +106,11 @@ function Progreso() {
                                 </div>
                                 </div>
                             </div>) : 'Aun no tiene alumnos registrados con su id...'} 
-
                     </div>
-
                     <button className={style.buttonBack} onClick={backClick}>Atras</button>
-               
-               
-               
-                    {mode && <div className={`${style.modalContainer} ${mode == true ? style.true : ''}`}>
-                        <div className={style.contBlue}>
-
-                            <span onClick={x} className={style.x}>X</span>
-                            <img src="/robot.png" className={style.modalBoot} alt="user photo" />
-                            <span className={style.textModal}>Esta por eliminar a: <br />{name.toUpperCase()}</span>
-
-                            <button className={style.modalButton} onClick={sureDelete}>Totalmente seguro</button>
-
-                        </div>
-                    </div>}
+                    <Modal mode={mode} click={x} text={`Esta por eliminar a:`} textTwo={name.toUpperCase()}>
+                        <button className={style.modalButton} onClick={sureDelete}>Totalmente seguro</button>
+                    </Modal>
                 </div>
                 }
         </div>

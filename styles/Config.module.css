@@ -202,6 +202,7 @@
     cursor: pointer;
   }
   .boxSelect {
+    text-align: center;
     position: relative;
     height: 20px;
     width: 100%;

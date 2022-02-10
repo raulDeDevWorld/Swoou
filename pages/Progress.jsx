@@ -9,6 +9,7 @@ import style from '../styles/Progress.module.css'
 import styleH from '../styles/Home.module.css'
 import Button from '../components/Button'
 import ProgressC from '../components/ProgressC'
+import Modal from '../components/Modal'
 import { useState, useEffect } from 'react'
 
 
@@ -59,7 +60,7 @@ function Progress() {
                     <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>{userDB.id ? 'Cambiar Prof. Id' : 'Compartir progreso'}</Button>
                 </div>
             </div> 
-    {mode &&        <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
+    {/* {mode &&        <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
                 <div className={style.contBlue}>
                     <span onClick={x} className={style.x}>X</span>
                     <img src="/robot.png" className={style.perfil} alt="user photo" />
@@ -69,10 +70,16 @@ function Progress() {
                         <button className={style.modalButton} onClick={nextClick}>ok</button>
                     </form>
                 </div>
-            </div>}
+            </div>} */}
           
             </>}
     </PageEspecial>
+    <Modal mode={mode} click={x} text={`Ingresa el id de tu profe...`}>
+    <form className={style.form}>      
+        <input className={style.modalInput} type="text" placeholder='alex73447725' />
+        <button className={style.modalButton} onClick={nextClick}>ok</button>
+    </form>
+    </Modal>
     {success ==true && <Success>Correcto</Success>}
     {success ==false && <Error>Error</Error>}
     </>

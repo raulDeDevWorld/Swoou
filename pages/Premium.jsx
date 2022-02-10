@@ -10,7 +10,7 @@ import { WithAuth } from '../HOCs/WithAuth'
 import Success from '../components/Success'
 import { useState, useEffect } from 'react'
 import Error from '../components/Error'
-import styles from '../styles/Home.module.css'
+import Modal from '../components/Modal'
 import style from '../styles/Premium.module.css'
 
 function Premium() {
@@ -72,7 +72,7 @@ function Premium() {
                             <a className={style.enlace} onClick={enlace}>Terminos y condiciones Swoou Premium</a>
                         </div>}
                 </div>}
-                {mode && <div className={`${style.modalContainer} ${mode == true ? style.true : ''}`}>
+                {/* {mode && <div className={`${style.modalContainer} ${mode == true ? style.true : ''}`}>
                         <div className={style.contBlue}>
                             <span onClick={x} className={style.x}>X</span>
                             <img src="/robot.png" className={style.perfil} alt="user photo" />
@@ -82,8 +82,14 @@ function Premium() {
                                 <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
                             </form>
                         </div>
-                    </div>}
+                    </div>} */}
             </PageLayout>
+            <Modal mode={mode} click={x} text={'Ingresa tu codigo de activación'}>
+                <form className={style.form}>
+                    <input className={style.input} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
+                    <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+                </form>            
+            </Modal>
             {success == true && <Success>Correcto</Success>}
             {success == false && <Error>Error</Error>}
         </>
