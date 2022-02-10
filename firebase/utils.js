@@ -98,6 +98,7 @@ function getProgress (setStudentsProgress, uid ){
                               const er = userSnapshot.child('er').val()
                               const em = userSnapshot.child('em').val()
                               const ed = userSnapshot.child('ed').val()
+                              const userUid = userSnapshot.child('uid').val()
                               const obj = {
                                     name: valName,
                                     s,
@@ -108,6 +109,7 @@ function getProgress (setStudentsProgress, uid ){
                                     er,
                                     em,
                                     ed,
+                                    userUid
                               }
                              array.push(obj)
                           }) 
@@ -205,6 +207,7 @@ function dataUser (aName, grade, school, avatar, cell, profesor) {
             er: 0,
             em: 0,
             ed: 0,
+            uid,
       })
 }
 function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
@@ -232,6 +235,7 @@ function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
             er: 0,
             em: 0,
             ed: 0,
+            uid,
       })
       db.ref(`ids/${id}`).set({
             uid,
@@ -295,4 +299,12 @@ function progressReset (account, s, r, m, d) {
      
 }
 
-export { auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }
+function userDelete (userUid) {
+    
+      const uid = auth.currentUser.uid
+      db.ref(`${'/teachers'}/${uid}/students/${userUid}`).remove()
+      db.ref(`${'/users'}/${userUid}`).update({id: 'Te ha eliminado'})
+
+}
+
+export { userDelete, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }

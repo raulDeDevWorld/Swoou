@@ -35,7 +35,7 @@
     min-height: 100px;
 }
 .item {
-
+    position: relative;
     font-size: 16px;
     text-align: left;
 
@@ -50,7 +50,9 @@
     
 }
 .progressPorcent {
-    right: 0;
+    position: absolute;
+    top: 0;
+    right: 20px;
     width: 50%;
     height: 15px;
     background-color: aliceblue;
@@ -84,6 +86,15 @@
 .visibility {
     display: inline-block;
 }
+.delete {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    height: 18px;
+    color: red;
+
+
+}
 .grid {
 position: relative;
 right: 0;
@@ -92,6 +103,99 @@ right: 0;
     align-items: center;
     justify-items: center;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  .modalContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -1000px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 100000;
+    background-color: rgba(0, 0, 0, 0.616);
+
+  }
+  .true {
+    top: 0;
+  }
+  .contBlue {
+    background-color: aliceblue;
+    position: absolute;
+    max-width: 360px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 350px;
+    border-radius: 10px;
+    color: white;
+  }
+ 
+  .textModal {
+    background-color: black;
+    color: orange;
+    padding: 5px;
+    width: 97%;
+    max-width: 380px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+  }
+  .modalButton {
+    border: none;
+    border: 1px solid black;
+    text-align: center;
+    color: black;
+    background-color: orange;
+    border-radius: 5px 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: .8s;
+  }
+  .modalButton:hover {
+    color: orange;
+    background-color: black;
+  }
+  .modalBoot {
+    width: 250px;
+    height: 130px;
+    object-fit:cover;
+    object-position: top;
+  }
+  .x {
+    position: absolute;
+    padding: 10px 15px;
+    border-radius: 15px 10px;
+    right: -15px;
+    top: -15px;
+    background-color: black;
+    color: orange;
+    cursor: pointer;
+  }
+
+
+ 
 @media (orientation: landscape) and (min-width: 600px) { 
     .progressPorcent {
         width: 60%;
