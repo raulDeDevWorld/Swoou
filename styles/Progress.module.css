@@ -1,15 +1,20 @@
 
 .container {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  background-color: #01afff;
+}
+.robot {
+  width: 250px;
+  height: 130px;
+  object-fit:cover;
+  object-position: top;
+  margin: 20px;
 }
 .title {
   display: block;
@@ -17,15 +22,17 @@
   font-weight: 600;
   letter-spacing: 1px;
   text-align: center;
+  color: aliceblue;
 }
 .subtitle {
   display: block;
   text-align: center;
   display: inline-block;
   margin: 8px;
+  color: aliceblue;
 }
 .orange {
-  color: orange;
+  color: #1eff00;
 }
 .buttons {
   margin-top: 15px;
@@ -40,47 +47,19 @@
   color: orange;
   cursor: pointer;
 }
-.modalContainer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -1000px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  z-index: 100000;
-  background-color: rgba(0, 0, 0, 0.616);
-}
-.true {
-  top: 0;
-}
+
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-items: center;
+  background-color: black;
+  padding: 20px 10px;
+  margin: 15px 0;
+  border-radius: 10px;
 }
 
-.contBlue {
-  background-color: aliceblue;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  height: 270px;
-  border-radius: 10px;
-  color: white;
-  z-index: 100000000000000000000;
-}
 .form {
   position: relative;
   display: flex;

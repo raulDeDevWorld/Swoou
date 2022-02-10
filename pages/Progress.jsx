@@ -38,17 +38,19 @@ function Progress() {
     }, [success]);
     return (
         <>
-    <PageEspecial>
+   
         {userDB !== 'loading' && 
             <>
             <div className={style.container}>
-                <img src={`/${userDB.avatar}.png`} className={styleH.perfil} alt="user photo" />
+                <img src={`/robot.png`} className={style.robot} alt="user photo" />
                 <div>
-                    <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido,': 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span> 
-                    {userDB.id ? <span className={style.subtitle}>Prof. Id: <span className={style.orange}>{userDB.id}</span></span> : <span className={style.subtitle}>Comparte tus progresos con tu profe.</span>}<br/>
+                    <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Hola,': 'hola,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span> 
+                    <span className={style.subtitle}>Monitorea tus progresos desde aqui</span>
                 </div>
             
                     <div className={style.grid}>
+                    {userDB.id ? <span className={style.subtitle}>Prof. Id: <span className={style.orange}>{userDB.id}</span></span> : <span className={style.subtitle}>Comparte tus progresos con tu profe.</span>}<br/>
+
                         <ProgressC progress={userDB.s} errors={userDB.es} text={'Suma'}></ProgressC>
                         <ProgressC progress={userDB.r} errors={userDB.er} text={'Resta'}></ProgressC>
                         <ProgressC progress={userDB.m} errors={userDB.em} text={'Multiplicación'}></ProgressC>
@@ -60,20 +62,10 @@ function Progress() {
                     <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>{userDB.id ? 'Cambiar Prof. Id' : 'Compartir progreso'}</Button>
                 </div>
             </div> 
-    {/* {mode &&        <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
-                <div className={style.contBlue}>
-                    <span onClick={x} className={style.x}>X</span>
-                    <img src="/robot.png" className={style.perfil} alt="user photo" />
-                    <span className={style.textModal}>Ingresa el id de tu profe...</span>
-                    <form className={style.form}>      
-                        <input className={style.modalInput} type="text" placeholder='alex73447725' />
-                        <button className={style.modalButton} onClick={nextClick}>ok</button>
-                    </form>
-                </div>
-            </div>} */}
+ 
           
             </>}
-    </PageEspecial>
+   
     <Modal mode={mode} click={x} text={`Ingresa el id de tu profe...`}>
     <form className={style.form}>      
         <input className={style.modalInput} type="text" placeholder='alex73447725' />
