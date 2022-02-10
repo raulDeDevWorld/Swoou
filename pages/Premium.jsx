@@ -23,7 +23,7 @@ function Premium() {
     function nextClick(e) {
         e.preventDefault()
         const code = e.target.form[0].value
-        getCode(code, user.uid, setUserSuccess)
+        getCode(code, user.uid, setUserSuccess, userDB.profesor)
     }
     function backClick(e) {
         e.preventDefault()

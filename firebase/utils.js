@@ -60,14 +60,15 @@ function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
             }
       })
 }
-function getCode(code, uid, setUserSuccess){
+function getCode(code, uid, setUserSuccess, account){
       premiumCode.once('value', function(snapshot){  
             var b = snapshot.child(code).exists();                
             if (b === true ){
                   var val = snapshot.child(code).val();
                   if(val == false) {
+                        const us = account == true ? 'teachers' : 'users' 
                         db.ref(`/premiumCode/${code}`).set(true)
-                        db.ref(`/users/${uid}/premium`).set(code)
+                        db.ref(`/${us}/${uid}/premium`).set(code)
                         setUserSuccess(true)
                   }else{
                         console.log('ya esta en uso')

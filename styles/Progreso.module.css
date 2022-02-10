@@ -117,9 +117,9 @@ right: 0;
 
   .modalContainer {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: -1000px;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
     bottom: 0;
     right: 0;
     left: 0;
@@ -134,7 +134,7 @@ right: 0;
   .contBlue {
     background-color: aliceblue;
     position: absolute;
-    max-width: 360px;
+    max-width: 400px;
     top: 0;
     bottom: 0;
     right: 0;
@@ -148,14 +148,15 @@ right: 0;
     height: 350px;
     border-radius: 10px;
     color: white;
+    padding: 5px;
   }
  
   .textModal {
     background-color: black;
     color: orange;
     padding: 5px;
-    width: 97%;
-    max-width: 380px;
+    width: 100%;
+    max-width: 400px;
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 16px;
