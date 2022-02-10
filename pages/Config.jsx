@@ -92,29 +92,8 @@ function Config () {
             <PremiumC></PremiumC>
          </div> 
         }
-          {/* {mode && <div className={`${style.modalContainer} ${mode == true ?style.true: ''}`}>
-                <div className={style.contBlue}>
-                    <span onClick={x} className={style.x}>X</span>
-                    <img src="/robot.png" className={style.modalBoot} alt="user photo" />
-                    <span className={style.textModal}>Selecciona el progreso que quieras resetear</span>
-                    <div className={style.boxSelect}>
-                    <span className={style.textReset} onClick={()=>selectElement('s')}>Suma </span> {s == true ? <img src='/right.svg' className={style.space} alt='rigth'></img>: ''}
-                    </div>
-                    <div className={style.boxSelect}>
-                    <span className={style.textReset} onClick={()=>selectElement('r')}>Resta </span> {r == true ? <img src='/right.svg' className={style.space} alt='rigth'></img>: ''}
-                    </div>
-                    <div className={style.boxSelect}>
-                    <span className={style.textReset} onClick={()=>selectElement('m')}>Multiplicación </span> {m == true ? <img src='/right.svg' className={style.space} alt='rigth'></img>: ''}
-                    </div>
-                    <div className={style.boxSelect}>
-                    <span className={style.textReset} onClick={()=>selectElement('d')}>División </span> {d == true ? <img src='/right.svg' className={style.space} alt='rigth'></img>: ''}
-                    </div>
-      
-                    <button className={style.modalButton} onClick={modalClick}>Totalmente seguro</button>
-                   
-                </div>
-            </div>} */}
     </PageLayout>
+
     <Modal mode={mode} click={x} text={`Selecciona el progreso que quieras resetear`} textTwo={name.toUpperCase()}>
     <span onClick={x} className={style.x}>X</span>
                  <div className={style.boxSelect}>
@@ -134,7 +113,7 @@ function Config () {
                        </Modal>
 
 {success == true && <Success>Correcto</Success>}
-{success == false && <Error>Hazte Prmium para modificar datos</Error>}
+{success == false && <Error>Hazte Premium para modificar datos</Error>}
 </>
     )
 }

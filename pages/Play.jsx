@@ -5,15 +5,13 @@ import PageLayout from '../layouts/PageLayout'
 import { WithAuth } from '../HOCs/WithAuth'
 import { useUser } from '../context/Context.js'
 import Subtitle from '../components/Subtitle'
-import Error from '../components/Error'
-import Paragraph from '../components/Paragraph'
 import style from '../styles/Home.module.css'
-import styleP from '../styles/Progress.module.css'
-import { useEffect } from 'react'
+
 
 
 function Play() { 
-    const { setUserAvatar, avatar, user, userDB, success, setUserSuccess } = useUser()
+    const { userDB } = useUser()
+
     const router = useRouter()
 
     function suma () {
@@ -55,7 +53,7 @@ function Play() {
             }
     
         </PageLayout>
-        {success ==false && <Error>Elija un avatar</Error>}
+ 
         </>
     )
 }

@@ -39,7 +39,7 @@ function Play () {
  
     function select (n) {
 
-        if (userDB.premium === false && userDB.progress + userDB.errors == 30) {
+        if (userDB.premium === false && userDB.r + userDB.er > 30) {
             setUserSuccess(false) 
         return}
 
@@ -90,7 +90,7 @@ if (objet !== null) {console.log(objet.nOne)}
                 </>}
            </div>
            </>}
-           {success == false && <Error>Agotaste tu modo prueba</Error>}
+           {success == false && <Error>Agotaste tu free mode: RESTA</Error>}
         </div>
 
     )
