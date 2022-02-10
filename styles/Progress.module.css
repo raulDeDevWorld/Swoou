@@ -1,7 +1,7 @@
 
 .container {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,8 +14,8 @@
   height: 130px;
   object-fit:cover;
   object-position: top;
-  margin: 20px;
-  margin-top: 15px;
+  margin: 15px;
+  margin-top: 10px;
 }
 .title {
   display: block;
@@ -29,7 +29,7 @@
   display: block;
   text-align: center;
   display: inline-block;
-  margin: 8px;
+  margin: 8px 0;
   color: aliceblue;
   width: 100%;
 }
@@ -40,7 +40,7 @@
   color: #1eff00;
 }
 .buttons {
-  margin: 10px;
+  margin: 10px 0;
   width: 100%;
   max-width: 600px;
   display: flex;
