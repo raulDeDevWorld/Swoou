@@ -48,13 +48,14 @@ function Progress() {
                     <span className={style.subtitle}>Monitorea tus progresos desde aqui</span>
                 </div>
             
+                    <div className={style.gridContainer}>
+                    {userDB.id ? <span className={`${style.subtitle} ${style.left} `}>Prof. Id: <span className={style.orange}>{userDB.id}</span></span> : <span className={style.subtitle}>Comparte tus progresos con tu profe.</span>}<br/>
                     <div className={style.grid}>
-                    {userDB.id ? <span className={style.subtitle}>Prof. Id: <span className={style.orange}>{userDB.id}</span></span> : <span className={style.subtitle}>Comparte tus progresos con tu profe.</span>}<br/>
-
                         <ProgressC progress={userDB.s} errors={userDB.es} text={'Suma'}></ProgressC>
                         <ProgressC progress={userDB.r} errors={userDB.er} text={'Resta'}></ProgressC>
                         <ProgressC progress={userDB.m} errors={userDB.em} text={'Multiplicación'}></ProgressC>
                         <ProgressC progress={userDB.d} errors={userDB.ed} text={'División'}></ProgressC> 
+                    </div>
                     </div>                   
           
 
