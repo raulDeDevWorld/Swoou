@@ -2,7 +2,7 @@
 .container {
   position: absolute;
   width: 100vw;
-  height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -15,6 +15,7 @@
   object-fit:cover;
   object-position: top;
   margin: 20px;
+  margin-top: 15px;
 }
 .title {
   display: block;
