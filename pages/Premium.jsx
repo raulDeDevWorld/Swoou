@@ -72,17 +72,7 @@ function Premium() {
                             <a className={style.enlace} onClick={enlace}>Terminos y condiciones Swoou Premium</a>
                         </div>}
                 </div>}
-                {/* {mode && <div className={`${style.modalContainer} ${mode == true ? style.true : ''}`}>
-                        <div className={style.contBlue}>
-                            <span onClick={x} className={style.x}>X</span>
-                            <img src="/robot.png" className={style.perfil} alt="user photo" />
-                            <span className={style.textModal}>Ingresa tu codigo de activación</span>
-                            <form className={style.form}>
-                                <input className={style.input} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
-                                <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
-                            </form>
-                        </div>
-                    </div>} */}
+
             </PageLayout>
             <Modal mode={mode} click={x} text={'Ingresa tu codigo de activación'}>
                 <form className={style.form}>
