@@ -83,7 +83,7 @@ function Home() {
                  
                     <img src={`/${userDB.avatar}.png`} className={style.perfil} alt="user photo" />
                     <div>
-                        <span className={styleP.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Bienvenido,' : 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}</span><br />
+                    <Subtitle> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar? 'Bienvenido': 'Bienvenida'}: <br /> {`${userDB.aName.split(' ')[0].toUpperCase()}`}</Subtitle>
                         {userDB.premium === false && <span className={style.subtitle}><span className={style.id}>Id:</span> {userDB.id}</span>}
                     </div>                    
                     <Button style='buttonPrimary' click={play}>Play</Button>
