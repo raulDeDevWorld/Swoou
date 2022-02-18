@@ -21,7 +21,7 @@ function Play () {
 
     const router = useRouter()
     function obj (){
-        const nOne = Math.floor(Math.random()*(11-0))+0
+        const nOne = Math.floor(Math.random()*(11-1))+1
         const nTwo = Math.floor(Math.random()*(11-0))+0
         const ale = () => Math.floor(Math.random()*(11-1))+1
         const nFour = Math.floor(Math.random()*(5-1))+1
