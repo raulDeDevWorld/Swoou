@@ -47,7 +47,8 @@ function Robot() {
   
     
     useEffect(() => {
-        values.firstValue !== '' && values.secondValue !== '' ? setObj(rob(values.firstValue, values.secondValue)): ''
+        if(values.firstValue > 0 && values.secondValue == 0){setObj(2, 0) return}
+        values.firstValue !== '' && values.secondValue !== '' && values.secondValue > 0 ? setObj(rob(values.firstValue, values.secondValue)): ''
     },[values]);   
   console.log(obj)
     return (
