@@ -7,6 +7,7 @@ function rob(v1, v2) {
     const cifra = []
     const space = []
     const zero = []
+    const val1 = v2 !== '' && v2 == 0 ? 5 : v1
  
 
     function robb (v1, v2) {
@@ -32,7 +33,7 @@ function rob(v1, v2) {
         }
         alg(v1, v2, vl1, vl2)
     }
-    robb(v1, v2)
+    robb(val1, v2)
     cifra.shift()
     space.push(0)
     const item = residuo.pop()
