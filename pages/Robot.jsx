@@ -66,8 +66,8 @@ function Robot() {
                         <p className={style.greeting}>Ingresa los datos</p>
 
                         <div className={style.box}>
-                            <input className={style.input} type="number" name="firstValue" onChange={handleInputChange} placeholder={mode == 'division' ? 'Dividendo' : 'Multiplicando'} />
-                            <input className={style.input} type="number" name="secondValue" onChange={handleInputChange} placeholder={mode == 'division' ? 'Divisor' : 'Multiplicador'} />
+                            <input className={style.input} type="number" maxLength={12} name="firstValue" onChange={handleInputChange} placeholder={mode == 'division' ? 'Dividendo' : 'Multiplicando'} />
+                            <input className={style.input} type="number" maxLength={12} name="secondValue" onChange={handleInputChange} placeholder={mode == 'division' ? 'Divisor' : 'Multiplicador'} />
                         </div>
                         <div className={style.boxMain}>
                             {mode == 'multiplicacion' ?
