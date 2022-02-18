@@ -7,7 +7,7 @@ function rob(v1, v2) {
     const cifra = []
     const space = []
     const zero = []
-    const val1 = v2 !== '' && v2 == 0 ? 5 : v1
+    const val1 = v2 !== '' && v2 == 0 ? '5' : v1
  
 
     function robb (v1, v2) {
