@@ -11,6 +11,9 @@ function Login({posts}) {
       <Head>
         <title>Swoou</title>
         <link rel="icon" href="/favicon.ico" />
+<meta name="theme-color" content="#000000">
+<meta name="msapplication-navbutton-color" content="#000000"> 
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000"> 
       </Head>
       <div className={style.container}>
         <h3 className={style.subtitle}>Iniciar Sesion</h3>
