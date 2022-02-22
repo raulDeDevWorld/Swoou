@@ -68,6 +68,7 @@ function Play () {
 console.log(objet)   
 if (objet !== null) {console.log(objet.nOne)}
     return (
+<PageEspecial>
         <div className={style.main}>
         {userDB !== 'loading' &&
             <>
@@ -97,7 +98,7 @@ if (objet !== null) {console.log(objet.nOne)}
            </>}
            {success == false && <Error>Agotaste tu free mode: SUMA</Error>}
         </div>
-
+</PageEspecial>
     )
 
 
