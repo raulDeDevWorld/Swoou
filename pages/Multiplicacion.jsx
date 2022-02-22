@@ -1,7 +1,7 @@
 import Button from '../components/Button'
 import Subtitle from '../components/Subtitle'
 import { useState, useEffect } from 'react'
-import PageLayout from '../layouts/PageLayout'
+import PageEspecial from '../layouts/PageEspecial'
 import { useUser } from '../context/Context.js'
 import { setProgress, setErrors } from '../firebase/utils'
 import { useRouter } from 'next/router'
@@ -69,6 +69,7 @@ function Play () {
 console.log(objet)   
 if (objet !== null) {console.log(objet.nOne)}
     return (
+<PageEspecial>
         <div className={style.main}>
         {userDB !== 'loading' &&
             <>
@@ -98,7 +99,7 @@ if (objet !== null) {console.log(objet.nOne)}
            </>}
            {success == false && <Error>Agotaste tu free mode: MULTIPLICACION</Error>}
         </div>
-
+</PageEspecial>
     )
 
 
