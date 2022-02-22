@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { setProgress, setErrors } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import Error from '../components/Error'
-import { PageEspecial } from '../layouts/PageEspecial'
+import PageEspecial from '../layouts/PageEspecial'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
 
