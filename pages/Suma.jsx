@@ -98,7 +98,7 @@ if (objet !== null) {console.log(objet.nOne)}
            </>}
            {success == false && <Error>Agotaste tu free mode: SUMA</Error>}
         </div>
-<PageEspecial/>
+</PageEspecial>
 
     )
 
