@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react'
-
+import { useUser } from '../context/Context.js'
 import { setProgress, setErrors } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import Error from '../components/Error'
