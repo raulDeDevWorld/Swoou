@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useUser } from '../context/Context.js'
 import { setProgress, setErrors} from '../firebase/utils'
 import { useRouter } from 'next/router'
+import PageEspecial from '../layouts/PageEspecial'
 import Error from '../components/Error'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
@@ -67,6 +68,7 @@ function Division () {
 console.log(objet)   
 if (objet !== null) {console.log(objet.nOne)}
     return (
+<PageEspecial>
         <div className={style.main}>
         {userDB !== 'loading' &&
             <>
@@ -96,7 +98,7 @@ if (objet !== null) {console.log(objet.nOne)}
            </>}
            {success == false && <Error>Agotaste tu free mode: DIVISION</Error>}
         </div>
-
+</PageEspecial>
     )
 
 
