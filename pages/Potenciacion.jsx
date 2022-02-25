@@ -26,10 +26,10 @@ function Potenciacion () {
         const nTwo = Math.floor(Math.random()*(4-1))+1
         const nFour = Math.floor(Math.random()*(5-1))+1
         const res = Math.pow(nOne, nTwo)
-        const err1 = nOne != nTwo && nOne < 1 && nTwo < 1 ? Math.pow(nOne, ntwo) - 4: Math.pow(nOne, nTwo) +1
-        const err2 = nOne != nTwo && nOne < 1 && nTwo < 1 ? Math.pow(nOne, nTwo) - 2 : Math.pow(nOne, nTwo) +3
-        const err3 = nOne != nTwo && nOne < 1 && nTwo < 1 ? nOne * nTwo : Math.pow(nOne, nTwo) +4
-        const err4 = nOne != nTwo && nOne < 1 && nTwo < 1 ? Math.pow(nTwo, nOne) : Math.pow(nOne, nTwo) +2
+        const err1 = nOne != nTwo && nOne > 1 && nTwo > 1 ? Math.pow(nOne, ntwo) - 4: Math.pow(nOne, nTwo) +1
+        const err2 = nOne != nTwo && nOne > 1 && nTwo > 1 ? Math.pow(nOne, nTwo) - 2 : Math.pow(nOne, nTwo) +3
+        const err3 = nOne != nTwo && nOne > 1 && nTwo > 1 ? nOne * nTwo : Math.pow(nOne, nTwo) +4
+        const err4 = nOne != nTwo && nOne > 1 && nTwo > 1 ? Math.pow(nTwo, nOne) : Math.pow(nOne, nTwo) +2
 
         setObjet({
             err1,
