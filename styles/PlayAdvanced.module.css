@@ -1,0 +1,7 @@
+.boxMain {
+display: flex;
+justify-content: center;
+}
+.exponente {
+font-size: 8px;
+}
