@@ -89,7 +89,7 @@ if (objet !== null) {console.log(objet.nOne)}
                 {objet !== null &&
                 <>
                 <div className={styleA.boxMain}>
-                    <div>
+                    <div className={styleA.boxMainPot}>
                     <span className={styleA.base}>{objet.nOne}</span>
                     <span className={styleA.exponente}>{objet.nTwo}</span>
                     </div>
