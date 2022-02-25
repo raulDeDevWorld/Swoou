@@ -89,8 +89,10 @@ if (objet !== null) {console.log(objet.nOne)}
                 {objet !== null &&
                 <>
                 <div className={styleA.boxMain}>
+                    <div>
                     <span className={styleA.base}>{objet.nOne}</span>
-                    <span className={styleA.exponente}>{objet.nTwo}</span> 
+                    <span className={styleA.exponente}>{objet.nTwo}</span>
+                    </div>
                 </div>
                 <div className={`${style.box} ${objet.selected == 1 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 1 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(1)}} >{objet.nFour == 1? objet.res: objet.err1} </div>
                 <div className={`${style.box} ${objet.selected == 2 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 2 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(2)}} >{objet.nFour == 2? objet.res: objet.err2} </div>
