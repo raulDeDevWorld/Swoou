@@ -25,9 +25,16 @@ function Potenciacion () {
         const nTwo = Math.floor(Math.random()*(4-1))+1
         const nFour = Math.floor(Math.random()*(5-1))+1
         const res = Math.pow(nOne, nTwo)
-       
+        const err1 = nOne != nTwo && nOne < 1 && nTwo < 1 ? Math.pow(nOne, ntwo) - 4: Math.pow(nOne, nTwo) +1
+        const err2 = nOne != nTwo && nOne < 1 && nTwo < 1 ? Math.pow(nOne, nOne) : Math.pow(nOne, nTwo) + 3
+        const err3 = nOne != nTwo && nOne < 1 && nTwo < 1 ? Math.pow(nTwo, nTwo) : Math.pow(nOne, nTwo) +4
+        const err4 = nOne != nTwo && nOne < 1 && nTwo < 1 ? Math.pow(nTwo, nOne) : Math.pow(nOne, nTwo) +2
 
         setObjet({
+            err1,
+            err2,
+            err3,
+            err4,
             nOne,
             nTwo,
             nFour,
@@ -81,13 +88,13 @@ if (objet !== null) {console.log(objet.nOne)}
                 {objet !== null &&
                 <>
                 <div className={style.boxMain}>
-                    <span>{objet.nOne}</span>
-                    <span>{objet.nTwo}</span> 
+                    <span className={style.base}>{objet.nOne}</span>
+                    <span className={style.exponente}>{objet.nTwo}</span> 
                 </div>
-                <div className={`${style.box} ${objet.selected == 1 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 1 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(1)}} >{objet.nFour == 1? objet.res: 1} </div>
-                <div className={`${style.box} ${objet.selected == 2 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 2 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(2)}} >{objet.nFour == 2? objet.res: 2} </div>
-                <div className={`${style.box} ${objet.selected == 3 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 3 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(3)}} >{objet.nFour == 3? objet.res: 3} </div>
-                <div className={`${style.box} ${objet.selected == 4 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 4 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(4)}} >{objet.nFour == 4? objet.res: 4} </div>
+                <div className={`${style.box} ${objet.selected == 1 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 1 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(1)}} >{objet.nFour == 1? objet.res: objet.err1} </div>
+                <div className={`${style.box} ${objet.selected == 2 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 2 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(2)}} >{objet.nFour == 2? objet.res: objet.err2} </div>
+                <div className={`${style.box} ${objet.selected == 3 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 3 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(3)}} >{objet.nFour == 3? objet.res: objet.err3} </div>
+                <div className={`${style.box} ${objet.selected == 4 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 4 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(4)}} >{objet.nFour == 4? objet.res: objet.err4} </div>
                 <button className={style.button} onClick={nextClick}>Finalizar</button> 
                 </>}
            </div>
