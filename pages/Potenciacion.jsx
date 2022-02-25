@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import Error from '../components/Error'
 import { WithAuth } from '../HOCs/WithAuth'
 import style from '../styles/Play.module.css'
+import styleA from '../styles/PlayAdvanced.module.css'
 import styleH from '../styles/Home.module.css'
 
 
@@ -87,9 +88,9 @@ if (objet !== null) {console.log(objet.nOne)}
                 </div>
                 {objet !== null &&
                 <>
-                <div className={style.boxMain}>
-                    <span className={style.base}>{objet.nOne}</span>
-                    <span className={style.exponente}>{objet.nTwo}</span> 
+                <div className={styleA.boxMain}>
+                    <span className={styleA.base}>{objet.nOne}</span>
+                    <span className={styleA.exponente}>{objet.nTwo}</span> 
                 </div>
                 <div className={`${style.box} ${objet.selected == 1 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 1 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(1)}} >{objet.nFour == 1? objet.res: objet.err1} </div>
                 <div className={`${style.box} ${objet.selected == 2 && objet.selected !== objet.nFour? style.red: ''}  ${objet.selected !== null && 2 == objet.nFour? style.green: ''}`} onClick={(e)=>{select(2)}} >{objet.nFour == 2? objet.res: objet.err2} </div>
