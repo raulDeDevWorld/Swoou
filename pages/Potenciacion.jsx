@@ -23,7 +23,7 @@ function Potenciacion () {
     const router = useRouter()
     function obj (){
         const nOne = Math.floor(Math.random()*(11-0))+0
-        const nTwo = Math.floor(Math.random()*(4-1))+1
+        const nTwo = Math.floor(Math.random()*(4-0))+0
         const nFour = Math.floor(Math.random()*(5-1))+1
         const res = Math.pow(nOne, nTwo)
         const err1 = nOne != nTwo && nOne > 1 && nTwo > 1 ? Math.pow(nOne, ntwo) - 4: Math.pow(nOne, nTwo) +1
