@@ -1,5 +1,5 @@
 .main {
-    background-color: #01afff;
+    background: linear-gradient(to bottom, #90c8fc, #4F84B5);
     min-height: 100vh;
 }
 .perfil {

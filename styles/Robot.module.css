@@ -1,5 +1,5 @@
 .main {
-    background-color: #01afff;
+    background: linear-gradient(to bottom, #90c8fc, #4F84B5);
     min-height: 100vh;
 }
 .container {
@@ -25,7 +25,7 @@
 
 
 .box {
-    background-color: #00C0FF;
+    background-color: #4F84B5;
     width: 90%;
     height: 50px;
     border-radius: 10px;
