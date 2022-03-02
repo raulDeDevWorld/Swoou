@@ -3,10 +3,14 @@
     height: 100vh;
     min-height: 550px;
     width: 100vw;
-    background: linear-gradient(to bottom,#9ECAD4, #9ECAD4, #4393BE);
+    /* background: linear-gradient(to bottom, #4393BE,#4393BE, #003450); */
+    background-image: url(../public/bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left bottom;
 }
 .mainContainer {
-background-color: #357597;   
+background-color: #0154809f;   
     position: absolute;
     top: 0;
     right: 0;
