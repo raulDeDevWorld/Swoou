@@ -3,10 +3,10 @@
     height: 100vh;
     min-height: 550px;
     width: 100vw;
-    background: linear-gradient(to bottom, #90c8fc, #4F84B5);
+    background: linear-gradient(to bottom,#9ECAD4, #9ECAD4, #4393BE);
 }
 .mainContainer {
-background-color: #4F84B5;   
+background-color: #357597;   
     position: absolute;
     top: 0;
     right: 0;
