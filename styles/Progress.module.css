@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: #01afff;
+  background: linear-gradient(to bottom,#4393BE, #9ECAD4, #9ECAD4, #4393BE);
 }
 .robot {
   width: 250px;

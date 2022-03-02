@@ -1,7 +1,7 @@
 
 .main {
-    background-color: #01afff;
-    min-height: 100vh;
+  background: linear-gradient(to bottom,#4393BE, #9ECAD4, #9ECAD4, #4393BE);
+  min-height: 100vh;
 }
 .container {
     height: 100%;
