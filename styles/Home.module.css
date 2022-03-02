@@ -7,6 +7,7 @@
   color: orange;
 
 }
+
 .containerTwo {
   position: relative;
   display: flex;
@@ -27,27 +28,27 @@
 }
 .avatarb1 {
   cursor: pointer;
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
   margin: 2px 20px 2px 17px;
 }
 .avatarb2 {
   cursor: pointer;
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   margin: 2px 20px 2px 7px;
 }
 .avatarg1 {
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 5px;
   margin: 2px 20px 2px 20px;
 }
 .avatarg2 {
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 5px;
   margin: 2px 20px 2px 20px;
 }
@@ -56,6 +57,7 @@
 }
 .form {
   margin-top: 10px;
+  color: white;
 }
 .input {
   border: none;
@@ -63,7 +65,11 @@
   width: 90%;
   background-color: transparent;
   margin-bottom: 7px;
+  color: white;
 }
+.input ::placeholder { color:rgb(172, 172, 172); }
+.input::-webkit-input-placeholder {  color:rgb(172, 172, 172); } /* WebKit */
+.input::-moz-placeholder {  color:rgb(172, 172, 172); } /* Firefox 19+ */
 .right {
 animation: rotar 1.5s alternate;
 filter: saturate(1.5);
