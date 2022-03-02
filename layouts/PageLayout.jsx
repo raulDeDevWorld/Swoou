@@ -22,6 +22,9 @@ export default function PageLayout ({ children }) {
           <button className={style.button}><a href="https://api.whatsapp.com/send?phone=+59173447725&text=buenas,%20me%20gustaria%20comunicarme%20con%20un%20%20operador(a)%20">Operador(a)</a></button>
         </div>
     </div>
+    <footer className={style.footer}>
+        copyright 2022<br />swoou.com
+    </footer>
 </>
   )
 }

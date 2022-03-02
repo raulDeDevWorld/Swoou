@@ -58,9 +58,12 @@ function Premium() {
                             <div className={style.tiketTwo}>19.50 BOB</div>
                             <div className={style.spaceDiv}>
                                 <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={next}>Adquirirlo ya</Button>
+                            <div>
                                 <a className={style.enlace} onClick={enlace}>Terminos y condiciones Swoou Premium</a> <br />
                                 <a className={style.enlace} onClick={x}>Ya cuento con acceso a Swoou Premium</a>
-                            </div>
+
+                            </div> 
+                           </div>
                         </>
                     }
 

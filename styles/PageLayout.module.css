@@ -3,9 +3,10 @@
     height: 100vh;
     min-height: 550px;
     width: 100vw;
+    background: linear-gradient(to bottom, #90c8fc, #4F84B5);
 }
 .mainContainer {
-background-color: aliceblue;   
+background-color: #4F84B5;   
     position: absolute;
     top: 0;
     right: 0;
@@ -49,17 +50,17 @@ background-color: aliceblue;
     right: 0;
     height: 70px;
     width: 100vw;
-    background-image: url(../public/vector-bottom.svg);
+    /* background-image: url(../public/vector-bottom.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: left bottom;
+    background-position: left bottom; */
     z-index: 100;    
     pointer-events: none;
 }
 .button {
     position: absolute;
     right: 10px;
-    bottom: 20px;
+    bottom: 40px;
     cursor: pointer;
     font-size: 12px;
     color: white;
@@ -74,6 +75,24 @@ background-color: aliceblue;
     border-radius: 5px;    
     pointer-events: auto;
 }
+
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    box-sizing: border-box;
+  
+    width: 100%;
+    background-color: black;
+    height: 40px;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 10px;
+    text-align: center;
+    z-index: 10000;
+  }
 @media (max-height: 550px) { 
     .vector {
         position: absolute;

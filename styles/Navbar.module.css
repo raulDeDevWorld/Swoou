@@ -57,9 +57,9 @@
     flex-direction: column;
     align-items: flex-start;
     transition:left .1s;
-    background-image: linear-gradient(#003450, #4393BE, white);
+    background-image: linear-gradient(#003450, #4F84B5, #90c8fc);
     color: white;
-    border-radius: 0 30px 0 30px;
+    border-radius: 0 30px 0 0px;
     z-index: 1000000000000000;
   }
   .top {
