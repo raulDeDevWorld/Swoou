@@ -7,8 +7,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: linear-gradient(to bottom,#4393BE, #9ECAD4, #9ECAD4, #4393BE);
-}
+  background-image: url(../public/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left bottom; }
 .robot {
   width: 250px;
   height: 130px;
