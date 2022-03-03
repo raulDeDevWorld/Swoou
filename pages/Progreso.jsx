@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
 import Modal from '../components/Modal'
+import PageEspecial from '../layouts/PageEspecial'
 import { userDelete, getProgress } from '../firebase/utils'
 import style from '../styles/Progreso.module.css'
 import Button from '../components/Button'
@@ -52,6 +53,7 @@ function Progreso() {
         getDataProgress()
     }, []);
     return (
+        <PageEspecial>  
         <div className={style.main}>
             {userDB !== 'loading' &&
                        <div className={style.container}>
@@ -114,6 +116,7 @@ function Progreso() {
                 </div>
                 }
         </div>
+        </PageEspecial>
     )
 }
 

@@ -1,7 +1,7 @@
 import Button from '../components/Button'
 import Subtitle from '../components/Subtitle'
 import { useState, useEffect } from 'react'
-import PageLayout from '../layouts/PageLayout'
+import PageEspecial from '../layouts/PageEspecial'
 import { useUser } from '../context/Context.js'
 import { progressUpdate, errorsUpdate } from '../firebase/utils'
 import { useRouter } from 'next/router'
@@ -51,6 +51,7 @@ function Robot() {
     },[values]);   
   console.log(obj)
     return (
+        <PageEspecial>
         <div className={style.main}>
             {userDB !== 'loading' &&
                 <>
@@ -93,7 +94,7 @@ function Robot() {
                 </>}
                 {success == false && <Error>Agotaste tu modo prueba</Error>}
         </div>
-
+        </PageEspecial>
     )
 
 

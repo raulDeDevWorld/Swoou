@@ -3,6 +3,7 @@ import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
 import Success from '../components/Success'
 import Error from '../components/Error'
+import PageEspecial from '../layouts/PageEspecial'
 import { getIds } from '../firebase/utils'
 import style from '../styles/Progress.module.css'
 import Button from '../components/Button'
@@ -35,8 +36,8 @@ function Progress() {
         success == true ? x() : ''
     }, [success]);
     return (
-        <>
-   
+       
+   <PageEspecial>
         {userDB !== 'loading' && 
             <>
             <div className={style.container}>
@@ -73,7 +74,7 @@ function Progress() {
     </Modal>
     {success ==true && <Success>Correcto</Success>}
     {success ==false && <Error>Error</Error>}
-    </>
+    </PageEspecial>
     )
 }
 
