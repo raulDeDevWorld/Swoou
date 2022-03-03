@@ -8,9 +8,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left bottom;
+    
 }
 .mainContainer {
-background-color: #0154809f;   
+    background-image: linear-gradient(#015380ce,#4393BE, #B1D9F0);
     position: absolute;
     top: 0;
     right: 0;
