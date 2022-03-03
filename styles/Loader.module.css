@@ -1,3 +1,4 @@
+
 .spinner div {
   position: absolute;
   border-width: 4px;
@@ -5,6 +6,8 @@
   opacity: 1;
   border-radius: 50%;
   animation: spinnerKeyframe 1.5s cubic-bezier(0,0.2,0.8,1) infinite;
+  background-image: linear-gradient(#015380ce,#4393BE, #B1D9F0);
+
 }
  
 .spinner div:nth-child(1) {

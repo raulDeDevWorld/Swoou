@@ -1,7 +1,11 @@
 import style from '../styles/Loader.module.css'
+import PageEspecial from '../layouts/PageEspecial'
+
 
 export default function Loader () {
     return (
+        <PageEspecial>  
+
     <div className={style.spinnerContainer}>
         <div className={style.spinner}>
             <div>
@@ -10,5 +14,6 @@ export default function Loader () {
             </div>
         </div>
     </div>
+    </PageEspecial>
     )
 }

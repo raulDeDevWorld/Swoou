@@ -1,6 +1,6 @@
 /*003450*/
 /*4393BE*/
-/*B1D9F0
+/*B1D9F0*/
 html,
 
 
@@ -9,6 +9,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-image: linear-gradient(#015380ce,#4393BE, #B1D9F0);
+
 }
 
 a {
@@ -19,7 +21,7 @@ a {
 * {
   box-sizing: border-box;
 }
-*/
+
 
 
 
