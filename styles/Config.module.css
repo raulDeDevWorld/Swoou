@@ -24,6 +24,9 @@
     padding: 1px;
     border-radius: 5px;
 }
+.title {
+  color: white;
+}
 .subtitle {
     color: rgb(0, 255, 106);
     font-size: 16;

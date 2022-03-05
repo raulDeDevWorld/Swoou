@@ -1,8 +1,8 @@
 .modalContainer {
-    position: relative;
+    position: fixed;
     width: 100vw;
     min-width: 280px;
-    height: 100vh;
+    min-height: 100vh;
     top: 0;
     bottom: 0;
     right: 0;
