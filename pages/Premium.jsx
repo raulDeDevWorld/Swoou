@@ -43,7 +43,7 @@ function Premium() {
                 {userDB.premium !== null && <div className={style.container}>
 
                     <PremiumC></PremiumC>
-                    {userDB.premium === false && <div className={style.tiket}>9.50 BOB</div>}
+                    {userDB.premium === false && <div className={style.tiket}>9.70 BOB</div>}
                     <ul className={style.list}>
                         <li className={style.li}>Play ilimitado <img src='/right.svg' className={style.right} alt='rigth'></img></li>
                         <li className={style.li}>Robot ilimitado <img src='/right.svg' className={style.right} alt='rigth'></img></li>
@@ -55,7 +55,7 @@ function Premium() {
                     {userDB.premium === false &&
                         <>
                             <PremiumPluss></PremiumPluss>
-                            <div className={style.tiketTwo}>19.50 BOB</div>
+                            <div className={style.tiketTwo}>19.70 BOB</div>
                             <div className={style.spaceDiv}>
                                 <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={next}>Adquirirlo ya</Button>
                             <div>
