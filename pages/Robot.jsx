@@ -71,20 +71,24 @@ function Robot() {
                             <input className={style.input} type="number" maxLength={12} name="secondValue" onChange={handleInputChange} placeholder={mode == 'division' ? 'Divisor' : 'Multiplicador'} />
                         </div>
                         <div className={style.boxMain}>
+
                             {mode == 'multiplicacion' ?
                                 <div>
-                                    <span className={style.p}>{values.firstValue} </span>
-                                    <span className={`${style.p} ${res == true && values.secondValue.length < 2 ? '' : style.border}`}><span className={style.red}>{values.secondValue !== '' ? 'X' : ''}</span> {values.secondValue}</span>
+                                    <span className={style.p}>{values.firstValue}</span>
+                                    <span className={`${style.p} ${res == true && values.secondValue.length < 2 ? '' : style.border}`}>
+                                        <span className={style.red}>{values.secondValue !== '' ? 'X' : ''}</span> {values.secondValue}
+                                    </span>
                                     {res == true && values.secondValue.length > 1 ? values.secondValue.split('').reverse().map((i, index) => <span className={style.p} key={index}>{i == 0 ? values.firstValue.toString().replace('9', '0').replace('8', '0').replace('7', '0').replace('6', '0').replace('5', '0').replace('4', '0').replace('3', '0').replace('2', '0').replace('1', '0') : i * values.firstValue
-}<span className={style.hide}>{values.secondValue.substring(0, index)} </span></span>) : ''}
-                                    {res == true && values.secondValue.length > 0 ? <span className={`${style.p} ${style.borderTop}`}>{values.firstValue * values.secondValue} </span> : ''}
+                                    }<span className={style.hide}>{values.secondValue.substring(0, index)} </span></span>) : ''}
+                                    {res == true && values.secondValue.length > 0 ? <span className={`${style.p} ${style.borderTop}`}>{ values.secondValue == 0 ? values.firstValue.toString().replace('9', '0').replace('8', '0').replace('7', '0').replace('6', '0').replace('5', '0').replace('4', '0').replace('3', '0').replace('2', '0').replace('1', '0') : values.firstValue * values.secondValue} </span> : ''}
                                 </div> :
+
                                 <div className={`${style.divisionBox} ${values.firstValue !== '' || values.secondValue !== '' ? style.display : ''}`}>
                                     <span className={`${style.dividendo} ${values.firstValue !== '' || values.secondValue !== '' ? style.vertical : ''}`}>
-                                        <span>{values.firstValue}</span> 
-                                       {obj !== null && res == true ? obj.cifra.map((i, index)=> <span className={style.residuo} key={index}><span>{obj.zero[index]}</span>{i}<span className={style.hideDiv}>{Math.trunc(values.firstValue / values.secondValue).toString().replace(/,/g,"").substring(0, (obj.space[index+1]))}</span></span>): ''} 
+                                        <span>{values.firstValue}</span>
+                                        {obj !== null && res == true ? obj.cifra.map((i, index) => <span className={style.residuo} key={index}><span>{obj.zero[index]}</span>{i}<span className={style.hideDiv}>{Math.trunc(values.firstValue / values.secondValue).toString().replace(/,/g, "").substring(0, (obj.space[index + 1]))}</span></span>) : ''}
                                     </span>
-                                    { values.secondValue !== '' ? <span className={style.divisor}><span className={`${values.firstValue !== '' || values.secondValue !== '' ? style.horizontal : ''}`}>{values.secondValue}</span><span className={style.span}>{values.firstValue !== '' && values.secondValue !== '' && res == true ? Math.trunc(values.firstValue / values.secondValue): ''}</span></span> : ''}
+                                    {values.secondValue !== '' ? <span className={style.divisor}><span className={`${values.firstValue !== '' || values.secondValue !== '' ? style.horizontal : ''}`}>{values.secondValue}</span><span className={style.span}>{values.firstValue !== '' && values.secondValue !== '' && res == true ? Math.trunc(values.firstValue / values.secondValue) : ''}</span></span> : ''}
                                 </div>}
                         </div>
                         <button className={style.buttonGreen} onClick={resolver}>Resolver</button>

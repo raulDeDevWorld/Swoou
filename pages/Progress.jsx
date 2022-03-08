@@ -61,6 +61,9 @@ function Progress() {
                 <div className={style.buttons}>                
                     <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={x}>{userDB.id ? 'Cambiar Prof. Id' : 'Compartir progreso'}</Button>
                 </div>
+
+
+
             </div> 
  
           

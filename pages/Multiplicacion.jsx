@@ -23,11 +23,11 @@ function Play () {
     function obj (){
         const nOne = Math.floor(Math.random()*(11-1))+1
         const nTwo = Math.floor(Math.random()*(11-0))+0
-        const ale = () => Math.floor(Math.random()*(11-1))+1
+        const ale = () => Math.floor(Math.random()*(11-5))+5
         const nFour = Math.floor(Math.random()*(5-1))+1
         const res = nOne*nTwo
-        const errO = nOne == nTwo || nOne == 0 || nTwo == 0? ale(): nOne
-        const errT = nOne == nTwo || nOne == 0 || nTwo == 0? ale(): nTwo
+        const errO = nOne == nTwo || nTwo == 0? ale(): nOne
+        const errT = nOne == nTwo || nTwo == 0? ale(): nTwo
 
         setObjet({
             nOne,
