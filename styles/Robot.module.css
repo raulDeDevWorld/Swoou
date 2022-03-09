@@ -90,6 +90,10 @@
 .hide {
     visibility: hidden;
 }
+.hideTrick {
+    color: aliceblue;
+}
+
 .border{
     text-decoration: underline;
     text-decoration-color: red;
@@ -97,6 +101,7 @@
 .borderTop{
     border-top: 2px solid red;
 }
+
 .buttonGreen {
     background-color: rgb(0, 255, 0);
     color: white;
