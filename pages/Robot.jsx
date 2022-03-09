@@ -19,6 +19,7 @@ function Robot() {
     const [values, setValues] = useState({ firstValue: '', secondValue: '' })
     const [res, setRes] = useState(false)
     const [obj, setObj] =useState(null)
+    const [cifDiv, setCifDiv] =useState('')
 
     const router = useRouter()
 
@@ -48,8 +49,12 @@ function Robot() {
     
     useEffect(() => {
         values.firstValue !== '' && values.secondValue !== '' ? setObj(rob(values.firstValue, values.secondValue)): ''
+        values.firstValue > 0 && values.firstValue.substring(0, 1) == 0 && mode == 'division' ? setValues({ ...values, firstValue: `${values.firstValue * 1}` }):''
+        values.firstValue.substring(0, values.secondValue.length) >= values.secondValue 
+        ? setCifDiv(values.firstValue.substring(0, values.secondValue.length))
+        : setCifDiv(values.firstValue.substring(0, values.secondValue.length + 1))
     },[values]);   
-  console.log(obj)
+    console.log(cifDiv)
     return (
         <PageEspecial>
         <div className={style.main}>
@@ -86,8 +91,8 @@ function Robot() {
                                 <div className={`${style.divisionBox} ${values.firstValue !== '' || values.secondValue !== '' ? style.display : ''}`}>
                                     <span className={`${style.dividendo} ${values.firstValue !== '' || values.secondValue !== '' ? style.vertical : ''}`}>
                                   
-                                        <span>{values.firstValue}</span>
-                                        {obj !== null && res == true ? obj.cifra.map((i, index) => <span className={style.residuo} key={index}><span>{values.firstValue < values.secondValue ? obj.zero[index]: ''}</span>{i}<span className={style.hideDiv}>{Math.trunc(values.firstValue / values.secondValue).toString().replace(/,/g, "").substring(0, (obj.space[index + 1]))}</span></span>) : ''}
+                                        <div><span className={res == true  && values.firstValue > 0 && values.secondValue > 0 ? style.cifDiv: ''}>{cifDiv}</span><span>{values.firstValue.toString().substring(cifDiv.length ).split('').map((item, i)=> <span className={res == true && values.secondValue !== '' && values.firstValue > 0 && values.secondValue > 0?style.cifDivTwo:''} key={i}>{item}</span>)}</span></div>
+                                        {obj !== null && values.firstValue > 0 && res == true ? obj.cifra.map((i, index) => <span className={style.residuo} key={index}><span>{values.firstValue < values.secondValue ? obj.zero[index]: ''}</span>{i}<span className={style.hideDiv}>{Math.trunc(values.firstValue / values.secondValue).toString().replace(/,/g, "").substring(0, (obj.space[index + 1]))}</span></span>) : ''}{obj !== null && values.firstValue == 0 && values.secondValue > 0 && res == true ?<span className={style.specialZero}>0</span>:''}{obj !== null && values.firstValue == 0 && values.secondValue == 0 && res == true ?<span className={style.specialZero}>NaN</span>:''}
                                     </span>
                                     {values.secondValue !== '' ? <span className={style.divisor}><span className={`${values.firstValue !== '' || values.secondValue !== '' ? style.horizontal : ''}`}>{values.secondValue}</span><span className={style.span}>{values.firstValue !== '' && values.secondValue !== '' && res == true ? Math.trunc(values.firstValue / values.secondValue) : ''}</span></span> : ''}
                                 </div>}
