@@ -52,11 +52,13 @@ function PlayConfig() {
         setMouse(false)
     }
     function mouseMove (e) {
+
         let x = e.clientX
+        let vw = e.target.clientWidth
         mouse == true ? setX(x) : ''
+       
      
     }
-    
 
     return (
         <PageEspecial>
@@ -76,7 +78,7 @@ function PlayConfig() {
                             <button className={`${style.button} ${mouse == true ? style.right : ''}`} onClick={division}>Resta</button>
                         </div>
                         <p className={style.greeting}>Selecciona una cifra...</p>
-                        <div className={`${style.boxSelect} ${style.jleft} ${style.jright}`} onMouseDown={mouseDown} onMouseUp={mouseUp} onMouseMove={mouseMove} ><span style={{left: `${66.66}%`}}>{x}</span></div>
+                        <div className={`${style.boxSelect} ${style.jleft} ${style.jright}`} onMouseDown={mouseDown} onMouseUp={mouseUp} onMouseMove={mouseMove} ><span style={{left: `${x}px`}}>{x}</span></div>
 
                         <div className={style.box}>
                             <button className={`${style.button} ${mode == 'multiplicacion' ? style.right : ''}`} onClick={multiplicacion}>Multiplicación</button>
