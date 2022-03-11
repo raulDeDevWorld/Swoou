@@ -52,12 +52,17 @@
 }
 .boxSelect {
     position: relative;
-    width: 100%;
+    width: 85%;
     height: 20px;
-    border-top: 1px solid aliceblue;
+ 
     margin-bottom: 50px;
     display: flex;
     justify-content: left;
+    background-color: black;
+    font-size: 12px;
+    color: aliceblue;
+    border-radius: 2px;
+    overflow: hidden;
 }
 .jleft {
     justify-content: left;
@@ -66,11 +71,18 @@
     justify-content: right;
 }
 .boxSelect :nth-child(n) {
-
-    background-color: red;
     height: 20px;
-    width: 33.33%;
-    position: absolute;
+    width: 33.333333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-property: background-color;
+    transition-duration: .5s;
+    
+}
+.green {
+    background-color: #1eff00;
+    color: black;
 }
 .right {
     background-image: url(../public/right.svg);

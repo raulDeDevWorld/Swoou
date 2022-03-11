@@ -14,51 +14,42 @@ import {rob} from '../utils/robot'
 
 function PlayConfig() {
     const { userDB, avatar, setUserSuccess, success } = useUser()
-    const [mode, setMode] = useState('multiplicacion')
-    const [values, setValues] = useState({ firstValue: '', secondValue: '' })
+    const [mode, setMode] = useState('suma')
+    const [modeTwo, setModeTwo] = useState('multiplicacion')
     const [mouse, setMouse] = useState(false)
-    const [x, setX] =useState(0)
-    const [cifDiv, setCifDiv] =useState('')
+    const [sumaConfig, setSumaConfig] =useState(2)
+    const [restaConfig, setRestaConfig] =useState(2)
+    const [multiplicacionConfig, setMultiplicacionConfig] =useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+    const [divisionConfig, setDivisionConfig] =useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+
 
     const router = useRouter()
 
+
+
+    function suma () {
+        setMode('suma')
+    }
+    function resta () {
+        setMode('resta')
+    }
     function multiplicacion() {
-        setMode('multiplicacion')
+        setModeTwo('multiplicacion')
     }
     function division() {
-        setMode('division')
+        setModeTwo('division')
     }
-    function handleInputChange(e) {
-        e.preventDefault()
-        if (userDB.premium === false && userDB.progress + userDB.errors == 30) {
-            setUserSuccess(false) 
-        return}
-        const name = e.target.name
-        const value = e.target.value
-        setValues({ ...values, [name]: value })
-        setObj(null)
-    }
-    function resolver() {
-        if (userDB.premium === false && userDB.progress + userDB.errors == 30) {
-            setUserSuccess(false) 
-        return}
-        setRes(true)
-    }
-  
-    function mouseDown () {
-        setMouse(true)
-    }
-    function mouseUp () {
-        setMouse(false)
-    }
-    function mouseMove (e) {
 
-        let x = e.clientX
-        let vw = e.target.clientWidth
-        mouse == true ? setX(x) : ''
-       
-     
+
+  
+    function cHandler (n) {
+        mode == 'suma' ? setSumaConfig(n) : setRestaConfig(n)
     }
+    function clickHandler (n) {
+        mode == 'suma' ? setSumaConfig(n) : setRestaConfig(n)
+    }
+
+ 
 
     return (
         <PageEspecial>
@@ -72,24 +63,44 @@ function PlayConfig() {
 
 
 
-
                         <div className={style.box}>
-                            <button className={`${style.button} ${mouse == true ? style.right : ''}`} onClick={multiplicacion}>Suma</button>
-                            <button className={`${style.button} ${mouse == true ? style.right : ''}`} onClick={division}>Resta</button>
+                            <button className={`${style.button} ${ mode== 'suma' ? style.right : ''}`} onClick={suma}>Suma</button>
+                            <button className={`${style.button} ${ mode == 'resta' ? style.right : ''}`} onClick={resta}>Resta</button>
                         </div>
                         <p className={style.greeting}>Selecciona una cifra...</p>
-                        <div className={`${style.boxSelect} ${style.jleft} ${style.jright}`} onTouchStart={mouseDown} onMouseUp={mouseUp} onMouseMove={mouseMove} ><span style={{left: `${x}px`}}>{x}</span></div>
-
+                        <div className={`${style.boxSelect}`}>
+                            <span className={`${sumaConfig == 1 && mode == 'suma'? style.green : ''} ${restaConfig == 1 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(1)}>1 Cifra</span>
+                            <span className={`${sumaConfig == 2 && mode == 'suma'? style.green : ''} ${restaConfig == 2 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(2)}>2 Cifras</span>
+                            <span className={`${sumaConfig == 3 && mode == 'suma'? style.green : ''} ${restaConfig == 3 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(3)}>3 Cifras</span>
+                        </div>
+                        
+                        
+                        
+                        
                         <div className={style.box}>
-                            <button className={`${style.button} ${mode == 'multiplicacion' ? style.right : ''}`} onClick={multiplicacion}>Multiplicación</button>
-                            <button className={`${style.button} ${mode == 'division' ? style.right : ''}`} onClick={division}>División</button>
+                            <button className={`${style.button} ${modeTwo == 'multiplicacion' ? style.right : ''}`} onClick={multiplicacion}>Multiplicación</button>
+                            <button className={`${style.button} ${modeTwo == 'division' ? style.right : ''}`} onClick={division}>División</button>
                         </div>
                         <p className={style.greeting}>Selecciona una o mas tablas...</p>
-                      
+                        <div className={`${style.boxSelect}`}>
+                            <span className={multiplicacion == 0 ? style.green : ''} onClick={() => clickHandler(0)}>0</span> 
+                            <span className={multiplicacion == 1 ? style.green : ''} onClick={() => clickHandler(1)}>1</span>
+                            <span className={multiplicacion == 2 ? style.green : ''} onClick={() => clickHandler(2)}>2</span>
+                            <span className={multiplicacion == 3 ? style.green : ''} onClick={() => clickHandler(3)}>3</span>
+                            <span className={multiplicacion == 4 ? style.green : ''} onClick={() => clickHandler(4)}>4</span>
+                            <span className={multiplicacion == 5 ? style.green : ''} onClick={() => clickHandler(5)}>5</span>
+                            <span className={multiplicacion == 6 ? style.green : ''} onClick={() => clickHandler(6)}>6</span>
+                            <span className={multiplicacion == 7 ? style.green : ''} onClick={() => clickHandler(7)}>7</span>
+                            <span className={multiplicacion == 8 ? style.green : ''} onClick={() => clickHandler(8)}>8</span>
+                            <span className={multiplicacion == 9 ? style.green : ''} onClick={() => clickHandler(9)}>9</span>
+                            <span className={multiplicacion == 10 ? style.green : ''} onClick={() => clickHandler(10)}>10</span>
+                            <span className={multiplicacion == 11 ? style.green : ''} onClick={() => clickHandler(11)}>11</span>
+                        </div>
 
-             
+
+
       
-                        <button className={style.buttonGreen} onClick={resolver}>Resolver</button>
+                        <button className={style.buttonGreen} onClick={clickHandler}>Resolver</button>
 
                     </div>
 
