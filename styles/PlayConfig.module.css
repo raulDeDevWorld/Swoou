@@ -90,3 +90,24 @@
     background-position: 110px 2px;
     background-size: 13px;
 }
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.buttonContainer :nth-child(1) {
+    background-color: red;
+}
+.buttonGreen {
+    background-color: rgb(0, 255, 0);
+    color: white;
+    width: 40%;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 25px;
+}

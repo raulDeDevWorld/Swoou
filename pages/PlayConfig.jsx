@@ -49,7 +49,9 @@ function PlayConfig() {
         mode == 'suma' ? setSumaConfig(n) : setRestaConfig(n)
     }
 
- 
+    function back () {
+        router.back()
+    }
 
     return (
         <PageEspecial>
@@ -97,11 +99,12 @@ function PlayConfig() {
                             <span className={multiplicacion == 11 ? style.green : ''} onClick={() => clickHandler(11)}>11</span>
                         </div>
 
+                        <div className={style.buttonContainer}>         
+                            <button className={style.buttonGreen} onClick={back}>Atras</button>
+                            <button className={style.buttonGreen} onClick={clickHandler}>Guardar</button>
+                        </div>
 
-
-      
-                        <button className={style.buttonGreen} onClick={clickHandler}>Resolver</button>
-
+               
                     </div>
 
                 </>}
