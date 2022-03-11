@@ -16,12 +16,14 @@ function Play () {
     const [objet, setObjet] = useState(null)
     const [countR, setCountR] = useState(0)
     const [countE, setCountE] = useState(0)
+
    
 
     const router = useRouter()
     function obj (){
-        const nOne = Math.floor(Math.random()*(100-1))+1
-        const nTwo = Math.floor(Math.random()*(100-0))+0
+        const dificult = userDB.restaConfig
+        const nOne = Math.floor(Math.random()*(dificult-1))+1
+        const nTwo = Math.floor(Math.random()*(dificult-0))+0
         const ale = () => Math.floor(Math.random()*(11-1))+1
         const nFour = Math.floor(Math.random()*(5-1))+1
         const res = nOne > nTwo? nOne - nTwo : nTwo - nOne
@@ -60,8 +62,7 @@ function Play () {
 
     useEffect(() => {
         obj()
-    }, []);
-console.log(objet)   
+    }, [userDB.restaConfig]);
 if (objet !== null) {console.log(objet.nOne)}
     return (
 <PageEspecial>

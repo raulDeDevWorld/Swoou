@@ -307,5 +307,20 @@ function userDelete (userUid) {
       db.ref(`${'/users'}/${userUid}`).update({id: 'Te ha eliminado'})
 
 }
+function playDificult (account, dificultObject) {
+      const us = account == true ? 'teachers' : 'users' 
+      const uid = auth.currentUser.uid
+      if (us == 'teachers') { 
+            db.ref(`${us}/${uid}/students`).once('value', function(snapshot){
+                  snapshot.forEach(function(childSnapshot) {
+                  console.log(childSnapshot.key)
+                  db.ref(`${'/users'}/${childSnapshot.key}`).update(dificultObject)
 
-export { userDelete, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }
+                  });
+            });
+            db.ref(`${us}/${uid}`).update(dificultObject)
+
+      }
+}
+
+export { playDificult, userDelete, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }

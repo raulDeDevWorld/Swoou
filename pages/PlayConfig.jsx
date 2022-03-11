@@ -3,7 +3,7 @@ import Subtitle from '../components/Subtitle'
 import { useState, useEffect } from 'react'
 import PageEspecial from '../layouts/PageEspecial'
 import { useUser } from '../context/Context.js'
-import { progressUpdate, errorsUpdate } from '../firebase/utils'
+import { playDificult } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import Error from '../components/Error'
@@ -17,8 +17,8 @@ function PlayConfig() {
     const [mode, setMode] = useState('suma')
     const [modeTwo, setModeTwo] = useState('multiplicacion')
     const [controller, setController] = useState(false)
-    const [sumaConfig, setSumaConfig] =useState(2)
-    const [restaConfig, setRestaConfig] =useState(2)
+    const [sumaConfig, setSumaConfig] =useState(99)
+    const [restaConfig, setRestaConfig] =useState(99)
     const [plantillaConfig, setPlantillaConfig] =useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     const [multiplicacionConfig, setMultiplicacionConfig] =useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     const [divisionConfig, setDivisionConfig] =useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
@@ -47,21 +47,23 @@ function PlayConfig() {
         mode == 'suma' ? setSumaConfig(n) : setRestaConfig(n)
     }
     function clickHandler (n) {
-
-        // if (n < multiplicacionConfig[0]) {
-        //     let u = plantillaConfig.length
-        //     let i = plantillaConfig.findIndex(i => i == n)
-        //     let arr = plantillaConfig.slice(i, u)
-        //     setMultiplicacionConfig(arr)
-        // } 
-            let arr = plantillaConfig.slice(0, n+1)
-            setMultiplicacionConfig(arr)
+        let arr = plantillaConfig.slice(0, n+1)
+        modeTwo == 'multiplicacion' ? setMultiplicacionConfig(arr) : setDivisionConfig(arr)
       
     }
-    console.log(multiplicacionConfig)
+
     function back () {
         router.back()
     }
+    function save () {
+        playDificult(userDB.profesor, {sumaConfig, restaConfig, multiplicacionConfig, divisionConfig })
+    }
+    console.log(userDB.multiplicacionConfig)
+
+    useEffect( () => {
+        setSumaConfig(userDB.sumaConfig)
+        setRestaConfig(userDB.restaConfig)
+    },[userDB.sumaConfig, userDB.restaConfig, userDB.multiplicacionConfig]);
 
     return (
         <PageEspecial>
@@ -80,9 +82,9 @@ function PlayConfig() {
                         </div>
                         <p className={style.greeting}>Selecciona una cifra...</p>
                         <div className={`${style.boxSelect}`}>
-                            <span className={`${sumaConfig == 1 && mode == 'suma'? style.green : ''} ${restaConfig == 1 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(1)}>1 Cifra</span>
-                            <span className={`${sumaConfig == 2 && mode == 'suma'? style.green : ''} ${restaConfig == 2 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(2)}>2 Cifras</span>
-                            <span className={`${sumaConfig == 3 && mode == 'suma'? style.green : ''} ${restaConfig == 3 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(3)}>3 Cifras</span>
+                            <span className={`${sumaConfig == 9 && mode == 'suma'? style.green : ''} ${restaConfig == 9 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(9)}>1 Cifra</span>
+                            <span className={`${sumaConfig == 99 && mode == 'suma'? style.green : ''} ${restaConfig == 99 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(99)}>2 Cifras</span>
+                            <span className={`${sumaConfig == 999 && mode == 'suma'? style.green : ''} ${restaConfig == 999 && mode == 'resta'? style.green : ''}`} onClick={() => cHandler(999)}>3 Cifras</span>
                         </div>
                          
                         <div className={style.box}>
@@ -91,23 +93,23 @@ function PlayConfig() {
                         </div>
                         <p className={style.greeting}>Selecciona una o mas tablas...</p>
                         <div className={`${style.boxSelect}`}>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(0) ? style.green : ''}`} onClick={() => clickHandler(0)} ontouchmove={()=>clickHandler(0)}>0</span> 
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(1) ? style.green : ''}`} onClick={() => clickHandler(1)} ontouchmove={()=>clickHandler(1)}>1</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(2) ? style.green : ''}`} onClick={() => clickHandler(2)} ontouchmove={()=>clickHandler(2)}>2</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(3) ? style.green : ''}`} onClick={() => clickHandler(3)} ontouchmove={()=>clickHandler(3)}>3</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(4) ? style.green : ''}`} onClick={() => clickHandler(4)} ontouchmove={()=>clickHandler(4)}>4</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(5) ? style.green : ''}`} onClick={() => clickHandler(5)} ontouchmove={()=>clickHandler(5)}>5</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(6) ? style.green : ''}`} onClick={() => clickHandler(6)} ontouchmove={()=>clickHandler(6)}>6</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(7) ? style.green : ''}`} onClick={() => clickHandler(7)} ontouchmove={()=>clickHandler(7)}>7</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(8) ? style.green : ''}`} onClick={() => clickHandler(8)} ontouchmove={()=>clickHandler(8)}>8</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(9) ? style.green : ''}`} onClick={() => clickHandler(9)} ontouchmove={()=>clickHandler(9)}>9</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(10) ? style.green : ''}`} onClick={() => clickHandler(10)} ontouchmove={()=>clickHandler(10)}>10</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(11) ? style.green : ''}`} onClick={() => clickHandler(11)} ontouchmove={()=>clickHandler(11)}>11</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(0) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(0) ? style.green : ''}`} onClick={() => clickHandler(0)} ontouchmove={()=>clickHandler(0)}>0</span> 
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(1) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(1) ? style.green : ''}`} onClick={() => clickHandler(1)} ontouchmove={()=>clickHandler(1)}>1</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(2) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(2) ? style.green : ''}`} onClick={() => clickHandler(2)} ontouchmove={()=>clickHandler(2)}>2</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(3) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(3) ? style.green : ''}`} onClick={() => clickHandler(3)} ontouchmove={()=>clickHandler(3)}>3</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(4) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(4) ? style.green : ''}`} onClick={() => clickHandler(4)} ontouchmove={()=>clickHandler(4)}>4</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(5) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(5) ? style.green : ''}`} onClick={() => clickHandler(5)} ontouchmove={()=>clickHandler(5)}>5</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(6) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(6) ? style.green : ''}`} onClick={() => clickHandler(6)} ontouchmove={()=>clickHandler(6)}>6</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(7) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(7) ? style.green : ''}`} onClick={() => clickHandler(7)} ontouchmove={()=>clickHandler(7)}>7</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(8) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(8) ? style.green : ''}`} onClick={() => clickHandler(8)} ontouchmove={()=>clickHandler(8)}>8</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(9) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(9) ? style.green : ''}`} onClick={() => clickHandler(9)} ontouchmove={()=>clickHandler(9)}>9</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(10) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(10) ? style.green : ''}`} onClick={() => clickHandler(10)} ontouchmove={()=>clickHandler(10)}>10</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig.includes(11) ? style.green : ''} ${modeTwo == 'division' && divisionConfig.includes(11) ? style.green : ''}`} onClick={() => clickHandler(11)} ontouchmove={()=>clickHandler(11)}>11</span>
                         </div>
 
                         <div className={style.buttonContainer}>         
                             <button className={style.buttonGreen} onClick={back}>Atras</button>
-                            <button className={style.buttonGreen} onClick={clickHandler}>Guardar</button>
+                            <button className={style.buttonGreen} onClick={save}>Guardar</button>
                         </div>
 
                

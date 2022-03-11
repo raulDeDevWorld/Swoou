@@ -16,12 +16,12 @@ function Play () {
     const [objet, setObjet] = useState(null)
     const [countR, setCountR] = useState(0)
     const [countE, setCountE] = useState(0)
-   
-
+    
     const router = useRouter()
     function obj (){
-        const nOne = Math.floor(Math.random()*(100-1))+1
-        const nTwo = Math.floor(Math.random()*(100-0))+0
+        const dificult = userDB.sumaConfig
+        const nOne = Math.floor(Math.random()*(dificult-1))+1
+        const nTwo = Math.floor(Math.random()*(dificult-0))+0
         const ale = () => Math.floor(Math.random()*(11-1))+1
         const nFour = Math.floor(Math.random()*(5-1))+1
         const res = nOne+nTwo
@@ -62,11 +62,9 @@ function Play () {
         router.push('/Home')
     }
 
-    useEffect(() => {
-        obj()
-    }, []);
-console.log(objet)   
-if (objet !== null) {console.log(objet.nOne)}
+    useEffect( () => {
+        obj() 
+    }, [userDB.sumaConfig]);
     return (
 <PageEspecial>
         <div className={style.main}>
