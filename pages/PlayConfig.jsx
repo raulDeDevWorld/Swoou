@@ -78,7 +78,7 @@ function PlayConfig() {
                             <button className={`${style.button} ${mouse == true ? style.right : ''}`} onClick={division}>Resta</button>
                         </div>
                         <p className={style.greeting}>Selecciona una cifra...</p>
-                        <div className={`${style.boxSelect} ${style.jleft} ${style.jright}`} onMouseDown={mouseDown} onMouseUp={mouseUp} onMouseMove={mouseMove} ><span style={{left: `${x}px`}}>{x}</span></div>
+                        <div className={`${style.boxSelect} ${style.jleft} ${style.jright}`} onTouchStart={mouseDown} onMouseUp={mouseUp} onMouseMove={mouseMove} ><span style={{left: `${x}px`}}>{x}</span></div>
 
                         <div className={style.box}>
                             <button className={`${style.button} ${mode == 'multiplicacion' ? style.right : ''}`} onClick={multiplicacion}>Multiplicación</button>
