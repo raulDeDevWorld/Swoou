@@ -55,13 +55,17 @@ function PlayConfig() {
         router.back()
     }
     function save () {
+        if (userDB.id) {
+            setUserSuccess(false)
+            return
+        }
         playDificult(userDB.profesor, {sumaConfig, restaConfig, multiplicacionConfig, divisionConfig })
         setUserSuccess(true)
     }
 
     useEffect( () => {
-        setSumaConfig(userDB.sumaConfig)
-        setRestaConfig(userDB.restaConfig)
+        userDB.sumaConfig ? setSumaConfig(userDB.sumaConfig) : ""
+        userDB.restaConfig ? setRestaConfig(userDB.restaConfig) : ""
         userDB.multiplicacionConfig ? setMultiplicacionConfig(userDB.multiplicacionConfig) :''
         userDB.divisionConfig ? setDivisionConfig(userDB.divisionConfig) :''
     }, [userDB.sumaConfig, userDB.restaConfig, userDB.multiplicacionConfig, userDB.divisionConfig]);
@@ -117,7 +121,7 @@ function PlayConfig() {
 
                 </>}
                 {success ==true && <Success>Correcto</Success>}
-                {success == false && <Error>Agotaste tu modo prueba</Error>}
+                {success == false && <Error>Tu profe pre-configuro tu play</Error>}
         </div>
         </PageEspecial>
     )

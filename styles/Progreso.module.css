@@ -28,7 +28,7 @@
 }
 .containerMap {
     background-color: black;
-    width: 85%;
+    width: 90%;
     max-width: 800px;
     padding: 15px;
     border-radius: 5px;
@@ -47,15 +47,52 @@
     flex-wrap: wrap;
     margin: 10px 0;
     color: #1eff00;
+    font-size: 14px;
  
     
     
 }
+.red {
+  color : red;
+  font-size: 14px;
+}
+.green {
+  color: #1eff00;
+  font-size: 14px;
+}
+.reset {
+  position: absolute;
+  right: 18px;
+  top: 0;
+  color:rgb(49, 223, 253);
+  cursor: pointer;
+}
+.circleRed {
+  font-size: 14px;
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  height: 10px;
+  width: 10px;
+  background-color : red;
+}
+.circleGreen {
+  font-size: 14px;
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  height: 10px;
+  width: 10px;
+  background-color: #1eff00;
+}
+.greenContainer {
+  margin-bottom: 20px;
+}
 .progressPorcent {
     position: absolute;
     top: 0;
-    right: 20px;
-    width: 50%;
+    right: 45px;
+    width: 47%;
     height: 15px;
     background-color: aliceblue;
     border-radius: 15px;
@@ -198,6 +235,34 @@ right: 0;
   }
 
 
+
+
+
+
+
+
+  .boxSelect {
+    text-align: center;
+    position: relative;
+    height: 20px;
+    width: 100%;
+  }
+  .textReset {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: block;
+    color: black;
+    cursor: pointer;
+    margin: 2px;
+    font-size: 14px;
+  }
+  .space {
+    position: absolute;
+    right: 80px;
+  }
+ 
  
 @media (orientation: landscape) and (min-width: 600px) { 
     .progressPorcent {

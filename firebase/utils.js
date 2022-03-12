@@ -49,6 +49,7 @@ function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
                   })
                   db.ref(`users/${userUid}`).update({ 
                         id,
+                        nw: true
                  })
                   setTeacherId(uidTeacher)
                   setUserSuccess(true)
@@ -99,6 +100,7 @@ function getProgress (setStudentsProgress, uid ){
                               const er = userSnapshot.child('er').val()
                               const em = userSnapshot.child('em').val()
                               const ed = userSnapshot.child('ed').val()
+                              const nw = userSnapshot.child('nw').val()
                               const userUid = userSnapshot.child('uid').val()
                               const obj = {
                                     name: valName,
@@ -110,6 +112,7 @@ function getProgress (setStudentsProgress, uid ){
                                     er,
                                     em,
                                     ed,
+                                    nw,
                                     userUid
                               }
                              array.push(obj)
@@ -289,7 +292,7 @@ function avatarUpdate (n, account) {
       const uid = auth.currentUser.uid
       db.ref(`${us}/${uid}`).update({avatar: n,})
 }
-function progressReset (account, s, r, m, d) {
+function progressReset (account, s, r, m, d, msg, acc) {
       const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
       if (us == 'teachers') { 
@@ -308,6 +311,12 @@ function progressReset (account, s, r, m, d) {
             if(r == true){ db.ref(`${us}/${uid}`).update({r: 0, er: 0,}) }
             if(m == true){ db.ref(`${us}/${uid}`).update({m: 0, em: 0,}) }
             if(d == true){ db.ref(`${us}/${uid}`).update({d: 0, ed: 0,}) }
+      }
+      if (us == 'teacher' && msg == 'unity') {
+            if(s == true){ db.ref(`users/${acc}`).update({s: 0, es: 0,}) }
+            if(r == true){ db.ref(`users/${acc}`).update({r: 0, er: 0,}) }
+            if(m == true){ db.ref(`users/${acc}`).update({m: 0, em: 0,}) }
+            if(d == true){ db.ref(`users/${acc}`).update({d: 0, ed: 0,}) }
       }
      
 }
@@ -331,6 +340,12 @@ function playDificult (account, dificultObject) {
             db.ref(`${us}/${uid}`).update(dificultObject)
 
       }
+      if (us == 'users') { 
+            db.ref(`${us}/${uid}`).update(dificultObject)
+      }
 }
 
-export { playDificult, userDelete, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }
+function newStudent (uid) {
+      db.ref(`users/${uid}`).update({nw : false})
+}
+export { newStudent, playDificult, userDelete, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }
