@@ -20,8 +20,10 @@ function Division () {
 
     const router = useRouter()
     function obj (){
+        if (userDB.divisionConfig == undefined) { return } 
+        const dificult = userDB.divisionConfig + 1
         const nOne = Math.floor(Math.random()*(11-1))+1
-        const nTwo = Math.floor(Math.random()*(11-1))+1
+        const nTwo = Math.floor(Math.random()*(dificult-1))+1
         const nFour = Math.floor(Math.random()*(5-1))+1
         const res = nOne*nTwo
 
@@ -59,9 +61,8 @@ function Division () {
 
     useEffect(() => {
         obj()
-    }, []);
-console.log(objet)   
-if (objet !== null) {console.log(objet.nOne)}
+    }, [userDB.divisionConfig]);
+
     return (
 <PageEspecial>
         <div className={style.main}>

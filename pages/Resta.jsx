@@ -63,7 +63,6 @@ function Play () {
     useEffect(() => {
         obj()
     }, [userDB.restaConfig]);
-if (objet !== null) {console.log(objet.nOne)}
     return (
 <PageEspecial>
         <div className={style.main}>
