@@ -21,7 +21,8 @@
     text-align: center;
     
     padding: 10px;
-    height: 450px;
+    height: 70px;
+    min-height: 450px;
     width: 100vw;
     min-width: 300px;
     max-width: 320px;

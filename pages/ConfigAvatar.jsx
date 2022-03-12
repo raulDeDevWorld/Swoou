@@ -21,8 +21,12 @@ function ConfigAvatar() {
         setUserAvatar(a)
     }
     function nextClick() {
-        avatar !== null ? setUserSuccess(true) : setUserSuccess(false)
-        avatarUpdate(avatar, userDB.profesor)
+        if (avatar !== null) {
+            setUserSuccess(true)
+            avatarUpdate(avatar, userDB.profesor)
+        } else {
+            setUserSuccess(false)
+        } 
     }
     function back () {
         router.back()

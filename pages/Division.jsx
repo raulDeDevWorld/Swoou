@@ -56,7 +56,7 @@ function Division () {
     }
 
     function nextClick () {
-        router.push('/Home')
+        router.back()
     }
 
     useEffect(() => {

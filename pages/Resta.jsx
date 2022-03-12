@@ -57,7 +57,7 @@ function Play () {
         n == objet.nFour ? setCountR(countR+1) : setCountE(countE+1)
     }
     function nextClick () {
-        router.push('/Home')
+        router.back()
     }
 
     useEffect(() => {

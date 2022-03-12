@@ -44,6 +44,13 @@ function Config () {
         }
         x()
     }
+    function playConfig () {
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
+        router.push('/PlayConfig')
+    }
     function back () {
         router.back()
     }
@@ -82,11 +89,12 @@ function Config () {
         <div className={style.container}>
             <span className={style.orange}>Config Mode</span>
             <img src="/robot.png" className={style.robot} alt="user photo" />
-            <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Hola,' : 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}<br /> Modifica tu perfil desde aqui</span>
+            <span className={style.title}> {'ab1' == userDB.avatar || 'ab2' == userDB.avatar ? 'Hola,' : 'Bienvenida,'}  {`${userDB.aName.split(' ')[0].toUpperCase()}`}<br /> {userDB.profesor == true? 'Personaliza tu cuenta desde aqui': 'Modifica tu perfil desde aqui' }</span>
             <div className={style.box}>
             <Button style='buttonPrimary' click={avatar}>Avatar</Button>
             <Button style='buttonPrimary'click={data}>Datos de perfil</Button>
             <Button style='buttonPrimary' click={reset}>Resetear progreso </Button>
+            <Button style='buttonPrimary' click={playConfig}>Play Config</Button>
             <Button style='buttonSecondary' click={back}>Atras</Button>
             </div>
             <PremiumC></PremiumC>

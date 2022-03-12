@@ -61,7 +61,7 @@ function Play () {
     }
 
     function nextClick () {
-        router.push('/Home')
+        router.back()
     }
 
     useEffect( () => {

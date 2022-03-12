@@ -7,6 +7,7 @@ import { playDificult } from '../firebase/utils'
 import { useRouter } from 'next/router'
 import { WithAuth } from '../HOCs/WithAuth'
 import Error from '../components/Error'
+import Success from '../components/Success'
 import style from '../styles/PlayConfig.module.css'
 import {rob} from '../utils/robot'
 
@@ -55,6 +56,7 @@ function PlayConfig() {
     }
     function save () {
         playDificult(userDB.profesor, {sumaConfig, restaConfig, multiplicacionConfig, divisionConfig })
+        setUserSuccess(true)
     }
 
     useEffect( () => {
@@ -114,6 +116,7 @@ function PlayConfig() {
                     </div>
 
                 </>}
+                {success ==true && <Success>Correcto</Success>}
                 {success == false && <Error>Agotaste tu modo prueba</Error>}
         </div>
         </PageEspecial>

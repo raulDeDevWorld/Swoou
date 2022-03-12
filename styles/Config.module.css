@@ -9,7 +9,7 @@
 }
 .robot {
     width: 250px;
-    height: 130px;
+    height: 110px;
     object-fit:cover;
     object-position: center;
 }
@@ -26,6 +26,7 @@
 }
 .title {
   color: white;
+  font-size: 14px;
 }
 .subtitle {
     color: rgb(0, 255, 106);

@@ -292,11 +292,23 @@ function avatarUpdate (n, account) {
 function progressReset (account, s, r, m, d) {
       const us = account == true ? 'teachers' : 'users' 
       const uid = auth.currentUser.uid
-      if(s == true){ db.ref(`${us}/${uid}`).update({s: 0, es: 0,}) }
-      if(r == true){ db.ref(`${us}/${uid}`).update({r: 0, er: 0,}) }
-      if(m == true){ db.ref(`${us}/${uid}`).update({m: 0, em: 0,}) }
-      if(d == true){ db.ref(`${us}/${uid}`).update({d: 0, ed: 0,}) }
-
+      if (us == 'teachers') { 
+            db.ref(`${us}/${uid}/students`).once('value', function(snapshot){
+                  snapshot.forEach(function(childSnapshot) {
+                        if(s == true){ db.ref(`users/${childSnapshot.key}`).update({s: 0, es: 0,}) }
+                        if(r == true){ db.ref(`users/${childSnapshot.key}`).update({r: 0, er: 0,}) }
+                        if(m == true){ db.ref(`users/${childSnapshot.key}`).update({m: 0, em: 0,}) }
+                        if(d == true){ db.ref(`users/${childSnapshot.key}`).update({d: 0, ed: 0,}) }
+                  });
+            });
+        
+      }
+      if (us == 'users') {
+            if(s == true){ db.ref(`${us}/${uid}`).update({s: 0, es: 0,}) }
+            if(r == true){ db.ref(`${us}/${uid}`).update({r: 0, er: 0,}) }
+            if(m == true){ db.ref(`${us}/${uid}`).update({m: 0, em: 0,}) }
+            if(d == true){ db.ref(`${us}/${uid}`).update({d: 0, ed: 0,}) }
+      }
      
 }
 
@@ -313,9 +325,7 @@ function playDificult (account, dificultObject) {
       if (us == 'teachers') { 
             db.ref(`${us}/${uid}/students`).once('value', function(snapshot){
                   snapshot.forEach(function(childSnapshot) {
-                  console.log(childSnapshot.key)
                   db.ref(`${'/users'}/${childSnapshot.key}`).update(dificultObject)
-
                   });
             });
             db.ref(`${us}/${uid}`).update(dificultObject)
