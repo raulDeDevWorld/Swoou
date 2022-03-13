@@ -53,7 +53,7 @@ function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
                         db.ref(`users/${userUid}`).update({ restaConfig,})
                   })
                   db.ref(`teachers/${val}`).once('value', function(userSnapshot){
-                        const multiplicadivisionConfig= userSnapshot.child('multiplicacionConfig').val()
+                        const multiplicacionConfig= userSnapshot.child('multiplicacionConfig').val()
                         db.ref(`users/${userUid}`).update({ multiplicacionConfig,})
                   })
                   db.ref(`teachers/${val}`).once('value', function(userSnapshot){
