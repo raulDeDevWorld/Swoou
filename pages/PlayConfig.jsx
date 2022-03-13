@@ -20,8 +20,8 @@ function PlayConfig() {
     const [controller, setController] = useState(false)
     const [sumaConfig, setSumaConfig] =useState(99)
     const [restaConfig, setRestaConfig] =useState(99)
-    const [multiplicacionConfig, setMultiplicacionConfig] =useState(11)
-    const [divisionConfig, setDivisionConfig] =useState(11)
+    const [multiplicacionConfig, setMultiplicacionConfig] =useState(10)
+    const [divisionConfig, setDivisionConfig] =useState(10)
 
 
     const router = useRouter()

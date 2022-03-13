@@ -53,7 +53,7 @@ function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
                         db.ref(`users/${userUid}`).update({ restaConfig,})
                   })
                   db.ref(`teachers/${val}`).once('value', function(userSnapshot){
-                        const multiplicadivisionConfig= userSnapshot.child('multiplicadivisionConfig').val()
+                        const multiplicadivisionConfig= userSnapshot.child('multiplicacionConfig').val()
                         db.ref(`users/${userUid}`).update({ multiplicadivisionConfig,})
                   })
                   db.ref(`teachers/${val}`).once('value', function(userSnapshot){
@@ -230,6 +230,10 @@ function dataUser (aName, grade, school, avatar, cell, profesor) {
             em: 0,
             ed: 0,
             uid,
+            sumaConfig: 99,
+            restaConfig: 99,
+            multiplicacionConfig: 10,
+            divisionConfig: 10,
       })
 }
 function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
