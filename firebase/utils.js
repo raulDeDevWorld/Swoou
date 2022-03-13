@@ -43,13 +43,31 @@ function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
       ids.on('value', function(snapshot){  
             var b = snapshot.child(id).exists();     
             if (b === true){
+                  const val = snapshot.child(`${id}`).child('uid').val()
+                  db.ref(`teachers/${val}`).once('value', function(userSnapshot){
+                        const sumaConfig= userSnapshot.child('sumaConfig').val()
+                        db.ref(`users/${userUid}`).update({ sumaConfig,})
+                  })
+                  db.ref(`teachers/${val}`).once('value', function(userSnapshot){
+                        const restaConfig= userSnapshot.child('restaConfig').val()
+                        db.ref(`users/${userUid}`).update({ restaConfig,})
+                  })
+                  db.ref(`teachers/${val}`).once('value', function(userSnapshot){
+                        const multiplicadivisionConfig= userSnapshot.child('multiplicadivisionConfig').val()
+                        db.ref(`users/${userUid}`).update({ multiplicadivisionConfig,})
+                  })
+                  db.ref(`teachers/${val}`).once('value', function(userSnapshot){
+                        const divisionConfig= userSnapshot.child('divisionConfig').val()
+                        db.ref(`users/${userUid}`).update({ divisionConfig,})
+                  })
+
                   let uidTeacher = snapshot.child(id).child('uid').val()
                   db.ref(`teachers/${uidTeacher}/students/${userUid}`).set({ 
                          name,
                   })
                   db.ref(`users/${userUid}`).update({ 
                         id,
-                        nw: true
+                        nw: true,
                  })
                   setTeacherId(uidTeacher)
                   setUserSuccess(true)

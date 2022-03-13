@@ -55,7 +55,12 @@ function PlayConfig() {
         router.back()
     }
     function save () {
-        if (userDB.id) {
+        if ( userDB.id == 'Te ha eliminado'){
+            playDificult(userDB.profesor, {sumaConfig, restaConfig, multiplicacionConfig, divisionConfig })
+            setUserSuccess(true)
+            return 
+        }
+        if (userDB.id && userDB.profesor == false) {
             setUserSuccess(false)
             return
         }
@@ -97,18 +102,18 @@ function PlayConfig() {
                         </div>
                         <p className={style.greeting}>Selecciona una o mas tablas...</p>
                         <div className={`${style.boxSelect}`}>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 0 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 0 ? style.green : ''}`} onClick={() => clickHandler(0)} ontouchmove={()=>clickHandler(0)}>0</span> 
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 1 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 1 ? style.green : ''}`} onClick={() => clickHandler(1)} ontouchmove={()=>clickHandler(1)}>1</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 2 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 2 ? style.green : ''}`} onClick={() => clickHandler(2)} ontouchmove={()=>clickHandler(2)}>2</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 3 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 3 ? style.green : ''}`} onClick={() => clickHandler(3)} ontouchmove={()=>clickHandler(3)}>3</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 4 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 4 ? style.green : ''}`} onClick={() => clickHandler(4)} ontouchmove={()=>clickHandler(4)}>4</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 5 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 5 ? style.green : ''}`} onClick={() => clickHandler(5)} ontouchmove={()=>clickHandler(5)}>5</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 6 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 6 ? style.green : ''}`} onClick={() => clickHandler(6)} ontouchmove={()=>clickHandler(6)}>6</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 7 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 7 ? style.green : ''}`} onClick={() => clickHandler(7)} ontouchmove={()=>clickHandler(7)}>7</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 8 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 8 ? style.green : ''}`} onClick={() => clickHandler(8)} ontouchmove={()=>clickHandler(8)}>8</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 9 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 9 ? style.green : ''}`} onClick={() => clickHandler(9)} ontouchmove={()=>clickHandler(9)}>9</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 10 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 10 ? style.green : ''}`} onClick={() => clickHandler(10)} ontouchmove={()=>clickHandler(10)}>10</span>
-                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 11 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 11 ? style.green : ''}`} onClick={() => clickHandler(11)} ontouchmove={()=>clickHandler(11)}>11</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 0 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 0 ? style.green : ''}`} onClick={() => clickHandler(0)} >0</span> 
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 1 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 1 ? style.green : ''}`} onClick={() => clickHandler(1)} >1</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 2 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 2 ? style.green : ''}`} onClick={() => clickHandler(2)} >2</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 3 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 3 ? style.green : ''}`} onClick={() => clickHandler(3)} >3</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 4 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 4 ? style.green : ''}`} onClick={() => clickHandler(4)} >4</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 5 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 5 ? style.green : ''}`} onClick={() => clickHandler(5)} >5</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 6 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 6 ? style.green : ''}`} onClick={() => clickHandler(6)} >6</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 7 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 7 ? style.green : ''}`} onClick={() => clickHandler(7)} >7</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 8 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 8 ? style.green : ''}`} onClick={() => clickHandler(8)} >8</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 9 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 9 ? style.green : ''}`} onClick={() => clickHandler(9)} >9</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 10 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 10 ? style.green : ''}`} onClick={() => clickHandler(10)} >10</span>
+                            <span className={`${modeTwo == 'multiplicacion' && multiplicacionConfig >= 11 ? style.green : ''} ${modeTwo == 'division' && divisionConfig >= 11 ? style.green : ''}`} onClick={() => clickHandler(11)} >11</span>
                         </div>
 
                         <div className={style.buttonContainer}>         
