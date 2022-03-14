@@ -89,7 +89,7 @@ function Progreso() {
     }
     useEffect(() => {
         getDataProgress()
-    }, [mode, progress.reset]);
+    }, [mode, userDB.students]);
     return (
         <PageEspecial>  
         <div className={style.main}>

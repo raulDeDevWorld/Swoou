@@ -295,6 +295,10 @@ function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
             ed: 0,
             reset: true,
             uid,
+            sumaConfig: 99,
+            restaConfig: 99,
+            multiplicacionConfig: 10,
+            divisionConfig: 10,
       })
       db.ref(`ids/${id}`).set({
             uid,
