@@ -38,8 +38,24 @@ function getData(user, setUserData){
             
       })
 }
+function query(id, setTeacherId, userUid, name, setUserSuccess, setAlert ){
+      ids.on('value', function(snapshot){  
+            var b = snapshot.child(id).exists(); 
+            if (b === true){
+                  const val = snapshot.child(`${id}`).child('uid').val()
+                  db.ref(`teachers/${val}`).once('value', function(userSnapshot){
+                        const reset = userSnapshot.child('reset').val()
+                        reset == true ? setAlert(true) : getIds(id, setTeacherId, userUid, name, setUserSuccess, true)
+                  })
+            } else {
+                  setTeacherId(false)
+                  setUserSuccess(false)
 
-function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
+            }
+      })
+}
+
+function getIds(id, setTeacherId, userUid, name, setUserSuccess, mode){
       ids.on('value', function(snapshot){  
             var b = snapshot.child(id).exists();     
             if (b === true){
@@ -59,6 +75,22 @@ function getIds(id, setTeacherId, userUid, name, setUserSuccess ){
                   db.ref(`teachers/${val}`).once('value', function(userSnapshot){
                         const divisionConfig= userSnapshot.child('divisionConfig').val()
                         db.ref(`users/${userUid}`).update({ divisionConfig,})
+                  })
+
+                  db.ref(`teachers/${val}`).once('value', function(userSnapshot){
+                        const reset = userSnapshot.child('reset').val()
+                        reset == true && mode == true 
+                        ? db.ref(`users/${userUid}`).update({ 
+                              s: 0,
+                              r: 0,
+                              m: 0,
+                              d: 0,
+                              es: 0,
+                              er: 0,
+                              em: 0,
+                              ed: 0,
+                       })
+                       :''
                   })
 
                   let uidTeacher = snapshot.child(id).child('uid').val()
@@ -261,6 +293,7 @@ function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
             er: 0,
             em: 0,
             ed: 0,
+            reset: true,
             uid,
       })
       db.ref(`ids/${id}`).set({
@@ -370,4 +403,9 @@ function playDificult (account, dificultObject) {
 function newStudent (uid) {
       db.ref(`users/${uid}`).update({nw : false})
 }
-export { newStudent, playDificult, userDelete, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }
+function progressResetTeacher (mode) {
+      console.log(mode)
+      const uid = auth.currentUser.uid
+      db.ref(`teachers/${uid}`).update({reset : mode})
+}
+export { query, progressResetTeacher, newStudent, playDificult, userDelete, auth, onAuth, withFacebook, withGoogle, handleSignOut, dataTeachers, dataUser, setDataTeachers, getIds, getProgress, getCode, avatarUpdate, progressReset, setProgress, setErrors }

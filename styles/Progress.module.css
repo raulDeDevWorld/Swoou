@@ -41,6 +41,9 @@
 .orange {
   color: #1eff00;
 }
+.black {
+  color: black;
+}
 .buttons {
   margin: 10px 0;
   width: 100%;
@@ -59,6 +62,9 @@
   background-color: black;
   color: orange;
   cursor: pointer;
+}
+.red {
+  color: red;
 }
 
 .gridContainer {

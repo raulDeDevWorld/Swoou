@@ -4,7 +4,7 @@ import { WithAuth } from '../HOCs/WithAuth'
 import Success from '../components/Success'
 import Error from '../components/Error'
 import PageEspecial from '../layouts/PageEspecial'
-import { getIds } from '../firebase/utils'
+import { getIds, query } from '../firebase/utils'
 import style from '../styles/Progress.module.css'
 import Button from '../components/Button'
 import ProgressC from '../components/ProgressC'
@@ -16,16 +16,28 @@ import { useState, useEffect } from 'react'
 function Progress() {
     const { user, userDB, id, setTeacherId, setUserSuccess, success } = useUser()
     const [mode, setMode] = useState(false)
+    const [alert, setAlert] = useState(false)
+    const [idConfig, setIdConfig] = useState(null)
+
 
     const router = useRouter()
 
     function x () {
         setMode(!mode)
     }
+    function y () {
+        setAlert(!alert)
+    }
     function nextClick (e) {
         e.preventDefault()
         const idInput = e.target.form[0].value
-        getIds(idInput, setTeacherId, user.uid, userDB.aName, setUserSuccess)
+        setIdConfig(idInput)
+        query(idInput, setTeacherId, user.uid, userDB.aName, setUserSuccess, setAlert)
+    }
+    function sureClick (e) {
+        e.preventDefault()
+        getIds(idConfig, setTeacherId, user.uid, userDB.aName, setUserSuccess, true)
+        setAlert(false)
     }
     function backClick (e) {
         e.preventDefault()
@@ -34,7 +46,7 @@ function Progress() {
     console.log(userDB.id)
     useEffect(() => {
         success == true ? x() : ''
-    }, [success]);
+    }, [success, alert]);
     return (
        
    <PageEspecial>
@@ -69,10 +81,16 @@ function Progress() {
           
             </>}
    
-    <Modal mode={mode} click={x} text={`Ingresa el id de tu profe...`}>
+    <Modal mode={mode} click={x} text={`Ingresa el Id de tu profe...`}>
     <form className={style.form}>      
         <input className={style.modalInput} type="text" placeholder='alex73447725' />
         <button className={style.modalButton} onClick={nextClick}>ok</button>
+    </form>
+    </Modal>
+    <Modal mode={alert} click={y} text={`Este Id esta preconfigurado para RESETEAR todos tus progresos...`}>
+    <span className={style.black}>Id: <span className={style.black}>{idConfig}</span></span>
+    <form className={style.form}>      
+        <button className={style.modalButton} onClick={sureClick}>Continuar</button>
     </form>
     </Modal>
     {success ==true && <Success>Correcto</Success>}

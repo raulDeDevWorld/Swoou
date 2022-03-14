@@ -4,7 +4,7 @@ import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
 import Modal from '../components/Modal'
 import PageEspecial from '../layouts/PageEspecial'
-import { userDelete, getProgress, newStudent, progressReset } from '../firebase/utils'
+import { userDelete, getProgress, newStudent, progressReset, progressResetTeacher } from '../firebase/utils'
 import style from '../styles/Progreso.module.css'
 import Button from '../components/Button'
 import ProgressC from '../components/ProgressC'
@@ -59,6 +59,9 @@ function Progreso() {
     function x () {
         setMode(!mode)
     }
+    function resetAutomatico () {
+        progressResetTeacher(!userDB.reset)
+    }
     function modalClick () {
         console.log('hello')
         progressReset(userDB.profesor, s, r, m, d, 'unity', account)
@@ -86,7 +89,7 @@ function Progreso() {
     }
     useEffect(() => {
         getDataProgress()
-    }, [mode]);
+    }, [mode, progress.reset]);
     return (
         <PageEspecial>  
         <div className={style.main}>
@@ -99,12 +102,13 @@ function Progreso() {
                     <>
                         <div><span className={style.circleRed}></span><span className={style.red}>Alumnos nuevos</span></div>
                         <div className={style.greenContainer}><span className={style.circleGreen}></span><span className={style.green}>Alumnos regulares</span></div>
+                        <div className={style.blueContainer}><span className={`${style.circleBlueContainer} ${userDB.reset ?  '' : style.circleLeadContainer}`} onClick={resetAutomatico}><span className={`${style.circleBlue} ${userDB.reset ? '' : style.circleLead}`}></span></span><span className={style.blue}>Reset automatico</span></div>
                     </>
                      :''}
                         {progress !== null ? progress.map((item, i) =>
                       
                             <div  className={`${style.item}`} key={i}> 
-                            <div onClick={()=>manageVisibility(i, item.userUid)} className={`${item.nw == true?style.red:''}`}> {console.log(item)} {(`${item.name}`).split(' ')[0].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[0].slice (1)}  {(`${item.name}`).split.length == 3 ? (`${item.name}`).split(' ')[2].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[2].slice(1): (`${item.name}`).split(' ')[1].charAt (0).toUpperCase()+(`${item.name}`).split(' ')[1].slice (1)}
+                            <div onClick={()=>manageVisibility(i, item.userUid)} className={`${item.nw == true?style.red:''}`}> {(`${item.name}`).split(' ')[0].charAt(0).toUpperCase()+(`${item.name}`).split(' ')[0].slice(1)}  {(`${item.name}`).split(' ').length > 0 ? (`${item.name}`).split(' ')[1].charAt(0).toUpperCase()+(`${item.name}`).split(' ')[1].slice(1): ''}
                             </div>
                                 <div className={style.progressPorcent} onClick={()=>manageVisibility(i)}>
 
