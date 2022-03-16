@@ -5,7 +5,7 @@ export default function PageEspecial ({ children }) {
   return (
     <>
         <Head>
-        <title>Swoou: Desarrollando Tecnologia Innovadora</title>
+        <title>Swoou Mathematics</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-navbutton-color" content="#000000" /> 
