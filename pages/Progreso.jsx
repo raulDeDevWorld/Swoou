@@ -24,10 +24,6 @@ function Progreso() {
     
     const router = useRouter()
 
-    function x () {
-        setMode(!mode)
-    }
-
     function backClick (e) {
         e.preventDefault()
         router.back()
