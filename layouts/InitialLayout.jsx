@@ -1,8 +1,10 @@
-// import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import style from '../styles/InitialLayout.module.css'
 
 export default function InitialLayout ({ children }) {
+  const  router = useRouter()
   // const [msg, setMsg] = useState('')
 	// const [i, setI] = useState(0)
 	// const [text] = useState('Hazlo Simple flow.')
@@ -16,6 +18,18 @@ export default function InitialLayout ({ children }) {
 	// 	}, 100)
 	// 	return () => clearTimeout(interval)
 	// }, [i, text]);
+
+
+  useEffect(() => {
+
+    var sUsrAg = navigator.userAgent;
+
+if (( sUsrAg.indexOf("FBAN") > -1) || (sUsrAg.indexOf("FBAV") > -1 )) {
+  alert("math.swoou.com utiliza tecnologías modernas que FACEBOOK NAVEGATOR no reconoce aun, por favor intente desde otro navegador o establezca otro navegador como prederterminado, gracias por su comprención.");
+  router.back()
+}
+
+});
   return (
 <>
      <Head>
