@@ -93,7 +93,8 @@
     height: 40px;
     color: white;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-size: 10px;
     text-align: center;
