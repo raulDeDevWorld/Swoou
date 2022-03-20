@@ -18,7 +18,10 @@ function ConfigPerfil () {
 
     function nextClick (e) {
         e.preventDefault()
-     
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
         const aName = e.target.form[0].value
         const grade = e.target.form[1].value
         const school = e.target.form[2].value
@@ -26,7 +29,7 @@ function ConfigPerfil () {
         const profesor = false
 
         if(aName.length > 2 && grade.length > 2 && school.length >2){
-            dataUser(aName, grade, school, userDB.avatar, cell, profesor)  
+            dataUser(aName, grade, school, userDB.avatar, cell, profesor, userDB.premium)  
             setUserSuccess(true) 
         } else {
             setUserSuccess(false)
@@ -37,13 +40,17 @@ function ConfigPerfil () {
     
         function nextClickProfesor (e) {
             e.preventDefault()
+            if (userDB.premium === false){
+                setUserSuccess(false)
+                return
+            }
             const aName = e.target.form[0].value
             const school = e.target.form[1].value
             const grade = e.target.form[2].value
             const cell = e.target.form[3].value
             const profesor = true
             if(aName.length > 2 && grade.length > 4 && school.length > 3 && cell.length > 7){
-                setDataTeachers(aName, grade, school, userDB.avatar, cell, profesor)  
+                setDataTeachers(aName, grade, school, userDB.avatar, cell, profesor, userDB.premium)  
                 setUserSuccess(true)
             } else {
                 setUserSuccess(false)
@@ -120,6 +127,9 @@ function ConfigPerfil () {
     </PageLayout>
     {success ==true && <Success>Correcto</Success>}
     {success ==false && <Error>Llene todo el formulario</Error>}
+    {success == false && userDB.profesor == false && userDB.premium == false &&<Error>Hazte Premium para modificar datos</Error>}
+    {success == false && userDB.profesor && userDB.premium == false && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
+
     </>
     )
 }

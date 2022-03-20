@@ -21,7 +21,7 @@ function Profesor () {
         const cell = e.target.form[3].value
         const profesor = true
         if(aName.length > 2 && grade.length > 5 && school.length > 3 && cell.length > 7){
-            setDataTeachers(aName, grade, school, avatar, cell, profesor)  
+            setDataTeachers(aName, grade, school, avatar, cell, profesor, false)  
             router.push('/Home')
         }  else {
             setUserSuccess(false)

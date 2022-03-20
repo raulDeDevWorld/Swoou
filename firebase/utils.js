@@ -246,7 +246,7 @@ function handleSignOut() {
 }
 
 
-function dataUser (aName, grade, school, avatar, cell, profesor) {
+function dataUser (aName, grade, school, avatar, cell, profesor, premium) {
       const name = auth.currentUser.displayName
       const uid = auth.currentUser.uid
       console.log(name, uid)
@@ -258,7 +258,7 @@ function dataUser (aName, grade, school, avatar, cell, profesor) {
             avatar,
             progress: 0,
             errors: 0,
-            premium: false,
+            premium,
             cell,
             profesor,
             id: null,
@@ -280,7 +280,7 @@ function dataUser (aName, grade, school, avatar, cell, profesor) {
             divisionConfig: 10,
       })
 }
-function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
+function setDataTeachers (aName, grade, school, avatar, cell, profesor, premium) {
       const name = auth.currentUser.displayName
       const id = `${aName.split(' ')[0].toLowerCase()}${cell}`
       const uid = auth.currentUser.uid
@@ -293,7 +293,7 @@ function setDataTeachers (aName, grade, school, avatar, cell, profesor) {
             avatar,
             progress: 0,
             errors: 0,
-            premium: false,
+            premium,
             cell,
             profesor,
             id,

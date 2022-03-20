@@ -24,31 +24,15 @@ function Config () {
     const [m, setM] = useState(false)
     const [d, setD] = useState(false)
     function avatar () {
-        if (userDB.premium === false){
-            setUserSuccess(false)
-            return
-        }
         router.push('/ConfigAvatar')
     }
     function data () {
-        if (userDB.premium === false){
-            setUserSuccess(false)
-            return
-        }
         router.push('/ConfigPerfil')
     }
     function reset () {
-        if (userDB.premium === false){
-            setUserSuccess(false)
-            return
-        }
         x()
     }
     function playConfig () {
-        if (userDB.premium === false){
-            setUserSuccess(false)
-            return
-        }
         router.push('/PlayConfig')
     }
     function back () {
@@ -58,7 +42,15 @@ function Config () {
         setMode(!mode)
     }
     function modalClick () {
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
         progressReset(userDB.profesor, s, r, m, d)
+        if (s == false && r == false && m == false && d == false){
+            setUserSuccess(false)
+            return
+        }
         setMode(!mode)
         setUserSuccess(true)
     }
@@ -121,8 +113,9 @@ function Config () {
                        </Modal>
 
 {success == true && <Success>Correcto</Success>}
-{success == false && userDB.profesor == false && <Error>Hazte Premium para modificar datos</Error>}
-{success == false && userDB.profesor && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
+{success == false &&  s == false && r == false && m == false && d == false && userDB.premium && <Error>selecciona una opción</Error>}
+{success == false && userDB.profesor == false && userDB.premium === false && <Error>Hazte Premium para modificar datos</Error>}
+{success == false && userDB.profesor && userDB.premium === false && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
 
 </>
     )

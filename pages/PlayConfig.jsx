@@ -55,6 +55,10 @@ function PlayConfig() {
         router.back()
     }
     function save () {
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
         if ( userDB.id == 'Te ha eliminado'){
             playDificult(userDB.profesor, {sumaConfig, restaConfig, multiplicacionConfig, divisionConfig })
             setUserSuccess(true)
@@ -127,6 +131,9 @@ function PlayConfig() {
                 </>}
                 {success ==true && <Success>Correcto</Success>}
                 {success == false && <Error>Tu profe pre-configuro tu play</Error>}
+                {success == false && userDB.profesor == false && <Error>Hazte Premium para modificar datos</Error>}
+                {success == false && userDB.profesor && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
+
         </div>
         </PageEspecial>
     )

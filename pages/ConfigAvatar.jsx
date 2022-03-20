@@ -21,6 +21,10 @@ function ConfigAvatar() {
         setUserAvatar(a)
     }
     function nextClick() {
+        if (userDB.premium === false){
+            setUserSuccess(false)
+            return
+        }
         if (avatar !== null) {
             setUserSuccess(true)
             avatarUpdate(avatar, userDB.profesor)
@@ -58,7 +62,10 @@ function ConfigAvatar() {
 
         </PageLayout>
         {success ==true && <Success>Correcto</Success>}
-        {success ==false && <Error>Elija un avatar</Error>}
+        {success ==false && avatar == null && userDB.premium && <Error>Elija un avatar</Error>}
+        {success == false && userDB.profesor == false && userDB.premium == false && <Error>Hazte Premium para modificar datos</Error>}
+        {success == false && userDB.profesor && userDB.premium == false && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
+
         </>
     )
 }

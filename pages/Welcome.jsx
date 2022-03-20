@@ -23,7 +23,7 @@ function Welcome () {
         const profesor = false
 
         if(aName.length > 2 && grade.length > 2 && school.length >2){
-            dataUser(aName, grade, school, avatar, cell, profesor)  
+            dataUser(aName, grade, school, avatar, cell, profesor, false)  
             router.push('/Home')
             console.log('log pro')
         } else {
