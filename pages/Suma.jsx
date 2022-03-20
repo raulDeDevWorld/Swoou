@@ -46,7 +46,8 @@ function Play () {
         if (userDB.premium === false && userDB.s + userDB.es > 30) {
             setUserSuccess(false) 
         return}
-
+        if (objet.selected !== null ) {
+        return}
         const s = userDB.s
         const e = userDB.es
         const o ={
@@ -94,7 +95,8 @@ function Play () {
                 </>}
            </div>
            </>}
-           {success == false && <Error>Agotaste tu free mode: SUMA</Error>}
+           {success == false && userDB.profesor == false && <Error>Agotaste tu free mode: MULTIPLICACION</Error>}
+           {success == false && userDB.profesor && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
         </div>
 </PageEspecial>
     )

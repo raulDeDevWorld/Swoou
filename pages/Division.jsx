@@ -43,7 +43,8 @@ function Division () {
         if (userDB.premium === false && userDB.d + userDB.ed > 30) {
             setUserSuccess(false) 
         return}
-
+        if (objet.selected !== null ) {
+            return}
         const d = userDB.d
         const e = userDB.ed
         const o ={
@@ -92,7 +93,8 @@ function Division () {
                 </>}
            </div>
            </>}
-           {success == false && <Error>Agotaste tu free mode: DIVISION</Error>}
+           {success == false && userDB.profesor == false && <Error>Agotaste tu free mode: MULTIPLICACION</Error>}
+           {success == false && userDB.profesor && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
         </div>
 </PageEspecial>
     )

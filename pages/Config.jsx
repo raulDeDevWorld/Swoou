@@ -121,7 +121,9 @@ function Config () {
                        </Modal>
 
 {success == true && <Success>Correcto</Success>}
-{success == false && <Error>Hazte Premium para modificar datos</Error>}
+{success == false && userDB.profesor == false && <Error>Hazte Premium para modificar datos</Error>}
+{success == false && userDB.profesor && <Error>Eres Profe? obten tu modo premium Gratis, contactanos</Error>}
+
 </>
     )
 }
