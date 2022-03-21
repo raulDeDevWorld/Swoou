@@ -94,13 +94,13 @@ function Progreso() {
                     <img src="/robot.png" className={style.perfil} alt="user photo" />
                     <p className={style.greeting}> Hola, {`${userDB.aName.split(' ')[0].toUpperCase()}`} controla el progreso de tus alumnos desde aqui...</p>
                     <div className={style.containerMap}>
-                    {progress !== null ? 
+                   
                     <>
                         <div><span className={style.circleRed}></span><span className={style.red}>Alumnos nuevos</span></div>
                         <div className={style.greenContainer}><span className={style.circleGreen}></span><span className={style.green}>Alumnos regulares</span></div>
                         <div className={style.blueContainer}><span className={`${style.circleBlueContainer} ${userDB.reset ?  '' : style.circleLeadContainer}`} onClick={resetAutomatico}><span className={`${style.circleBlue} ${userDB.reset ? '' : style.circleLead}`}></span></span><span className={style.blue}>Reset automatico</span></div>
                     </>
-                     :''}
+                 
                         {progress !== null ? progress.map((item, i) =>
                       
                             <div  className={`${style.item}`} key={i}> 
@@ -148,8 +148,13 @@ function Progreso() {
                                     <ProgressC progress={item.d} errors={item.ed} text={'División'}></ProgressC>
                                 </div>
                                 </div>
-                            </div>) : 'Aun no tiene alumnos registrados con su id...'} 
+                            </div>) : ''}
+                            <br />
+                            <br />
+                            <div className={style.orange}>Comparte tu id con tus alumnos para monitorear sus progresos...</div>
+
                     </div>
+
                     <button className={style.buttonBack} onClick={backClick}>Atras</button>
                     <Modal mode={mode == true && modl == 'delete'} click={x} text={`Esta por eliminar a:`} textTwo={name.toUpperCase()}>
                         <button className={style.modalButton} onClick={sureDelete}>Totalmente seguro</button>

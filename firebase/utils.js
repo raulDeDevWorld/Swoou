@@ -172,7 +172,7 @@ function getProgress (setStudentsProgress, uid ){
                    setStudentsProgress(array)
               
             } else {
-                  setStudentsProgress(null)
+                   setStudentsProgress(null)
             }
       })
 }
@@ -311,6 +311,10 @@ function setDataTeachers (aName, grade, school, avatar, cell, profesor, premium)
             restaConfig: 99,
             multiplicacionConfig: 10,
             divisionConfig: 10,
+            students: {
+                        '5zgXJdzyyxYTUvBbHMaJNndA65m1':'5zgXJdzyyxYTUvBbHMaJNndA65m1',
+                        'FnPD0SoqAqa7HZbaXUhVqNy0aTh2':'FnPD0SoqAqa7HZbaXUhVqNy0aTh2'
+            }
       })
       db.ref(`ids/${id}`).set({
             uid,
